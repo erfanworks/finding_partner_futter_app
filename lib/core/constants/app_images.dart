@@ -1,0 +1,16 @@
+class AppImages {
+  static const String baseurl = "assets/images";
+  static const String baseurlIcon = "assets/icons";
+  static const String gradient = "$baseurl/center_gradient.png";
+  static const String logo = "$baseurl/app_logo.png";
+  static const String onBoardingBackground = "$baseurl/onboarding.png";
+  static const String gradient1 = "$baseurl/gradint_1.png";
+
+
+  //>>>>>>>>>>>>>>>> Icons <<<<<<<<<<<<<<<<<<//
+
+  static const String googleIcon = "$baseurlIcon/google.png";
+  static const String phoneIcon = "$baseurlIcon/phone_icon.png";
+  static const String lockIcon = "$baseurlIcon/lock_icon.png";
+
+}
