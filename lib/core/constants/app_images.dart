@@ -5,6 +5,9 @@ class AppImages {
   static const String logo = "$baseurl/app_logo.png";
   static const String onBoardingBackground = "$baseurl/onboarding.png";
   static const String gradient1 = "$baseurl/gradint_1.png";
+  static const String italyText = "$baseurl/italy_text.png";
+  static const String confirmIdentity = "$baseurl/confirm_identity.png";
+  static const String criminalCheckIcon = "$baseurl/criminal_check_icon.png";
 
 
   //>>>>>>>>>>>>>>>> Icons <<<<<<<<<<<<<<<<<<//
@@ -12,5 +15,7 @@ class AppImages {
   static const String googleIcon = "$baseurlIcon/google.png";
   static const String phoneIcon = "$baseurlIcon/phone_icon.png";
   static const String lockIcon = "$baseurlIcon/lock_icon.png";
+  static const String worldIcon = "$baseurlIcon/world_icon.png";
+  static const String trustSafetyIcon = "$baseurlIcon/trust_safty_icon.png";
 
 }
