@@ -4,18 +4,26 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../controller/navbar_controller.dart';
 
-
 class CustomBottomNavBar extends StatelessWidget {
-  const CustomBottomNavBar({super.key});
+  final int selectedIndex;
+
+  const CustomBottomNavBar({super.key, this.selectedIndex = 0});
 
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(NavigationController());
 
-    const backgroundColor = Color(0xFF182232);
-    const topBorderColor = Color(0xFF222E40);
-    const activeColor = Color(0xFFF1D199);
-    const inactiveColor = Color(0xFF98A5B3);
+
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      controller.selectedIndex.value = selectedIndex;
+    });
+
+
+    const backgroundColor = Color(0xFF1E293B);
+    const topBorderColor = Color(0xFF383945);
+    const activeColor = Color(0xFFEDC286);
+    const inactiveColor = Color(0xFFE6E6E8);
 
     final List<NavItemData> items = [
       NavItemData(
@@ -41,12 +49,12 @@ class CustomBottomNavBar extends StatelessWidget {
     ];
 
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         color: backgroundColor,
         border: Border(
           top: BorderSide(
             color: topBorderColor,
-            width: 1.0,
+            width: 2.0.w,
           ),
         ),
       ),
@@ -74,15 +82,15 @@ class CustomBottomNavBar extends StatelessWidget {
                         Icon(
                           isSelected ? item.activeIcon : item.inactiveIcon,
                           color: isSelected ? activeColor : inactiveColor,
-                          size: 24.r,
+                          size: 28.r,
                         ),
                         SizedBox(height: 6.h),
                         Text(
                           item.label,
                           style: GoogleFonts.dmSans(
                             color: isSelected ? activeColor : inactiveColor,
-                            fontSize: 12.sp,
-                            fontWeight: isSelected ? FontWeight.w600 : FontWeight.w400,
+                            fontSize: 14.sp,
+                            fontWeight: isSelected ? FontWeight.w400 : FontWeight.w400,
                           ),
                         ),
                       ],

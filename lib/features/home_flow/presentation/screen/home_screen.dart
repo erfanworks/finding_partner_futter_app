@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../../nav_bar_flow/screen/nav_bar.dart';
 import '../controller/home_controller.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -60,6 +61,7 @@ class HomeScreen extends StatelessWidget {
           SizedBox(width: 16.w),
         ],
       ),
+      bottomNavigationBar: const CustomBottomNavBar(selectedIndex: 0),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),

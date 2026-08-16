@@ -13,7 +13,6 @@ class MyBookingsScreen extends StatelessWidget {
     final MyBookingsController controller = Get.put(MyBookingsController());
 
     return Scaffold(
-      backgroundColor: const Color(0xFF0B131F),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
