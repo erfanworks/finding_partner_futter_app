@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../controller/profile_set_up_controller.dart';
 import '../widget/build_bottom_navigation.dart';
 import '../widget/profile_setup_header.dart';
@@ -20,9 +19,9 @@ class ProfileSetUpStep5View extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                buildSetupHeader(
-                  onBackPressed: () => controller.previousPage(),
-                ),
+                // buildSetupHeader(
+                //   onBackPressed: () => controller.previousPage(),
+                // ),
                 Center(
                   child: Column(
                     children: [
@@ -41,15 +40,15 @@ class ProfileSetUpStep5View extends StatelessWidget {
                             bottom: 0,
                             right: 0,
                             child: Container(
-                              padding: const EdgeInsets.all(6),
-                              decoration: const BoxDecoration(
+                              padding: EdgeInsets.all(6),
+                              decoration:  BoxDecoration(
                                 color: Color(0xFF1B2432),
                                 shape: BoxShape.circle,
                               ),
                               child: Icon(
                                 Icons.camera_alt_outlined,
                                 color: Colors.white,
-                                size: 16.sp,
+                                size: 25.sp,
                               ),
                             ),
                           ),
@@ -59,8 +58,9 @@ class ProfileSetUpStep5View extends StatelessWidget {
                       Text(
                         "Tap to add a photo",
                         style: GoogleFonts.dmSans(
-                          color: Colors.white54,
-                          fontSize: 12.sp,
+                          color: Color(0xFFB2B2B7),
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w600
                         ),
                       ),
                     ],
@@ -71,32 +71,66 @@ class ProfileSetUpStep5View extends StatelessWidget {
                 Text(
                   "NAME",
                   style: GoogleFonts.dmSans(
-                    fontSize: 10.sp,
-                    color: Colors.white54,
+                    fontSize: 14.sp,
+                    color: Color(0xFFE6E6E8),
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 SizedBox(height: 8.h),
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 16.w),
-                  decoration: BoxDecoration(
-                    color: const Color(0xFF1B2432),
-                    borderRadius: BorderRadius.circular(30.r),
+                TextField(
+                  // controller: ,
+                  style: GoogleFonts.dmSans(
+                    color: Colors.white,
+                    fontSize: 16.sp,
                   ),
-                  child: TextField(
-                    controller: controller.nameController,
-                    style: const TextStyle(color: Colors.white),
-                    decoration: InputDecoration(
-                      hintText: "Enter name",
-                      hintStyle: GoogleFonts.dmSans(
-                        color: Colors.white38,
-                        fontSize: 13.sp,
+                  decoration: InputDecoration(
+                    filled: true,
+                    fillColor: Color(0xFF1E293B),
+                    hintText: "Enter Name",
+                    hintStyle: GoogleFonts.dmSans(
+                      color: Color(0xFFB2B2B7),
+                      fontSize: 16.sp,
+                    ),
+                    prefixIcon: Padding(
+                      padding: EdgeInsets.only(
+                        left: 16.w,
+                        top: 12.h,
+                        bottom: 12.h,
+                        right: 10.w,
                       ),
-                      prefixIcon: const Icon(
-                        Icons.person_outline,
-                        color: Colors.white38,
+                      child: Icon(Icons.person,size: 35.sp,color: Color(0xFFB2B2B7),),
+                    ),
+                    contentPadding: EdgeInsets.symmetric(
+                      horizontal: 20.w,
+                      vertical: 16.h,
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(500.r),
+                      borderSide: BorderSide(
+                        color: Color(0xFF3D4754),
+                        width: 1,
                       ),
-                      border: InputBorder.none,
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(500.r),
+                      borderSide: BorderSide(
+                        color: Color(0xFF3D4754),
+                        width: 1.w,
+                      ),
+                    ),
+                    errorBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(500.r),
+                      borderSide: const BorderSide(
+                        color: Colors.redAccent,
+                        width: 1,
+                      ),
+                    ),
+                    focusedErrorBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(500.r),
+                      borderSide: BorderSide(
+                        color: Color(0xFF3D4754),
+                        width: 1.w,
+                      ),
                     ),
                   ),
                 ),
@@ -106,8 +140,8 @@ class ProfileSetUpStep5View extends StatelessWidget {
                 Text(
                   "BIO",
                   style: GoogleFonts.dmSans(
-                    fontSize: 10.sp,
-                    color: Colors.white54,
+                    fontSize: 14.sp,
+                    color: Color(0xFFE6E6E8),
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -123,11 +157,9 @@ class ProfileSetUpStep5View extends StatelessWidget {
                     maxLines: 4,
                     style: GoogleFonts.dmSans(
                       color: Colors.white,
-                      fontSize: 13.sp,
+                      fontSize: 14.sp,
                     ),
-                    decoration: const InputDecoration(
-                      border: InputBorder.none,
-                    ),
+                    decoration: const InputDecoration(border: InputBorder.none),
                   ),
                 ),
 

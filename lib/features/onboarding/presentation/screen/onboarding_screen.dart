@@ -1,6 +1,7 @@
 import 'package:amychebbi/core/constants/app_images.dart';
 import 'package:amychebbi/core/route/app_routes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -20,8 +21,6 @@ class OnboardingScreen extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
-
-          // Main Content
           SafeArea(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24.0),
@@ -47,32 +46,29 @@ class OnboardingScreen extends StatelessWidget {
                         TextSpan(
                           text: "real\n",
                           style: TextStyle(
-                            color: const Color(0xFFEDC286), // Highlight color
+                            color: const Color(0xFFEDC286),
                           ),
                         ),
                         const TextSpan(text: "right now ?"),
                       ],
                     ),
                   ),
-
                   const SizedBox(height: 16),
-
-                  // Subtitle
                   Text(
                     "Find your verified Companion,\nsharing your interests and showing up for you.",
                     textAlign: TextAlign.center,
                     style: GoogleFonts.dmSans(
-                      fontSize: 14,
-                      color: Colors.white.withValues(alpha: 0.7),
-                      height: 1.4,
+                      fontSize: 16.sp,
+                      color: Color(0xFFB2B2B7),
+                      fontWeight: FontWeight.w400,
                     ),
                   ),
-
                   const Spacer(flex: 3),
-
                   CustomButton(
                     text: "Become a Member",
-                    onTap: (){},
+                    onTap: (){
+                      Get.toNamed(AppRoutes.homescreen);
+                    },
                   ),
                   SizedBox(height: 16),
                   SizedBox(
@@ -88,7 +84,7 @@ class OnboardingScreen extends StatelessWidget {
                           width: 1,
                         ),
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30),
+                          borderRadius: BorderRadius.circular(500.r),
                         ),
                       ),
                       child: Text(
@@ -96,7 +92,7 @@ class OnboardingScreen extends StatelessWidget {
                         style: GoogleFonts.dmSans(
                           fontSize: 16,
                           fontWeight: FontWeight.w600,
-                          color: const Color(0xFFEDC286),
+                          color: Color(0xFFEDC286),
                         ),
                       ),
                     ),

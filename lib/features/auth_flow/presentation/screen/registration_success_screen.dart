@@ -49,7 +49,8 @@ class RegistrationSuccessScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: GoogleFonts.dmSans(
                   fontSize: 14.sp,
-                  color: const Color(0xFFB2B2B7),
+                  fontWeight: FontWeight.w500,
+                  color: Color(0xFFB2B2B7),
                 ),
               ),
               SizedBox(height: 40.h),
@@ -71,8 +72,8 @@ class RegistrationSuccessScreen extends StatelessWidget {
                     "Continue",
                     style: GoogleFonts.dmSans(
                       fontSize: 16.sp,
-                      fontWeight: FontWeight.w600,
-                      color: const Color(0xFF1E2838),
+                      fontWeight: FontWeight.w700,
+                      color: Color(0xFF383945),
                     ),
                   ),
                 ),

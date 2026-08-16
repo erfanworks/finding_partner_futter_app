@@ -25,9 +25,9 @@ Widget buildBottomNavigation({
           child: Text(
             stepText,
             style: GoogleFonts.dmSans(
-              fontSize: 15.sp,
+              fontSize: 18.sp,
               fontWeight: FontWeight.w600,
-              color: const Color(0xFF1E2838),
+              color:  Color(0xFF1E2838),
             ),
           ),
         ),
@@ -42,6 +42,7 @@ Widget buildBottomNavigation({
               "Skip for now",
               style: GoogleFonts.dmSans(
                 color: Colors.white60,
+                fontWeight: FontWeight.w600,
                 fontSize: 16.sp,
               ),
             ),

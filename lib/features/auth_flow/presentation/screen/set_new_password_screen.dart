@@ -1,3 +1,4 @@
+import 'package:amychebbi/core/constants/app_images.dart';
 import 'package:amychebbi/core/route/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -49,8 +50,8 @@ class SetNewPasswordScreen extends StatelessWidget {
                   Text(
                     "Choose a new password to secure your account.",
                     style: GoogleFonts.dmSans(
-                      fontSize: 14.sp,
-                      color: const Color(0xFFB2B2B7),
+                      fontSize: 16.sp,
+                      color:  Color(0xFFB2B2B7),
                     ),
                   ),
                   SizedBox(height: 36.h),
@@ -59,7 +60,7 @@ class SetNewPasswordScreen extends StatelessWidget {
                   Text(
                     "NEW PASSWORD",
                     style: GoogleFonts.dmSans(
-                      fontSize: 11.sp,
+                      fontSize: 14.sp,
                       fontWeight: FontWeight.w600,
                       color: Colors.white54,
                       letterSpacing: 1.2,
@@ -69,15 +70,13 @@ class SetNewPasswordScreen extends StatelessWidget {
                   _buildPasswordField(
                     controller: controller.newPassController,
                     hintText: "••••••••••••",
+                    prefixIcon: Image.asset(AppImages.lockIcon,height: 30.h,width: 30.w,),
                   ),
-
                   SizedBox(height: 20.h),
-
-                  // Confirm New Password Label & Field
                   Text(
                     "CONFIRM NEW PASSWORD",
                     style: GoogleFonts.dmSans(
-                      fontSize: 11.sp,
+                      fontSize: 14.sp,
                       fontWeight: FontWeight.w600,
                       color: Colors.white54,
                       letterSpacing: 1.2,
@@ -87,24 +86,22 @@ class SetNewPasswordScreen extends StatelessWidget {
                   _buildPasswordField(
                     controller: controller.newConfirmPassController,
                     hintText: "••••••••••••",
+                    prefixIcon: Image.asset(AppImages.lockIcon,height: 30.h,width: 30.w,),
                   ),
-
                   SizedBox(height: 28.h),
-
-                  // Secure Password Info Rules
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Icon(
                         Icons.info_outline,
                         color: Color(0xFFEDC286),
-                        size: 18.sp,
+                        size: 28.sp,
                       ),
                       SizedBox(width: 8.w),
                       Text(
                         "Create a secure password:",
                         style: GoogleFonts.dmSans(
-                          fontSize: 14.sp,
+                          fontSize: 18.sp,
                           fontWeight: FontWeight.w500,
                           color: Colors.white,
                         ),
@@ -112,8 +109,6 @@ class SetNewPasswordScreen extends StatelessWidget {
                     ],
                   ),
                   SizedBox(height: 10.h),
-
-                  // Rules Bullet List
                   Padding(
                     padding: EdgeInsets.only(left: 8.w),
                     child: Column(
@@ -138,10 +133,10 @@ class SetNewPasswordScreen extends StatelessWidget {
                        Get.toNamed(AppRoutes.registrationSuccessScreen);
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFFEDC286),
+                        backgroundColor: Color(0xFFEDC286),
                         elevation: 0,
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.r),
+                          borderRadius: BorderRadius.circular(500.r),
                         ),
                       ),
                       child: Text(
@@ -164,39 +159,57 @@ class SetNewPasswordScreen extends StatelessWidget {
     );
   }
 
-  // Password Input Field Box
+
   Widget _buildPasswordField({
     required TextEditingController controller,
     required String hintText,
+    required Widget prefixIcon,
+    bool isPassword = false,
   }) {
-    return Container(
-      decoration: BoxDecoration(
-        color: const Color(0xFF1E2838),
-        borderRadius: BorderRadius.circular(30.r),
-        border: Border.all(color: Colors.white10),
-      ),
-      child: TextField(
-        controller: controller,
-        obscureText: true,
-        style: const TextStyle(color: Colors.white),
-        decoration: InputDecoration(
-          hintText: hintText,
-          hintStyle: GoogleFonts.dmSans(
-            color: Colors.white38,
-            fontSize: 16.sp,
-            letterSpacing: 2,
+    return TextField(
+      controller: controller,
+      obscureText: isPassword,
+      style: GoogleFonts.dmSans(color: Colors.white, fontSize: 16.sp),
+      decoration: InputDecoration(
+        filled: true,
+        fillColor:  Color(0xFF1E293B),
+        hintText: hintText,
+        hintStyle: GoogleFonts.dmSans(color: Color(0xFFB2B2B7), fontSize: 14.sp),
+        prefixIcon: Padding(
+          padding: EdgeInsets.only(left: 16.w, top: 12.h, bottom: 12.h, right: 10.w),
+          child: prefixIcon,
+        ),
+        contentPadding: EdgeInsets.symmetric(
+          horizontal: 20.w,
+          vertical: 16.h,
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(500.r),
+          borderSide: BorderSide(
+            color: Color(0xFF3D4754),
+            width: 1,
           ),
-          prefixIcon: Padding(
-            padding: EdgeInsets.only(left: 18.w, right: 12.w),
-            child: Icon(
-              Icons.lock_outline,
-              color: Colors.white38,
-              size: 20.sp,
-            ),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(500.r),
+          borderSide: BorderSide(
+            color: Color(0xFFEDC286),
+            width: 1.w,
           ),
-          prefixIconConstraints: BoxConstraints(minWidth: 40.w),
-          border: InputBorder.none,
-          contentPadding: EdgeInsets.symmetric(vertical: 16.h),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(500.r),
+          borderSide: const BorderSide(
+            color: Colors.redAccent,
+            width: 1,
+          ),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(500.r),
+          borderSide:  BorderSide(
+            color: Color(0xFF3D4754),
+            width: 1.w,
+          ),
         ),
       ),
     );
@@ -209,17 +222,19 @@ class SetNewPasswordScreen extends StatelessWidget {
       children: [
         Text(
           "•  ",
-          style: TextStyle(
-            color: const Color(0xFFB2B2B7),
-            fontSize: 12.sp,
+          style:GoogleFonts.inter(
+            color: Color(0xFFB2B2B7),
+            fontWeight: FontWeight.w400,
+            fontSize: 16.sp,
           ),
         ),
         Expanded(
           child: Text(
             text,
-            style: GoogleFonts.dmSans(
-              fontSize: 13.sp,
-              color: const Color(0xFFB2B2B7),
+            style:GoogleFonts.inter(
+              color: Color(0xFFB2B2B7),
+              fontWeight: FontWeight.w400,
+              fontSize: 16.sp,
             ),
           ),
         ),

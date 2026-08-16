@@ -1,6 +1,9 @@
 import 'package:amychebbi/core/constants/app_images.dart';
+import 'package:amychebbi/core/route/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ProfileSetupSuccessScreen extends StatelessWidget {
@@ -23,29 +26,13 @@ class ProfileSetupSuccessScreen extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 24.w),
               child: Column(
                 children: [
-                  const Spacer(flex: 2),
-                  Text(
-                    "生",
-                    style: GoogleFonts.notoSans(
-                      fontSize: 48.sp,
-                      color: const Color(0xFFEDC286),
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Text(
-                    "S E I R U",
-                    style: GoogleFonts.dmSans(
-                      fontSize: 18.sp,
-                      color: Colors.white,
-                      letterSpacing: 6,
-                    ),
-                  ),
-                  SizedBox(height: 40.h),
+                  Image.asset(AppImages.logo, height: 210.h, width: 210.w),
+
                   Text(
                     "Welcome,\nzarif",
                     textAlign: TextAlign.center,
                     style: GoogleFonts.dmSans(
-                      fontSize: 28.sp,
+                      fontSize: 32.sp,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
                     ),
@@ -54,16 +41,17 @@ class ProfileSetupSuccessScreen extends StatelessWidget {
                   Text(
                     "To the safe place",
                     style: GoogleFonts.playfairDisplay(
-                      fontSize: 14.sp,
+                      fontSize: 18.sp,
                       fontStyle: FontStyle.italic,
-                      color: const Color(0xFFEDC286),
+                      color: Color(0xFFEDC286),
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                   SizedBox(height: 12.h),
                   Text(
                     "Where real people connect for:",
                     style: GoogleFonts.dmSans(
-                      fontSize: 16.sp,
+                      fontSize: 18.sp,
                       fontWeight: FontWeight.w600,
                       color: Colors.white,
                     ),
@@ -73,43 +61,42 @@ class ProfileSetupSuccessScreen extends StatelessWidget {
                     "Travel, Business, Fitness, Gaming, Activities, Networking\nor simply someone to talk to.",
                     textAlign: TextAlign.center,
                     style: GoogleFonts.dmSans(
-                      fontSize: 14.sp,
+                      fontSize: 16.sp,
                       color: Color(0xFFB2B2B7),
-                      fontWeight: FontWeight.w400
+                      fontWeight: FontWeight.w400,
                     ),
                   ),
-
-                  const Spacer(flex: 3),
-
+                  Spacer(flex: 3),
                   SizedBox(
                     width: double.infinity,
                     height: 52.h,
                     child: ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFFEDC286),
+                        backgroundColor: Color(0xFFEDC286),
                         elevation: 0,
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.r),
+                          borderRadius: BorderRadius.circular(500.r),
                         ),
                       ),
                       child: Text(
                         "My Profile",
                         style: GoogleFonts.dmSans(
-                          fontSize: 15.sp,
+                          fontSize: 16.sp,
                           fontWeight: FontWeight.w600,
-                          color: const Color(0xFF1E2838),
+                          color: Color(0xFF383945),
                         ),
                       ),
                     ),
                   ),
                   SizedBox(height: 12.h),
-
                   SizedBox(
                     width: double.infinity,
                     height: 52.h,
                     child: OutlinedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.toNamed(AppRoutes.homescreen);
+                      },
                       style: OutlinedButton.styleFrom(
                         side: const BorderSide(color: Color(0xFFEDC286)),
                         shape: RoundedRectangleBorder(
@@ -119,9 +106,9 @@ class ProfileSetupSuccessScreen extends StatelessWidget {
                       child: Text(
                         "Explore Seiru",
                         style: GoogleFonts.dmSans(
-                          fontSize: 15.sp,
+                          fontSize: 16.sp,
                           fontWeight: FontWeight.w600,
-                          color: Colors.white,
+                          color: Color(0xFFEDC286),
                         ),
                       ),
                     ),

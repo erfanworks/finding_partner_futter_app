@@ -67,7 +67,8 @@ class SignInScreen extends StatelessWidget {
                       _socialButton(
                         iconData: Icons.apple,
                         text: "Continue with Apple",
-                        backgroundColor: const Color(0xFFE5E7EB),
+                        backgroundColor: const Color(0xFFE6E6E8),
+                        borderColor: Color(0xFF383945),
                         textColor: Colors.black,
                         onTap: () {},
                       ),
@@ -88,7 +89,7 @@ class SignInScreen extends StatelessWidget {
                               ),
                             ),
                           ),
-                          const Expanded(
+                          Expanded(
                             child: Divider(color: Colors.white24, thickness: 1),
                           ),
                         ],
@@ -103,7 +104,7 @@ class SignInScreen extends StatelessWidget {
                       SizedBox(height: 16.h),
                       _customTextField(
                         controller: controller.passwordController,
-                        hintText: "•••••••••••",
+                        hintText: "**********",
                         prefixIcon: Image.asset(
                           AppImages.lockIcon, height: 20.h, width: 20.w,),
                         isPassword: true,
@@ -196,27 +197,49 @@ class SignInScreen extends StatelessWidget {
     required Widget prefixIcon,
     bool isPassword = false,
   }) {
-    return Container(
-      decoration: BoxDecoration(
-        color: const Color(0xFF1E2838),
-        borderRadius: BorderRadius.circular(30.r),
-        border: Border.all(color: Colors.white10),
-      ),
-      child: TextField(
-        controller: controller,
-        obscureText: isPassword,
-        style: const TextStyle(color: Colors.white),
-        decoration: InputDecoration(
-          hintText: hintText,
-          hintStyle: GoogleFonts.dmSans(color: Colors.white38, fontSize: 14.sp),
-          prefixIcon: Padding(
-            padding: EdgeInsets.only(left: 18.sp,top: 15,bottom: 8,right: 6),
-            child: prefixIcon,
+    return TextField(
+      controller: controller,
+      obscureText: isPassword,
+      style: GoogleFonts.dmSans(color: Colors.white, fontSize: 16.sp),
+      decoration: InputDecoration(
+        filled: true,
+        fillColor:  Color(0xFF1E293B),
+        hintText: hintText,
+        hintStyle: GoogleFonts.dmSans(color: Color(0xFFB2B2B7), fontSize: 14.sp),
+        prefixIcon: Padding(
+          padding: EdgeInsets.only(left: 16.w, top: 12.h, bottom: 12.h, right: 10.w),
+          child: prefixIcon,
+        ),
+        contentPadding: EdgeInsets.symmetric(
+          horizontal: 20.w,
+          vertical: 16.h,
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(500.r),
+          borderSide: BorderSide(
+            color: Color(0xFF3D4754),
+            width: 1,
           ),
-          border: InputBorder.none,
-          contentPadding: const EdgeInsets.symmetric(
-            horizontal: 20,
-            vertical: 16,
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(500.r),
+          borderSide: BorderSide(
+            color: Color(0xFFEDC286),
+            width: 1.w,
+          ),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(500.r),
+          borderSide: const BorderSide(
+            color: Colors.redAccent,
+            width: 1,
+          ),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(500.r),
+          borderSide:  BorderSide(
+            color: Color(0xFF3D4754),
+            width: 1.w,
           ),
         ),
       ),
@@ -241,7 +264,7 @@ class SignInScreen extends StatelessWidget {
           backgroundColor: backgroundColor,
           elevation: 0,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30.r),
+            borderRadius: BorderRadius.circular(500.r),
             side: borderColor != null
                 ? BorderSide(color: borderColor)
                 : BorderSide.none,
@@ -253,16 +276,16 @@ class SignInScreen extends StatelessWidget {
               Align(
                 alignment: Alignment.centerLeft,
                 child: iconPath != null
-                    ? Image.asset(iconPath, height: 20.h)
+                    ? Image.asset(iconPath, height: 25.h)
                     : iconData != null
-                    ? Icon(iconData, color: textColor, size: 22.sp)
+                    ? Icon(iconData, color: textColor, size: 35.sp)
                     : const SizedBox.shrink(),
               ),
               SizedBox(width: 10),
               Text(
                 text,
                 style: GoogleFonts.dmSans(
-                  fontSize: 15.sp,
+                  fontSize: 16.sp,
                   fontWeight: FontWeight.w600,
                   color: textColor,
                 ),

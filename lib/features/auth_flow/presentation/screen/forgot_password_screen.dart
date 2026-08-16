@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../../../../core/constants/app_images.dart';
 import '../controller/auth_controller.dart';
 
@@ -14,12 +13,13 @@ class ForgotPasswordScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF0D131E), // App dark background color
+      backgroundColor: const Color(0xFF0D131E),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new, color: Colors.white, size: 20),
+          icon: const Icon(
+              Icons.arrow_back_ios_new, color: Colors.white, size: 20),
           onPressed: () => Get.back(),
         ),
       ),
@@ -33,8 +33,6 @@ class ForgotPasswordScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(height: 10.h),
-
-                  // Title
                   Text(
                     "Forgot Password",
                     style: GoogleFonts.dmSans(
@@ -44,33 +42,27 @@ class ForgotPasswordScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 8.h),
-
-                  // Subtitle
                   Text(
                     "Choose your preferred contact method\nto receive a one-time verification code.",
                     style: GoogleFonts.dmSans(
-                      fontSize: 14.sp,
-                      color: const Color(0xFFB2B2B7),
-                      height: 1.3,
+                      fontSize: 16.sp,
+                      color: Color(0xFFB2B2B7),
+                      fontWeight : FontWeight.w400,
                     ),
                   ),
                   SizedBox(height: 36.h),
-
-                  // Input Label
                   Text(
                     "CONTACT METHOD",
                     style: GoogleFonts.dmSans(
-                      fontSize: 11.sp,
+                      fontSize: 14.sp,
                       fontWeight: FontWeight.w600,
                       color: Colors.white54,
                       letterSpacing: 1.2,
                     ),
                   ),
                   SizedBox(height: 10.h),
-
-                  // Custom Text Field
                   _customTextField(
-                    controller: controller.emailController, // প্রয়োজনে আপনার টেক্সট কন্ট্রোলার পাস করুন
+                    controller: controller.emailController,
                     hintText: "Phone number or email address",
                     prefixIcon: Image.asset(
                       AppImages.phoneIcon,
@@ -78,10 +70,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                       width: 20.w,
                     ),
                   ),
-
                   const Spacer(),
-
-                  // Request OTP Button
                   SizedBox(
                     width: double.infinity,
                     height: 54.h,
@@ -100,8 +89,8 @@ class ForgotPasswordScreen extends StatelessWidget {
                         "Request OTP",
                         style: GoogleFonts.dmSans(
                           fontSize: 16.sp,
-                          fontWeight: FontWeight.w600,
-                          color: const Color(0xFF1E2838),
+                          fontWeight: FontWeight.w700,
+                          color: Color(0xFF383945),
                         ),
                       ),
                     ),
@@ -120,27 +109,53 @@ class ForgotPasswordScreen extends StatelessWidget {
     required TextEditingController controller,
     required String hintText,
     required Widget prefixIcon,
+    bool isPassword = false,
   }) {
-    return Container(
-      decoration: BoxDecoration(
-        color: const Color(0xFF1E2838),
-        borderRadius: BorderRadius.circular(30.r),
-        border: Border.all(color: Colors.white10),
-      ),
-      child: TextField(
-        controller: controller,
-        style: const TextStyle(color: Colors.white),
-        decoration: InputDecoration(
-          hintText: hintText,
-          hintStyle: GoogleFonts.dmSans(color: Colors.white38, fontSize: 14.sp),
-          prefixIcon: Padding(
-            padding: EdgeInsets.only(left: 18.sp, top: 15, bottom: 15, right: 10),
-            child: prefixIcon,
+    return TextField(
+      controller: controller,
+      obscureText: isPassword,
+      style: GoogleFonts.dmSans(color: Colors.white, fontSize: 16.sp),
+      decoration: InputDecoration(
+        filled: true,
+        fillColor: Color(0xFF1E293B),
+        hintText: hintText,
+        hintStyle: GoogleFonts.dmSans(
+            color: Color(0xFFB2B2B7), fontSize: 14.sp),
+        prefixIcon: Padding(
+          padding: EdgeInsets.only(
+              left: 16.w, top: 12.h, bottom: 12.h, right: 10.w),
+          child: prefixIcon,
+        ),
+        contentPadding: EdgeInsets.symmetric(
+          horizontal: 20.w,
+          vertical: 16.h,
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(500.r),
+          borderSide: BorderSide(
+            color: Color(0xFF3D4754),
+            width: 1,
           ),
-          border: InputBorder.none,
-          contentPadding: const EdgeInsets.symmetric(
-            horizontal: 20,
-            vertical: 16,
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(500.r),
+          borderSide: BorderSide(
+            color: Color(0xFFEDC286),
+            width: 1.w,
+          ),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(500.r),
+          borderSide: const BorderSide(
+            color: Colors.redAccent,
+            width: 1,
+          ),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(500.r),
+          borderSide: BorderSide(
+            color: Color(0xFF3D4754),
+            width: 1.w,
           ),
         ),
       ),

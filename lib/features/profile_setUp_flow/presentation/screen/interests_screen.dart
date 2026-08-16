@@ -21,9 +21,9 @@ class InterestsScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                buildSetupHeader(
-                  onBackPressed: () => controller.previousPage(),
-                ),
+                // buildSetupHeader(
+                //   onBackPressed: () => controller.previousPage(),
+                // ),
                 Text(
                   "Select your interests",
                   style: GoogleFonts.dmSans(
@@ -36,7 +36,7 @@ class InterestsScreen extends StatelessWidget {
                 Text(
                   "Shown on your public profile.\nMatch with the right companion.",
                   style: GoogleFonts.dmSans(
-                    fontSize: 14.sp,
+                    fontSize: 16.sp,
                     color: Color(0xFFB2B2B7),
                     fontWeight: FontWeight.w400
                   ),
@@ -113,27 +113,27 @@ class InterestsScreen extends StatelessWidget {
         width: isFullWidth ? double.infinity : null,
         padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 10.h),
         decoration: BoxDecoration(
-          color: isSelected ? const Color(0xFF283242) : const Color(0xFF1B2432),
-          borderRadius: BorderRadius.circular(30.r),
+          color: isSelected ?  Color(0xFF283242) : Color(0xFF1B2432),
+          borderRadius: BorderRadius.circular(500.r),
           border: Border.all(
-            color: isSelected ? const Color(0xFFEDC286) : Colors.white10,
+            color: isSelected ?  Color(0xFFEDC286) : Colors.white10,
           ),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(icon, style: TextStyle(fontSize: 18.sp)),
-            SizedBox(width: 4.w),
+            Text(icon, style: TextStyle(fontSize: 22.sp)),
+            SizedBox(width: 8.w),
             Flexible(
               child: Text(
                 title,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: GoogleFonts.dmSans(
-                  color: isSelected ? const Color(0xFFEDC286) : Colors.white,
+                  color: isSelected ? Color(0xFFEDC286) : Color(0xFFB2B2B7),
                   fontWeight: FontWeight.w600,
-                  fontSize: 16.sp,
+                  fontSize: 18.sp,
                 ),
               ),
             ),
@@ -181,7 +181,7 @@ class InterestsScreen extends StatelessWidget {
                     style: GoogleFonts.dmSans(
                       color: Colors.white,
                       fontWeight: FontWeight.w500,
-                      fontSize: 15.sp,
+                      fontSize: 18.sp,
                     ),
                   ),
                 ],

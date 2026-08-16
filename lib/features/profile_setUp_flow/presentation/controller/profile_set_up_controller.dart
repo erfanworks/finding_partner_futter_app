@@ -39,6 +39,10 @@ class ProfileSetUpController extends GetxController {
     text: "Curious traveler & foodie. Looking to meet locals in new cities.",
   );
 
+  bool get showSkip {
+    return currentStep == 3;
+  }
+
   void setStep(int step) {
     currentStep = step;
     update();

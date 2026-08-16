@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../controller/profile_set_up_controller.dart';
 import '../widget/build_bottom_navigation.dart';
-import '../widget/profile_setup_header.dart';
+
 
 class BasedScreen extends StatelessWidget {
   const BasedScreen({super.key});
@@ -20,7 +19,6 @@ class BasedScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                buildSetupHeader(onBackPressed: () => controller.previousPage()),
                 Text(
                   "Where are you based?",
                   style: GoogleFonts.dmSans(
@@ -32,24 +30,24 @@ class BasedScreen extends StatelessWidget {
                 SizedBox(height: 6.h),
                 Text(
                   "Select the cities where you'd like to see companions and requests.",
-                  style: GoogleFonts.dmSans(fontSize: 13.sp, color: Colors.white54),
+                  style: GoogleFonts.dmSans(
+                    fontSize: 16.sp,
+                    color: Color(0xFFB2B2B7),
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
                 SizedBox(height: 24.h),
-
                 Text("COUNTRY", style: _labelStyle()),
                 SizedBox(height: 8.h),
                 _dropdownBox("🌐", controller.selectedCountry, () {
-                  // এখানে কান্ট্রি পিকার বা বটম শিট দিতে পারেন
                   controller.setCountry("Germany");
                 }),
-
                 SizedBox(height: 16.h),
                 Text("CITY", style: _labelStyle()),
                 SizedBox(height: 8.h),
                 _dropdownBox("📍", controller.selectedCity, () {
                   controller.setCity("Berlin");
                 }),
-
                 SizedBox(height: 16.h),
                 Text("LANGUAGE", style: _labelStyle()),
                 SizedBox(height: 8.h),
@@ -62,27 +60,26 @@ class BasedScreen extends StatelessWidget {
                     backgroundColor: Color(0xFF1B2432),
                     side: BorderSide(color: Color(0xFF3D4754)),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30.r),
+                      borderRadius: BorderRadius.circular(500.r),
                     ),
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Icon(Icons.add, color: Colors.white),
+                      Icon(Icons.add, color: Colors.white,size: 22.sp),
                       SizedBox(width: 6.w),
                       Text(
                         "Add Language",
                         style: GoogleFonts.dmSans(
                           color: Colors.white,
-                          fontSize: 14.sp,
+                          fontSize: 18.sp,
+                          fontWeight: FontWeight.w600
                         ),
                       ),
                     ],
                   ),
                 ),
-
                 const Spacer(),
-
                 const Spacer(),
                 buildBottomNavigation(
                   stepText: "Step ${controller.currentStep + 1}/5",
@@ -98,7 +95,7 @@ class BasedScreen extends StatelessWidget {
   }
 
   TextStyle _labelStyle() => GoogleFonts.dmSans(
-    fontSize: 10.sp,
+    fontSize: 14.sp,
     color: Colors.white54,
     fontWeight: FontWeight.bold,
   );
@@ -117,9 +114,16 @@ class BasedScreen extends StatelessWidget {
             Text(prefixEmoji, style: TextStyle(fontSize: 16.sp)),
             SizedBox(width: 10.w),
             Expanded(
-              child: Text(value, style: GoogleFonts.dmSans(color: Colors.white, fontSize: 14.sp)),
+              child: Text(
+                value,
+                style: GoogleFonts.dmSans(
+                  color: Colors.white,
+                  fontSize: 16.sp,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
             ),
-            const Icon(Icons.keyboard_arrow_down, color: Colors.white54),
+            Icon(Icons.keyboard_arrow_down, color: Colors.white54, size: 30.sp),
           ],
         ),
       ),
@@ -137,10 +141,16 @@ class BasedScreen extends StatelessWidget {
         children: [
           Row(
             children: [
-              Text("🗣️", style: TextStyle(fontSize: 16.sp)),
+              Text("🗣️", style: TextStyle(fontSize: 18.sp)),
               SizedBox(width: 10.w),
               Expanded(
-                child: Text(controller.selectedLanguage, style: GoogleFonts.dmSans(color: Colors.white, fontSize: 14.sp)),
+                child: Text(
+                  controller.selectedLanguage,
+                  style: GoogleFonts.dmSans(
+                    color: Colors.white,
+                    fontSize: 16.sp,
+                  ),
+                ),
               ),
               const Icon(Icons.keyboard_arrow_down, color: Colors.white54),
             ],
@@ -148,9 +158,17 @@ class BasedScreen extends StatelessWidget {
           SizedBox(height: 12.h),
           Row(
             children: [
-              _radioButton("Native", controller.selectedProficiency == "Native", () => controller.setProficiency("Native")),
+              _radioButton(
+                "Native",
+                controller.selectedProficiency == "Native",
+                () => controller.setProficiency("Native"),
+              ),
               SizedBox(width: 20.w),
-              _radioButton("Fluent", controller.selectedProficiency == "Fluent", () => controller.setProficiency("Fluent")),
+              _radioButton(
+                "Fluent",
+                controller.selectedProficiency == "Fluent",
+                () => controller.setProficiency("Fluent"),
+              ),
             ],
           ),
         ],
@@ -169,7 +187,10 @@ class BasedScreen extends StatelessWidget {
             size: 18.sp,
           ),
           SizedBox(width: 8.w),
-          Text(title, style: GoogleFonts.dmSans(color: Colors.white70, fontSize: 13.sp)),
+          Text(
+            title,
+            style: GoogleFonts.dmSans(color: Colors.white70, fontSize: 18.sp),
+          ),
         ],
       ),
     );

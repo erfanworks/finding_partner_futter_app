@@ -8,6 +8,7 @@ class AppImages {
   static const String italyText = "$baseurl/italy_text.png";
   static const String confirmIdentity = "$baseurl/confirm_identity.png";
   static const String criminalCheckIcon = "$baseurl/criminal_check_icon.png";
+  static const String criminalImage = "$baseurl/criminal_image.png";
 
 
   //>>>>>>>>>>>>>>>> Icons <<<<<<<<<<<<<<<<<<//
@@ -17,5 +18,6 @@ class AppImages {
   static const String lockIcon = "$baseurlIcon/lock_icon.png";
   static const String worldIcon = "$baseurlIcon/world_icon.png";
   static const String trustSafetyIcon = "$baseurlIcon/trust_safty_icon.png";
+  static const String hexagramShapeIcon = "$baseurlIcon/hexagram_shape.png";
 
 }

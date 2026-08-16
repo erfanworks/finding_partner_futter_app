@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../core/constants/app_images.dart';
@@ -27,8 +28,9 @@ class SplashScreen extends StatelessWidget {
               "REAL PEOPLE.  REAL CONNECTIONS.",
               textAlign: TextAlign.center,
               style: GoogleFonts.dmSans(
-                color: const Color(0xFFEDC286),
-                fontWeight: FontWeight.w700,
+                fontSize: 14.sp,
+                color: Color(0xFFEDC286),
+                fontWeight: FontWeight.w600,
               ),
             ),
           ),
