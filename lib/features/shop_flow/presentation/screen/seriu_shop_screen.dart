@@ -1,0 +1,176 @@
+import 'package:amychebbi/core/constants/app_color.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+import '../controller/seriu_shop_controller.dart';
+
+
+class SeiroShopScreen extends StatelessWidget {
+  const SeiroShopScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+       surfaceTintColor: AppColors.appBackgroundColor,
+        elevation: 0,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios_new, color: Colors.white, size: 18),
+          onPressed: () => Get.back(),
+        ),
+        title: Text(
+          'Seiro Shop',
+          style: GoogleFonts.dmSans(
+            color: Colors.white,
+            fontSize: 20.sp,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        centerTitle: true,
+        actions: [
+          GetBuilder<SeiroShopController>(
+            init: SeiroShopController(),
+            builder: (controller) => Container(
+              margin: EdgeInsets.only(right: 16.w),
+              padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 4.h),
+              decoration: BoxDecoration(
+                color: const Color(0xFF151F30),
+                borderRadius: BorderRadius.circular(20.r),
+                border: Border.all(color: const Color(0xFFE5B069).withValues(alpha: 0.4)),
+              ),
+              child: Row(
+                children: [
+                  CircleAvatar(
+                    radius: 10.r,
+                    backgroundColor: const Color(0xFFE5B069),
+                    child: Text('生', style: TextStyle(fontSize: 10.sp, color: Colors.black)),
+                  ),
+                  SizedBox(width: 6.w),
+                  Text(
+                    controller.totalCoins,
+                    style: GoogleFonts.dmSans(
+                      color: const Color(0xFFE5B069),
+                      fontSize: 13.sp,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+      body: GetBuilder<SeiroShopController>(
+        init: SeiroShopController(),
+        builder: (controller) {
+          return GridView.builder(
+            physics: const BouncingScrollPhysics(),
+            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+            itemCount: controller.shopItems.length,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              crossAxisSpacing: 16.w,
+              mainAxisSpacing: 16.h,
+              childAspectRatio: 0.72,
+            ),
+            itemBuilder: (context, index) {
+              final pack = controller.shopItems[index];
+              return _buildShopCard(pack, controller);
+            },
+          );
+        },
+      ),
+    );
+  }
+
+  Widget _buildShopCard(SeiroPackModel pack, SeiroShopController controller) {
+    return Container(
+      decoration: BoxDecoration(
+        color: const Color(0xFF151F30),
+        borderRadius: BorderRadius.circular(24.r),
+        border: Border.all(color: Colors.white.withValues(alpha: 0.05)),
+      ),
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          Positioned(
+            top: 14.h,
+            child: Text(
+              pack.title,
+              style: GoogleFonts.dmSans(
+                color: Colors.white,
+                fontSize: 14.sp,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+
+          Positioned.fill(
+            top: 36.h,
+            bottom: 50.h,
+            child: Padding(
+              padding: EdgeInsets.all(8.r),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(12.r),
+                child: Image.network(
+                  pack.imageUrl,
+                  fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) => Center(
+                    child: Text(
+                      '生',
+                      style: TextStyle(fontSize: 50.sp, color: const Color(0xFFE5B069)),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 12.h,
+            left: 16.w,
+            right: 16.w,
+            child: InkWell(
+              onTap: () => controller.onBuyPack(pack),
+              borderRadius: BorderRadius.circular(16.r),
+              child: Container(
+                height: 38.h,
+                decoration: BoxDecoration(
+                  color: const Color(0xFF222B3D),
+                  borderRadius: BorderRadius.circular(16.r),
+                  border: Border.all(
+                    color: const Color(0xFFE5B069).withValues(alpha: 0.6),
+                    width: 1,
+                  ),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: 4.r,
+                      height: 4.r,
+                      decoration: const BoxDecoration(
+                        color: Color(0xFFE5B069),
+                        shape: BoxShape.circle,
+                      ),
+                    ),
+                    SizedBox(width: 8.w),
+                    Text(
+                      pack.price,
+                      style: GoogleFonts.dmSans(
+                        color: const Color(0xFFE5B069),
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

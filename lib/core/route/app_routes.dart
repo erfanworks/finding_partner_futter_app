@@ -4,6 +4,8 @@ import 'package:amychebbi/features/auth_flow/presentation/screen/registration_su
 import 'package:amychebbi/features/auth_flow/presentation/screen/set_new_password_screen.dart';
 import 'package:amychebbi/features/auth_flow/presentation/screen/sign_up_screen.dart';
 import 'package:amychebbi/features/auth_flow/presentation/screen/verification_screen.dart';
+import 'package:amychebbi/features/availability/presentaion/controller/availabilityController.dart';
+import 'package:amychebbi/features/availability/presentaion/screen/avilability_screen.dart';
 import 'package:amychebbi/features/booking_history_flow/presentation/controller/booking_history_controller.dart';
 import 'package:amychebbi/features/booking_history_flow/presentation/screen/booking_history_screen.dart';
 import 'package:amychebbi/features/categrory_select_flow/presentation/controller/categorie_search_controller.dart';
@@ -20,7 +22,10 @@ import 'package:amychebbi/features/home_flow/presentation/screen/search_screen.d
 import 'package:amychebbi/features/leader_board/presentation/controller/leader_board_controller.dart';
 import 'package:amychebbi/features/leader_board/presentation/screen/leader_board_screen.dart';
 import 'package:amychebbi/features/member_ship_flow/presentation/screen/member_ship_screen.dart';
+import 'package:amychebbi/features/message_flow/presentation/controller/chat_screen_controller.dart';
+import 'package:amychebbi/features/message_flow/presentation/screen/message_list_screen.dart';
 import 'package:amychebbi/features/my_booking/presentaiton/screen/my_booking_screen.dart';
+import 'package:amychebbi/features/notification_flow/presentation/controller/notification_controller.dart';
 import 'package:amychebbi/features/profile_flow/presentation/controller/profile_controller.dart';
 import 'package:amychebbi/features/profile_flow/presentation/screen/profile_screen.dart';
 import 'package:amychebbi/features/profile_information_flow/presentation/controller/profile_information_controller.dart';
@@ -36,7 +41,11 @@ import 'package:amychebbi/features/save_feed_flow/presentation/screen/save_feed_
 import 'package:amychebbi/features/service_flow/presentation/controller/service_controller.dart';
 import 'package:amychebbi/features/service_flow/presentation/screen/add_service_screen.dart';
 import 'package:amychebbi/features/service_flow/presentation/screen/service_screen.dart';
+import 'package:amychebbi/features/shop_flow/presentation/controller/avater_controller.dart';
+import 'package:amychebbi/features/shop_flow/presentation/controller/seriu_shop_controller.dart';
 import 'package:amychebbi/features/shop_flow/presentation/controller/shop_controller.dart';
+import 'package:amychebbi/features/shop_flow/presentation/screen/gift_screen.dart';
+import 'package:amychebbi/features/shop_flow/presentation/screen/seriu_shop_screen.dart';
 import 'package:amychebbi/features/shop_flow/presentation/screen/shop_screen.dart';
 import 'package:amychebbi/features/verification_flow/presentation/controller/verificationCenterController.dart';
 import 'package:amychebbi/features/verification_flow/presentation/screen/verification_center_screen.dart';
@@ -60,9 +69,14 @@ import '../../features/friends_flow/presentation/screen/friends_screen.dart';
 import '../../features/home_flow/presentation/screen/categorie_screen.dart';
 import '../../features/home_flow/presentation/screen/home_screen.dart';
 import '../../features/member_ship_flow/presentation/controller/member_ship_controller.dart';
+import '../../features/notification_flow/presentation/screen/notification_screen.dart';
 import '../../features/onboarding/presentation/screen/onboarding_screen.dart';
 import '../../features/rank_and_reputation_flow/presentation/controller/rank_and_reputation_controller.dart';
 import '../../features/rating_and_review_flow/presentation/controller/rating_and_review_controller.dart';
+import '../../features/shop_flow/presentation/controller/seiru_wallet_controller.dart';
+import '../../features/shop_flow/presentation/controller/shop_gift_controller.dart';
+import '../../features/shop_flow/presentation/screen/avatarFramesScreen.dart';
+import '../../features/shop_flow/presentation/screen/seiru_walletScreen.dart';
 import '../../features/splash/presentation/screen/splash_screen.dart';
 
 
@@ -105,6 +119,13 @@ class AppRoutes {
   static const String serviceScreen = '/serviceScreen';
   static const String addServiceScreen = '/addServiceScreen';
   static const String financeScreen = '/financeScreen';
+  static const String availabilityScreen = '/availabilityScreen';
+  static const String shopGiftScreen = '/shopGiftScreen';
+  static const String avatarFramesScreen = '/avatarFramesScreen';
+  static const String notificationScreen = '/notificationScreen';
+  static const String seiWalletScreen = '/seiWalletScreen';
+  static const String seiShopScreen = '/seiShopScreen';
+  static const String messageListScreen = '/messageListScreen';
 
 
   static List<GetPage> routes = [
@@ -381,6 +402,55 @@ class AppRoutes {
       page: () => FinanceScreen(),
       binding: BindingsBuilder((){
         Get.put<FinanceController>(FinanceController());
+      }),
+    ),
+    GetPage(
+      name: AppRoutes.availabilityScreen,
+      page: () => AvailabilityScreen(),
+      binding: BindingsBuilder((){
+        Get.put<AvailabilityController>(AvailabilityController());
+      }),
+    ),
+    GetPage(
+      name: AppRoutes.shopGiftScreen,
+      page: () => ShopGiftsScreen(),
+      binding: BindingsBuilder((){
+        Get.put<ShopGiftsController>(ShopGiftsController());
+      }),
+    ),
+    GetPage(
+      name: AppRoutes.avatarFramesScreen,
+      page: () => AvatarFramesScreen(),
+      binding: BindingsBuilder((){
+        Get.put<AvatarFramesController>(AvatarFramesController());
+      }),
+    ),
+    GetPage(
+      name: AppRoutes.notificationScreen,
+      page: () => NotificationScreen(),
+      binding: BindingsBuilder((){
+        Get.put<NotificationScreenController>(NotificationScreenController());
+      }),
+    ),
+    GetPage(
+      name: AppRoutes.seiWalletScreen,
+      page: () => SeiruWalletScreen(),
+      binding: BindingsBuilder((){
+        Get.put<SeiruWalletController>(SeiruWalletController());
+      }),
+    ),
+    GetPage(
+      name: AppRoutes.seiShopScreen,
+      page: () => SeiroShopScreen(),
+      binding: BindingsBuilder((){
+        Get.put<SeiroShopController>(SeiroShopController());
+      }),
+    ),
+    GetPage(
+      name: AppRoutes.messageListScreen,
+      page: () => MessageListScreen(),
+      binding: BindingsBuilder((){
+        Get.put<ChatScreenController>(ChatScreenController());
       }),
     ),
   ];

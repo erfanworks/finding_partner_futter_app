@@ -199,7 +199,11 @@ class ProfileScreen extends StatelessWidget {
               title: 'Finance',
               onTab: () => Get.toNamed(AppRoutes.financeScreen),
             ),
-            _HubCard(icon: Icons.access_time_rounded, title: 'Availability'),
+            _HubCard(
+              icon: Icons.access_time_rounded,
+              title: 'Availability',
+              onTab: () => Get.toNamed(AppRoutes.availabilityScreen),
+            ),
           ],
         ),
 
@@ -435,7 +439,7 @@ class _HubCard extends StatelessWidget {
               title,
               style: GoogleFonts.dmSans(
                 color: Colors.white,
-                fontSize: 12.sp,
+                fontSize: 16.sp,
                 fontWeight: FontWeight.w500,
               ),
             ),

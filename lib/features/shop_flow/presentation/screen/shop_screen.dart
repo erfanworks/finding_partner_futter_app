@@ -1,3 +1,4 @@
+import 'package:amychebbi/core/route/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -33,30 +34,35 @@ class ShopScreen extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(right: 16.w),
             child: Center(
-              child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 4.h),
-                decoration: BoxDecoration(
-                  color: const Color(0xFF1E293B),
-                  borderRadius: BorderRadius.circular(16.r),
-                  border: Border.all(color: const Color(0xFFE5B069).withValues(alpha: 0.4)),
-                ),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Icon(Icons.monetization_on, color: const Color(0xFFE5B069), size: 16.r),
-                    SizedBox(width: 6.w),
-                    GetBuilder<ShopController>(
-                      init: ShopController(),
-                      builder: (controller) => Text(
-                        controller.coinCount,
-                        style: GoogleFonts.dmSans(
-                          color: Colors.white,
-                          fontSize: 12.sp,
-                          fontWeight: FontWeight.bold,
+              child: GestureDetector(
+                onTap: (){
+                  Get.toNamed(AppRoutes.seiWalletScreen);
+                },
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 4.h),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFF1E293B),
+                    borderRadius: BorderRadius.circular(16.r),
+                    border: Border.all(color: const Color(0xFFE5B069).withValues(alpha: 0.4)),
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(Icons.monetization_on, color: const Color(0xFFE5B069), size: 16.r),
+                      SizedBox(width: 6.w),
+                      GetBuilder<ShopController>(
+                        init: ShopController(),
+                        builder: (controller) => Text(
+                          controller.coinCount,
+                          style: GoogleFonts.dmSans(
+                            color: Colors.white,
+                            fontSize: 12.sp,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -70,23 +76,22 @@ class ShopScreen extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
             physics: const BouncingScrollPhysics(),
             children: [
-              // 1. Weekly Drop Banner Card
-              _buildWeeklyDropBanner(),
-              SizedBox(height: 20.h),
-
-              // 2. Categories Horizontal Cards
+              // _buildWeeklyDropBanner(),
+              // SizedBox(height: 20.h),
               Row(
                 children: [
-                  _buildCategoryCard('Frames', Icons.crop_square_rounded),
+                  _buildCategoryCard(icon:  Icons.crop_square_rounded,onTap: (){
+                    Get.toNamed(AppRoutes.avatarFramesScreen);
+                  }, title: 'Frames',),
                   SizedBox(width: 12.w),
-                  _buildCategoryCard('Badges', Icons.verified_outlined),
+                  _buildCategoryCard(title: 'Badges',icon:  Icons.verified_outlined,onTap: (){}),
                   SizedBox(width: 12.w),
-                  _buildCategoryCard('Gifts', Icons.card_giftcard_rounded),
+                  _buildCategoryCard(title: 'Gifts',icon:  Icons.card_giftcard_rounded,onTap: (){
+                    Get.toNamed(AppRoutes.shopGiftScreen);
+                  }),
                 ],
               ),
               SizedBox(height: 24.h),
-
-              // 3. Trending Section Header
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -145,129 +150,134 @@ class ShopScreen extends StatelessWidget {
   }
 
 
-  Widget _buildWeeklyDropBanner() {
-    return Container(
-      width: double.infinity,
-      padding: EdgeInsets.all(20.r),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20.r),
-        gradient: const LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            Color(0xFFCE9D55),
-            Color(0xFFA6783B),
-          ],
-        ),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            'WEEKLY DROP',
-            style: GoogleFonts.dmSans(
-              color: Colors.white.withValues(alpha: 0.7),
-              fontSize: 10.sp,
-              fontWeight: FontWeight.w600,
-              letterSpacing: 1.0,
-            ),
-          ),
-          SizedBox(height: 6.h),
-          Text(
-            'Aurora Nebula Bundle',
-            style: GoogleFonts.dmSans(
-              color: const Color(0xFF1E160D),
-              fontSize: 20.sp,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          SizedBox(height: 2.h),
-          Text(
-            'Frames + Badges + Gifts',
-            style: GoogleFonts.dmSans(
-              color: const Color(0xFF2C2216).withValues(alpha: 0.8),
-              fontSize: 12.sp,
-            ),
-          ),
-          SizedBox(height: 16.h),
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 8.h),
-            decoration: BoxDecoration(
-              color: const Color(0xFF162335),
-              borderRadius: BorderRadius.circular(20.r),
-            ),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Icon(Icons.monetization_on, color: const Color(0xFFE5B069), size: 16.r),
-                SizedBox(width: 6.w),
-                Text(
-                  '1800',
-                  style: GoogleFonts.dmSans(
-                    color: Colors.white,
-                    fontSize: 12.sp,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 6.w),
-                  child: Text(
-                    '•',
-                    style: TextStyle(color: Colors.white70, fontSize: 10.sp),
-                  ),
-                ),
-                Text(
-                  'Save 25%',
-                  style: GoogleFonts.dmSans(
-                    color: Colors.white,
-                    fontSize: 12.sp,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
+  // Widget _buildWeeklyDropBanner() {
+  //   return Container(
+  //     width: double.infinity,
+  //     padding: EdgeInsets.all(20.r),
+  //     decoration: BoxDecoration(
+  //       borderRadius: BorderRadius.circular(20.r),
+  //       gradient: const LinearGradient(
+  //         begin: Alignment.topLeft,
+  //         end: Alignment.bottomRight,
+  //         colors: [
+  //           Color(0xFFCE9D55),
+  //           Color(0xFFA6783B),
+  //         ],
+  //       ),
+  //     ),
+  //     child: Column(
+  //       crossAxisAlignment: CrossAxisAlignment.start,
+  //       children: [
+  //         Text(
+  //           'WEEKLY DROP',
+  //           style: GoogleFonts.dmSans(
+  //             color: Colors.white.withValues(alpha: 0.7),
+  //             fontSize: 10.sp,
+  //             fontWeight: FontWeight.w600,
+  //             letterSpacing: 1.0,
+  //           ),
+  //         ),
+  //         SizedBox(height: 6.h),
+  //         Text(
+  //           'Aurora Nebula Bundle',
+  //           style: GoogleFonts.dmSans(
+  //             color: const Color(0xFF1E160D),
+  //             fontSize: 20.sp,
+  //             fontWeight: FontWeight.bold,
+  //           ),
+  //         ),
+  //         SizedBox(height: 2.h),
+  //         Text(
+  //           'Frames + Badges + Gifts',
+  //           style: GoogleFonts.dmSans(
+  //             color: const Color(0xFF2C2216).withValues(alpha: 0.8),
+  //             fontSize: 12.sp,
+  //           ),
+  //         ),
+  //         SizedBox(height: 16.h),
+  //         Container(
+  //           padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 8.h),
+  //           decoration: BoxDecoration(
+  //             color: const Color(0xFF162335),
+  //             borderRadius: BorderRadius.circular(20.r),
+  //           ),
+  //           child: Row(
+  //             mainAxisSize: MainAxisSize.min,
+  //             children: [
+  //               Icon(Icons.monetization_on, color: const Color(0xFFE5B069), size: 16.r),
+  //               SizedBox(width: 6.w),
+  //               Text(
+  //                 '1800',
+  //                 style: GoogleFonts.dmSans(
+  //                   color: Colors.white,
+  //                   fontSize: 12.sp,
+  //                   fontWeight: FontWeight.bold,
+  //                 ),
+  //               ),
+  //               Padding(
+  //                 padding: EdgeInsets.symmetric(horizontal: 6.w),
+  //                 child: Text(
+  //                   '•',
+  //                   style: TextStyle(color: Colors.white70, fontSize: 10.sp),
+  //                 ),
+  //               ),
+  //               Text(
+  //                 'Save 25%',
+  //                 style: GoogleFonts.dmSans(
+  //                   color: Colors.white,
+  //                   fontSize: 12.sp,
+  //                   fontWeight: FontWeight.w500,
+  //                 ),
+  //               ),
+  //             ],
+  //           ),
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
+
+  Widget _buildCategoryCard({
+    required String title,
+    required IconData icon,
+    required VoidCallback onTap,
+  }) {
+    return Expanded(
+      child: GestureDetector(
+        onTap: onTap,
+        child: Container(
+          height: 100.h,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20.r),
+            gradient: const LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [
+                Color(0xFFE5B069),
+                Color(0xFFB57D3E),
               ],
             ),
           ),
-        ],
-      ),
-    );
-  }
-
-  // Category Item Box Component
-  Widget _buildCategoryCard(String title, IconData icon) {
-    return Expanded(
-      child: Container(
-        height: 100.h,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20.r),
-          gradient: const LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              Color(0xFFE5B069),
-              Color(0xFFB57D3E),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(icon, color: const Color(0xFF2E2213), size: 30.r),
+              SizedBox(height: 8.h),
+              Text(
+                title,
+                style: GoogleFonts.dmSans(
+                  color: const Color(0xFF2E2213),
+                  fontSize: 12.sp,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
             ],
           ),
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(icon, color: const Color(0xFF2E2213), size: 30.r),
-            SizedBox(height: 8.h),
-            Text(
-              title,
-              style: GoogleFonts.dmSans(
-                color: const Color(0xFF2E2213),
-                fontSize: 12.sp,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-          ],
-        ),
       ),
     );
   }
 
-  // Individual Shop Item Component
   Widget _buildTrendingItemCard(ShopItem item) {
     return Container(
       decoration: BoxDecoration(
@@ -277,7 +287,6 @@ class ShopScreen extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Inner Image Box
           Expanded(
             child: Container(
               margin: EdgeInsets.all(6.r),
@@ -305,8 +314,6 @@ class ShopScreen extends StatelessWidget {
               ),
             ),
           ),
-
-          // Details
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 8.h),
             child: Column(

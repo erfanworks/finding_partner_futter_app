@@ -55,9 +55,15 @@ class HomeScreen extends StatelessWidget {
         actions: [
           _buildIconButton(Icons.account_balance_wallet_outlined),
           SizedBox(width: 8.w),
-          _buildIconButton(Icons.notifications_none),
+          _buildIconButton(
+            Icons.notifications_none,
+            onTap: () => Get.toNamed(AppRoutes.notificationScreen),
+          ),
           SizedBox(width: 8.w),
-          _buildIconButton(Icons.chat_bubble_outline),
+          _buildIconButton(
+            Icons.chat_bubble_outline,
+            onTap: () => Get.toNamed(AppRoutes.messageListScreen),
+          ),
           SizedBox(width: 16.w),
         ],
       ),
@@ -156,21 +162,24 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildIconButton(IconData icon) {
-    return Container(
-      padding: EdgeInsets.all(8.r),
-      decoration: BoxDecoration(
-        color: const Color(0xFF131B29),
-        shape: BoxShape.circle,
-        border: Border.all(color: Colors.white.withValues(alpha: 0.1)),
+  Widget _buildIconButton(IconData icon, {VoidCallback? onTap}) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: EdgeInsets.all(8.r),
+        decoration: BoxDecoration(
+          color: const Color(0xFF131B29),
+          shape: BoxShape.circle,
+          border: Border.all(color: Colors.white.withValues(alpha: 0.1)),
+        ),
+        child: Icon(icon, color: Colors.white, size: 28.sp),
       ),
-      child: Icon(icon, color: Colors.white, size: 28.sp),
     );
   }
 
   Widget _buildSearchBar() {
     return GestureDetector(
-      onTap: (){
+      onTap: () {
         Get.toNamed(AppRoutes.searchScreen);
       },
       child: Container(
@@ -847,7 +856,7 @@ class HomeScreen extends StatelessWidget {
 
   Widget _buildUserCard(String name, String tag, String imageUrl) {
     return GestureDetector(
-      onTap: (){
+      onTap: () {
         Get.toNamed(AppRoutes.companionDetailsScreen);
       },
       child: Container(

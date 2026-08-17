@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 
 class ShopCategory {
   final String title;
-  final String iconPath; // Icon data placeholder
+  final String iconPath;
 
   ShopCategory({required this.title, required this.iconPath});
 }
@@ -10,7 +10,7 @@ class ShopCategory {
 class ShopItem {
   final String title;
   final int price;
-  final String iconType; // 'star' or 'ribbon'
+  final String iconType;
 
   ShopItem({
     required this.title,
