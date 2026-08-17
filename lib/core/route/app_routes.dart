@@ -13,16 +13,35 @@ import 'package:amychebbi/features/componingBooking/presentation/screen/review_b
 import 'package:amychebbi/features/componingBooking/presentation/screen/select_date_screen.dart';
 import 'package:amychebbi/features/explore_flow/presentation/controller/explore_controller.dart';
 import 'package:amychebbi/features/explore_flow/presentation/screen/explore_screen.dart';
+import 'package:amychebbi/features/finnenc_blance_flow/presentaion/controller/financeController.dart';
+import 'package:amychebbi/features/finnenc_blance_flow/presentaion/screen/finance_screen.dart';
+import 'package:amychebbi/features/friends_flow/presentation/controller/friends_controller.dart';
 import 'package:amychebbi/features/home_flow/presentation/screen/search_screen.dart';
 import 'package:amychebbi/features/leader_board/presentation/controller/leader_board_controller.dart';
 import 'package:amychebbi/features/leader_board/presentation/screen/leader_board_screen.dart';
+import 'package:amychebbi/features/member_ship_flow/presentation/screen/member_ship_screen.dart';
 import 'package:amychebbi/features/my_booking/presentaiton/screen/my_booking_screen.dart';
 import 'package:amychebbi/features/profile_flow/presentation/controller/profile_controller.dart';
 import 'package:amychebbi/features/profile_flow/presentation/screen/profile_screen.dart';
+import 'package:amychebbi/features/profile_information_flow/presentation/controller/profile_information_controller.dart';
+import 'package:amychebbi/features/profile_information_flow/presentation/screen/profile_inforamtion_screen.dart';
 import 'package:amychebbi/features/profile_setUp_flow/presentation/controller/profile_set_up_controller.dart';
 import 'package:amychebbi/features/profile_setUp_flow/presentation/screen/profile_set_up_main_screen.dart';
+import 'package:amychebbi/features/rank_and_reputation_flow/presentation/screen/rakn_and_reputation_screen.dart';
+import 'package:amychebbi/features/rating_and_review_flow/presentation/screen/rating_and_review_screen.dart';
 import 'package:amychebbi/features/request_details/presentation/controller/request_details_controller.dart';
 import 'package:amychebbi/features/request_details/presentation/screen/request_details_screen.dart';
+import 'package:amychebbi/features/save_feed_flow/presentation/controller/save_feed_controller.dart';
+import 'package:amychebbi/features/save_feed_flow/presentation/screen/save_feed_screen.dart';
+import 'package:amychebbi/features/service_flow/presentation/controller/service_controller.dart';
+import 'package:amychebbi/features/service_flow/presentation/screen/add_service_screen.dart';
+import 'package:amychebbi/features/service_flow/presentation/screen/service_screen.dart';
+import 'package:amychebbi/features/shop_flow/presentation/controller/shop_controller.dart';
+import 'package:amychebbi/features/shop_flow/presentation/screen/shop_screen.dart';
+import 'package:amychebbi/features/verification_flow/presentation/controller/verificationCenterController.dart';
+import 'package:amychebbi/features/verification_flow/presentation/screen/verification_center_screen.dart';
+import 'package:amychebbi/features/wallet_flow/presentation/controller/wallet_controller.dart';
+import 'package:amychebbi/features/wallet_flow/presentation/screen/wallet_screen.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/src/bindings_interface.dart';
 import 'package:get/get_instance/src/extension_instance.dart';
@@ -37,9 +56,13 @@ import '../../features/componingBooking/presentation/screen/componing_booking_sc
 import '../../features/componingBooking/presentation/screen/componing_details_screen.dart';
 import '../../features/favorite_flow/presentation/controller/favourite_controller.dart';
 import '../../features/favorite_flow/presentation/screen/favourite_screen.dart';
+import '../../features/friends_flow/presentation/screen/friends_screen.dart';
 import '../../features/home_flow/presentation/screen/categorie_screen.dart';
 import '../../features/home_flow/presentation/screen/home_screen.dart';
+import '../../features/member_ship_flow/presentation/controller/member_ship_controller.dart';
 import '../../features/onboarding/presentation/screen/onboarding_screen.dart';
+import '../../features/rank_and_reputation_flow/presentation/controller/rank_and_reputation_controller.dart';
+import '../../features/rating_and_review_flow/presentation/controller/rating_and_review_controller.dart';
 import '../../features/splash/presentation/screen/splash_screen.dart';
 
 
@@ -70,6 +93,18 @@ class AppRoutes {
   static const String favoriteCompanionsScreen = '/favoriteCompanionsScreen';
   static const String profileScreen = '/profileScreen';
   static const String bookingHistoryScreen = '/bookingHistoryScreen';
+  static const String membershipScreen = '/membershipScreen';
+  static const String ratingReviewScreen = '/ratingReviewScreen';
+  static const String rankReputationScreen = '/rankReputationScreen';
+  static const String walletScreen = '/walletScreen';
+  static const String shopScreen = '/shopScreen';
+  static const String verificationCenterScreen = '/verificationCenterScreen';
+  static const String friendsScreen = '/friendsScreen';
+  static const String profileInformationScreen = '/profileInformationScreen';
+  static const String savedFeedScreen = '/savedFeedScreen';
+  static const String serviceScreen = '/serviceScreen';
+  static const String addServiceScreen = '/addServiceScreen';
+  static const String financeScreen = '/financeScreen';
 
 
   static List<GetPage> routes = [
@@ -255,6 +290,97 @@ class AppRoutes {
       page: () => BookingHistoryScreen(),
       binding: BindingsBuilder((){
         Get.put<BookingHistoryController>(BookingHistoryController());
+      }),
+    ),
+    GetPage(
+      name: AppRoutes.membershipScreen,
+      page: () => MembershipScreen(),
+      binding: BindingsBuilder((){
+        Get.put<MembershipController>(MembershipController());
+      }),
+    ),
+    GetPage(
+      name: AppRoutes.ratingReviewScreen,
+      page: () => RatingReviewScreen(),
+      binding: BindingsBuilder((){
+        Get.put<RatingReviewController>(RatingReviewController());
+      }),
+    ),
+    GetPage(
+      name: AppRoutes.ratingReviewScreen,
+      page: () => RatingReviewScreen(),
+      binding: BindingsBuilder((){
+        Get.put<RatingReviewController>(RatingReviewController());
+      }),
+    ),
+    GetPage(
+      name: AppRoutes.rankReputationScreen,
+      page: () => RankReputationScreen(),
+      binding: BindingsBuilder((){
+        Get.put<RankReputationController>(RankReputationController());
+      }),
+    ),
+    GetPage(
+      name: AppRoutes.walletScreen,
+      page: () => WalletScreen(),
+      binding: BindingsBuilder((){
+        Get.put<WalletController>(WalletController());
+      }),
+    ),
+    GetPage(
+      name: AppRoutes.shopScreen,
+      page: () => ShopScreen(),
+      binding: BindingsBuilder((){
+        Get.put<ShopController>(ShopController());
+      }),
+    ),
+    GetPage(
+      name: AppRoutes.verificationCenterScreen,
+      page: () => VerificationCenterScreen(),
+      binding: BindingsBuilder((){
+        Get.put<VerificationCenterController>(VerificationCenterController());
+      }),
+    ),
+    GetPage(
+      name: AppRoutes.friendsScreen,
+      page: () => FriendsScreen(),
+      binding: BindingsBuilder((){
+        Get.put<FriendsController>(FriendsController());
+      }),
+    ),
+    GetPage(
+      name: AppRoutes.profileInformationScreen,
+      page: () => ProfileInformationScreen(),
+      binding: BindingsBuilder((){
+        Get.put<ProfileInformationController>(ProfileInformationController());
+      }),
+    ),
+    GetPage(
+      name: AppRoutes.savedFeedScreen,
+      page: () => SavedFeedScreen(),
+      binding: BindingsBuilder((){
+        Get.put<SavedFeedController>(SavedFeedController());
+      }),
+    ),
+    GetPage(
+      name: AppRoutes.serviceScreen,
+      page: () => ServicesScreen(),
+      binding: BindingsBuilder((){
+        Get.put<ServicesController>(ServicesController());
+      }),
+    ),
+    GetPage(
+      name: AppRoutes.addServiceScreen,
+      page: () => AddServiceScreen(),
+      binding: BindingsBuilder((){
+        Get.put<ServicesController>(ServicesController());
+      }),
+    ),
+    GetPage(
+      name: AppRoutes.financeScreen,
+      page: () => FinanceScreen(),
+      binding: BindingsBuilder((){
+        Get.put<FinanceController>(FinanceController());
       }),
     ),
   ];

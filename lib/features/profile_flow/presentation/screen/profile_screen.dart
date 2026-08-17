@@ -164,9 +164,9 @@ class ProfileScreen extends StatelessWidget {
           style: GoogleFonts.dmSans(
             color: isSelected
                 ? const Color(0xFFE5BA73)
-                : const Color(0xFF8FA1B5),
-            fontSize: 16.sp,
-            fontWeight: isSelected ? FontWeight.bold : FontWeight.w500,
+                : const Color(0xFFB2B2B7),
+            fontSize: 18.sp,
+            fontWeight: FontWeight.w500,
           ),
         ),
       ),
@@ -183,10 +183,22 @@ class ProfileScreen extends StatelessWidget {
           crossAxisSpacing: 12.w,
           mainAxisSpacing: 12.h,
           childAspectRatio: 1.8,
-          children: const [
-            _HubCard(icon: Icons.calendar_today_outlined, title: 'Bookings'),
-            _HubCard(icon: Icons.build_outlined, title: 'Services'),
-            _HubCard(icon: Icons.monetization_on_outlined, title: 'Finance'),
+          children: [
+            _HubCard(
+              icon: Icons.calendar_today_outlined,
+              title: 'Bookings',
+              onTab: () => Get.toNamed(AppRoutes.myBookingScreen),
+            ),
+            _HubCard(
+              icon: Icons.build_outlined,
+              title: 'Services',
+              onTab: () => Get.toNamed(AppRoutes.serviceScreen),
+            ),
+            _HubCard(
+              icon: Icons.monetization_on_outlined,
+              title: 'Finance',
+              onTab: () => Get.toNamed(AppRoutes.financeScreen),
+            ),
             _HubCard(icon: Icons.access_time_rounded, title: 'Availability'),
           ],
         ),
@@ -196,36 +208,54 @@ class ProfileScreen extends StatelessWidget {
         _buildMenuItem(
           icon: Icons.bookmark_border_rounded,
           title: 'Saved Feed',
+          onTap: () {
+            Get.toNamed(AppRoutes.savedFeedScreen);
+          },
         ),
         _buildMenuItem(
           icon: Icons.account_balance_wallet_outlined,
           title: 'Wallet',
-        ),
-        _buildMenuItem(icon: Icons.bar_chart_rounded, title: 'Analytics'),
-        _buildMenuItem(
-          icon: Icons.calendar_month_outlined,
-          title: 'Booking History',
-          onTap: (){
-            Get.toNamed(AppRoutes.bookingHistoryScreen);
+          onTap: () {
+            Get.toNamed(AppRoutes.walletScreen);
           },
         ),
-        _buildMenuItem(
-          icon: Icons.face_retouching_natural_outlined,
-          title: 'Verification',
-        ),
+        // _buildMenuItem(icon: Icons.bar_chart_rounded, title: 'Analytics'),
+        // _buildMenuItem(
+        //   icon: Icons.calendar_month_outlined,
+        //   title: 'Booking History',
+        //   onTap: (){
+        //     Get.toNamed(AppRoutes.bookingHistoryScreen);
+        //   },
+        // ),
+        // _buildMenuItem(
+        //   icon: Icons.face_retouching_natural_outlined,
+        //   title: 'Verification',
+        //   onTap: (){
+        //     Get.toNamed(AppRoutes.verificationCenterScreen);
+        //   }
+        // ),
         _buildMenuItem(
           icon: Icons.military_tech_outlined,
           title: 'Rank & Reputation',
+          onTap: () {
+            Get.toNamed(AppRoutes.rankReputationScreen);
+          },
         ),
-        _buildMenuItem(icon: Icons.leaderboard_outlined, title: 'Leaderboard',onTap: (){
-          Get.toNamed(AppRoutes.leaderBoardScreen);
-        }),
+        _buildMenuItem(
+          icon: Icons.leaderboard_outlined,
+          title: 'Leaderboard',
+          onTap: () {
+            Get.toNamed(AppRoutes.leaderBoardScreen);
+          },
+        ),
         _buildMenuItem(
           icon: Icons.rate_review_outlined,
           title: 'Ratings & Review',
+          onTap: () {
+            Get.toNamed(AppRoutes.ratingReviewScreen);
+          },
         ),
 
-        // Vacation Mode ListTile
         Container(
           margin: EdgeInsets.only(bottom: 10.h),
           padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
@@ -292,19 +322,52 @@ class ProfileScreen extends StatelessWidget {
         _buildMenuItem(
           icon: Icons.person_outline_rounded,
           title: 'Account information',
+          onTap: () {
+            Get.toNamed(AppRoutes.profileInformationScreen);
+          },
         ),
-        _buildMenuItem(icon: Icons.people_outline_rounded, title: 'Friends'),
+        _buildMenuItem(
+          icon: Icons.people_outline_rounded,
+          title: 'Friends',
+          onTap: () {
+            Get.toNamed(AppRoutes.friendsScreen);
+          },
+        ),
         _buildMenuItem(
           icon: Icons.calendar_today_outlined,
           title: 'My Bookings',
+          onTap: () {
+            Get.toNamed(AppRoutes.myBookingScreen);
+          },
         ),
-        _buildMenuItem(icon: Icons.storefront_outlined, title: 'Shop'),
-        _buildMenuItem(icon: Icons.favorite_border_rounded, title: 'Favorites'),
+        _buildMenuItem(
+          icon: Icons.storefront_outlined,
+          title: 'Shop',
+          onTap: () {
+            Get.toNamed(AppRoutes.shopScreen);
+          },
+        ),
+        _buildMenuItem(
+          icon: Icons.favorite_border_rounded,
+          title: 'Favorites',
+          onTap: () {
+            Get.toNamed(AppRoutes.favoriteCompanionsScreen);
+          },
+        ),
         _buildMenuItem(
           icon: Icons.card_membership_outlined,
           title: 'Membership',
+          onTap: () {
+            Get.toNamed(AppRoutes.membershipScreen);
+          },
         ),
-        _buildMenuItem(icon: Icons.shield_outlined, title: 'Trust & Safety'),
+        _buildMenuItem(
+          icon: Icons.shield_outlined,
+          title: 'Trust & Safety',
+          onTap: () {
+            Get.toNamed(AppRoutes.verificationCenterScreen);
+          },
+        ),
         _buildMenuItem(icon: Icons.settings_outlined, title: 'Setting'),
       ],
     );
@@ -349,32 +412,35 @@ class ProfileScreen extends StatelessWidget {
 class _HubCard extends StatelessWidget {
   final IconData icon;
   final String title;
-
-  const _HubCard({required this.icon, required this.title});
+  final VoidCallback? onTab;
+  const _HubCard({required this.icon, required this.title, this.onTab});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(12.r),
-      decoration: BoxDecoration(
-        color: const Color(0xFF162232),
-        borderRadius: BorderRadius.circular(16.r),
-        border: Border.all(color: Colors.white.withValues(alpha: 0.04)),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Icon(icon, color: const Color(0xFFE5BA73), size: 22.r),
-          Text(
-            title,
-            style: GoogleFonts.dmSans(
-              color: Colors.white,
-              fontSize: 12.sp,
-              fontWeight: FontWeight.w500,
+    return GestureDetector(
+      onTap: onTab,
+      child: Container(
+        padding: EdgeInsets.all(12.r),
+        decoration: BoxDecoration(
+          color: const Color(0xFF162232),
+          borderRadius: BorderRadius.circular(16.r),
+          border: Border.all(color: Colors.white.withValues(alpha: 0.04)),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Icon(icon, color: const Color(0xFFE5BA73), size: 22.r),
+            Text(
+              title,
+              style: GoogleFonts.dmSans(
+                color: Colors.white,
+                fontSize: 12.sp,
+                fontWeight: FontWeight.w500,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
