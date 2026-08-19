@@ -67,6 +67,7 @@ class OnboardingScreen extends StatelessWidget {
                   CustomButton(
                     text: "Become a Member",
                     onTap: (){
+                      // Get.toNamed(AppRoutes.signUpScreen);
                       Get.toNamed(AppRoutes.homescreen);
                     },
                   ),

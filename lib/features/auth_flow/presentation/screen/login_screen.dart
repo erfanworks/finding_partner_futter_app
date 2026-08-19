@@ -136,7 +136,9 @@ class SignInScreen extends StatelessWidget {
                         width: double.infinity,
                         height: 54.h,
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.toNamed(AppRoutes.homescreen);
+                          },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: const Color(0xFFEDC286),
                             elevation: 0,

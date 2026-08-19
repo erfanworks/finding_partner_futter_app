@@ -12,7 +12,7 @@ class ExploreScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: const CustomBottomNavBar(selectedIndex: 1),
+      bottomNavigationBar: const CustomBottomNavBar(selectedIndex: 3),
       body: SafeArea(
         child: GetBuilder<ExploreController>(
           init: ExploreController(),

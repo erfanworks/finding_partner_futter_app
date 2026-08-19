@@ -111,16 +111,16 @@ class SignUpScreen extends StatelessWidget {
                           Icon(
                             Icons.info_outline,
                             color: Colors.white38,
-                            size: 16.sp,
+                            size: 24.sp,
                           ),
                           SizedBox(width: 6.w),
                           Expanded(
                             child: Text(
                               "Your unique username is visible to everyone. Offensive or abusive usernames are not allowed and will result in a ban.",
                               style: GoogleFonts.dmSans(
-                                color: Colors.white38,
-                                fontSize: 11.sp,
-                                height: 1.3,
+                                color: Color(0xFFE6E6E8),
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.w400
                               ),
                             ),
                           ),
@@ -181,22 +181,32 @@ class SignUpScreen extends StatelessWidget {
                             fontSize: 12.sp,
                             height: 1.4,
                           ),
-                          children: const [
-                            TextSpan(text: "By continuing you agree to our "),
+                          children: [
+                            TextSpan(text: "By continuing you agree to our ",style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w400,
+                              color: Color(0xFFE6E6E8)
+                            )),
                             TextSpan(
                               text: "Terms & Conditions",
                               style: TextStyle(
                                 color: Colors.white,
-                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w600,
                                 decoration: TextDecoration.underline,
                               ),
                             ),
-                            TextSpan(text: " and\nhave read our "),
+                            TextSpan(text: " and\nhave read our ",style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w400,
+                                color: Color(0xFFE6E6E8)
+                            )),
                             TextSpan(
                               text: "Privacy Policy",
                               style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
+                                color: Color(0xFFE6E6E8),
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400,
                                 decoration: TextDecoration.underline,
                               ),
                             ),
@@ -216,7 +226,7 @@ class SignUpScreen extends StatelessWidget {
                           ),
                           GestureDetector(
                             onTap: () {
-                              Get.back();
+                              Get.toNamed(AppRoutes.logInScreen);
                             },
                             child: Text(
                               "Sign In",

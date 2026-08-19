@@ -53,7 +53,10 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
         actions: [
-          _buildIconButton(Icons.account_balance_wallet_outlined),
+          _buildIconButton(
+            Icons.account_balance_wallet_outlined,
+            onTap: () => Get.toNamed(AppRoutes.bookingsScreen),
+          ),
           SizedBox(width: 8.w),
           _buildIconButton(
             Icons.notifications_none,
@@ -217,7 +220,7 @@ class HomeScreen extends StatelessWidget {
         decoration: BoxDecoration(
           color: const Color(0xFF131B29),
           borderRadius: BorderRadius.circular(30.r),
-          border: Border.all(color: const Color(0xFFEDC286), width: 1),
+          border: Border.all(color: const Color(0xFFB78134), width: 2.w),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -426,7 +429,7 @@ class HomeScreen extends StatelessWidget {
       padding: EdgeInsets.all(12.r),
       decoration: BoxDecoration(
         color: Color(0xFF1E293B),
-        borderRadius: BorderRadius.circular(12.r),
+        borderRadius: BorderRadius.circular(24.r),
         border: Border.all(width: 1.w, color: Color(0xFF3D4754)),
       ),
       child: Row(

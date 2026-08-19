@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../../nav_bar_flow/screen/nav_bar.dart';
 import '../controller/shop_controller.dart';
 
 
@@ -69,6 +70,7 @@ class ShopScreen extends StatelessWidget {
           ),
         ],
       ),
+      bottomNavigationBar: CustomBottomNavBar(selectedIndex: 2),
       body: GetBuilder<ShopController>(
         init: ShopController(),
         builder: (controller) {

@@ -1,6 +1,7 @@
 import 'package:amychebbi/core/constants/app_color.dart';
 import 'package:amychebbi/core/constants/app_images.dart';
 import 'package:amychebbi/core/route/app_routes.dart';
+import 'package:amychebbi/features/help_and_support_flow/presentation/screen/help_and_support_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -8,6 +9,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../nav_bar_flow/screen/nav_bar.dart';
 import '../controller/profile_controller.dart';
+import '../widget/show_logout_dialog.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -36,7 +38,7 @@ class ProfileScreen extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      bottomNavigationBar: CustomBottomNavBar(selectedIndex: 3),
+      bottomNavigationBar: CustomBottomNavBar(selectedIndex: 4),
       body: GetBuilder<ProfileController>(
         init: ProfileController(),
         builder: (controller) {
@@ -344,13 +346,13 @@ class ProfileScreen extends StatelessWidget {
             Get.toNamed(AppRoutes.myBookingScreen);
           },
         ),
-        _buildMenuItem(
-          icon: Icons.storefront_outlined,
-          title: 'Shop',
-          onTap: () {
-            Get.toNamed(AppRoutes.shopScreen);
-          },
-        ),
+        // _buildMenuItem(
+        //   icon: Icons.storefront_outlined,
+        //   title: 'Shop',
+        //   onTap: () {
+        //     Get.toNamed(AppRoutes.shopScreen);
+        //   },
+        // ),
         _buildMenuItem(
           icon: Icons.favorite_border_rounded,
           title: 'Favorites',
@@ -372,7 +374,29 @@ class ProfileScreen extends StatelessWidget {
             Get.toNamed(AppRoutes.verificationCenterScreen);
           },
         ),
-        _buildMenuItem(icon: Icons.settings_outlined, title: 'Setting'),
+        _buildMenuItem(icon: Icons.settings_outlined, title: 'Setting',onTap: (){
+          Get.toNamed(AppRoutes.settingsScreen);
+        })
+        ,_buildMenuItem(icon: Icons.privacy_tip_outlined, title: 'Privacy Policy',onTap: (){
+          Get.toNamed(AppRoutes.privacyPolicyScreen);
+        })
+        ,_buildMenuItem(icon: Icons.description_outlined, title: 'Terms & Conditions',onTap: (){
+          Get.toNamed(AppRoutes.termsAndConditionScreen);
+        }),
+        _buildMenuItem(icon: Icons.delete_outline_sharp, title: 'Delete Account',onTap: (){
+          Get.toNamed(AppRoutes.deleteAccountScreen);
+        }),
+        _buildMenuItem(icon: Icons.settings_outlined, title: 'Help & Support',onTap: (){
+          Get.to(HelpSupportScreen());
+        }),
+        _logoutBuildMenuItem(title: "Logout",onTap: (){
+          showLogoutDialog(
+            Get.context!,
+            onLogout: () {
+              Get.offAllNamed(AppRoutes.logInScreen);
+            },
+          );
+        }),
       ],
     );
   }
@@ -408,6 +432,41 @@ class ProfileScreen extends StatelessWidget {
           color: Colors.white70,
           size: 14,
         ),
+      ),
+    );
+  }
+
+
+  Widget _logoutBuildMenuItem({
+    required String title,
+    VoidCallback? onTap,
+  }) {
+    return Container(
+      margin: EdgeInsets.only(bottom: 8.h),
+      child: ListTile(
+        onTap: onTap,
+        contentPadding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 0),
+        leading: Container(
+          padding: EdgeInsets.all(10.r),
+          decoration: BoxDecoration(
+            color: const Color(0xFFFF383C).withValues(alpha: 0.2),
+            borderRadius: BorderRadius.circular(10.r),
+          ),
+          child: Icon(Icons.logout, color: const Color(0xFFFF383C), size: 20.r),
+        ),
+        title: Text(
+          title,
+          style: GoogleFonts.dmSans(
+            color: Color(0xFFFF383C),
+            fontSize: 14.sp,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+        // trailing: const Icon(
+        //   Icons.arrow_forward_ios_rounded,
+        //   color: Colors.white70,
+        //   size: 14,
+        // ),
       ),
     );
   }

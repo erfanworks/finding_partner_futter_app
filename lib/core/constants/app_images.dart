@@ -9,6 +9,7 @@ class AppImages {
   static const String confirmIdentity = "$baseurl/confirm_identity.png";
   static const String criminalCheckIcon = "$baseurl/criminal_check_icon.png";
   static const String criminalImage = "$baseurl/criminal_image.png";
+  static const String japansCoin = "$baseurl/chinis_coin.png";
 
 
   //>>>>>>>>>>>>>>>> Icons <<<<<<<<<<<<<<<<<<//

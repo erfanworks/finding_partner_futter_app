@@ -24,6 +24,7 @@ import 'package:amychebbi/features/leader_board/presentation/screen/leader_board
 import 'package:amychebbi/features/member_ship_flow/presentation/screen/member_ship_screen.dart';
 import 'package:amychebbi/features/message_flow/presentation/controller/chat_screen_controller.dart';
 import 'package:amychebbi/features/message_flow/presentation/screen/message_list_screen.dart';
+import 'package:amychebbi/features/myBooking_and_componing_booking_flow/presentation/screen/bookings_screen.dart';
 import 'package:amychebbi/features/my_booking/presentaiton/screen/my_booking_screen.dart';
 import 'package:amychebbi/features/notification_flow/presentation/controller/notification_controller.dart';
 import 'package:amychebbi/features/profile_flow/presentation/controller/profile_controller.dart';
@@ -41,6 +42,8 @@ import 'package:amychebbi/features/save_feed_flow/presentation/screen/save_feed_
 import 'package:amychebbi/features/service_flow/presentation/controller/service_controller.dart';
 import 'package:amychebbi/features/service_flow/presentation/screen/add_service_screen.dart';
 import 'package:amychebbi/features/service_flow/presentation/screen/service_screen.dart';
+import 'package:amychebbi/features/setting_flow/presentation/screen/privicy_policy.dart';
+import 'package:amychebbi/features/setting_flow/presentation/screen/terms_and_condition.dart';
 import 'package:amychebbi/features/shop_flow/presentation/controller/avater_controller.dart';
 import 'package:amychebbi/features/shop_flow/presentation/controller/seriu_shop_controller.dart';
 import 'package:amychebbi/features/shop_flow/presentation/controller/shop_controller.dart';
@@ -69,10 +72,16 @@ import '../../features/friends_flow/presentation/screen/friends_screen.dart';
 import '../../features/home_flow/presentation/screen/categorie_screen.dart';
 import '../../features/home_flow/presentation/screen/home_screen.dart';
 import '../../features/member_ship_flow/presentation/controller/member_ship_controller.dart';
+import '../../features/myBooking_and_componing_booking_flow/presentation/controller/bookings_controller.dart';
 import '../../features/notification_flow/presentation/screen/notification_screen.dart';
 import '../../features/onboarding/presentation/screen/onboarding_screen.dart';
 import '../../features/rank_and_reputation_flow/presentation/controller/rank_and_reputation_controller.dart';
 import '../../features/rating_and_review_flow/presentation/controller/rating_and_review_controller.dart';
+import '../../features/setting_flow/presentation/controller/settings_controller.dart';
+import '../../features/setting_flow/presentation/screen/change_password_screen.dart';
+import '../../features/setting_flow/presentation/screen/delete_account_screen.dart';
+import '../../features/setting_flow/presentation/screen/notification_settings_screen.dart';
+import '../../features/setting_flow/presentation/screen/settings_screen.dart';
 import '../../features/shop_flow/presentation/controller/seiru_wallet_controller.dart';
 import '../../features/shop_flow/presentation/controller/shop_gift_controller.dart';
 import '../../features/shop_flow/presentation/screen/avatarFramesScreen.dart';
@@ -126,6 +135,13 @@ class AppRoutes {
   static const String seiWalletScreen = '/seiWalletScreen';
   static const String seiShopScreen = '/seiShopScreen';
   static const String messageListScreen = '/messageListScreen';
+  static const String bookingsScreen = '/bookingsScreen';
+  static const String settingsScreen = '/settingsScreen';
+  static const String changePasswordScreen = '/changePasswordScreen';
+  static const String notificationSettingScreen = '/notificationSettingScreen';
+  static const String deleteAccountScreen = '/deleteAccountScreen';
+  static const String privacyPolicyScreen = '/privacyPolicyScreen';
+  static const String termsAndConditionScreen = '/termsAndConditionScreen';
 
 
   static List<GetPage> routes = [
@@ -451,6 +467,55 @@ class AppRoutes {
       page: () => MessageListScreen(),
       binding: BindingsBuilder((){
         Get.put<ChatScreenController>(ChatScreenController());
+      }),
+    ),
+    GetPage(
+      name: AppRoutes.bookingsScreen,
+      page: () => BookingsScreen(),
+      binding: BindingsBuilder((){
+        Get.put<BookingsController>(BookingsController());
+      }),
+    ),
+    GetPage(
+      name: AppRoutes.settingsScreen,
+      page: () => SettingsScreen(),
+      binding: BindingsBuilder((){
+        Get.put<SettingsController>(SettingsController());
+      }),
+    ),
+    GetPage(
+      name: AppRoutes.changePasswordScreen,
+      page: () => ChangePasswordScreen(),
+      binding: BindingsBuilder((){
+        Get.put<SettingsController>(SettingsController());
+      }),
+    ),
+    GetPage(
+      name: AppRoutes.notificationSettingScreen,
+      page: () => NotificationSettingScreen(),
+      binding: BindingsBuilder((){
+        Get.put<SettingsController>(SettingsController());
+      }),
+    ),
+    GetPage(
+      name: AppRoutes.deleteAccountScreen,
+      page: () => DeleteAccountScreen(),
+      binding: BindingsBuilder((){
+        Get.put<SettingsController>(SettingsController());
+      }),
+    ),
+    GetPage(
+      name: AppRoutes.privacyPolicyScreen,
+      page: () => PrivacyPolicyScreen(),
+      binding: BindingsBuilder((){
+        // Get.put<SettingsController>(SettingsController());
+      }),
+    ),
+    GetPage(
+      name: AppRoutes.termsAndConditionScreen,
+      page: () => TermsAndConditionScreen(),
+      binding: BindingsBuilder((){
+        // Get.put<SettingsController>(SettingsController());
       }),
     ),
   ];

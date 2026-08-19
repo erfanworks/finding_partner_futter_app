@@ -32,14 +32,19 @@ class CustomBottomNavBar extends StatelessWidget {
         inactiveIcon: Icons.home_outlined,
       ),
       NavItemData(
+        label: 'message',
+        activeIcon: Icons.messenger_outline_outlined,
+        inactiveIcon: Icons.messenger_outline,
+      ),
+      NavItemData(
+        label: 'shop',
+        activeIcon: Icons.shop_sharp,
+        inactiveIcon: Icons.shop_sharp,
+      ),
+      NavItemData(
         label: 'Explore',
         activeIcon: Icons.explore_rounded,
         inactiveIcon: Icons.explore_outlined,
-      ),
-      NavItemData(
-        label: 'Favorite',
-        activeIcon: Icons.favorite_rounded,
-        inactiveIcon: Icons.favorite_border_rounded,
       ),
       NavItemData(
         label: 'Profile',

@@ -1,9 +1,9 @@
 import 'package:amychebbi/core/constants/app_color.dart';
+import 'package:amychebbi/core/constants/app_images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../controller/seiru_wallet_controller.dart';
 
 
@@ -15,7 +15,7 @@ class SeiruWalletScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         surfaceTintColor: AppColors.appBackgroundColor,
-        elevation: 0,
+        // elevation: 0,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_new, color: Colors.white, size: 18),
           onPressed: () => Get.back(),
@@ -30,147 +30,128 @@ class SeiruWalletScreen extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: GetBuilder<SeiruWalletController>(
-        init: SeiruWalletController(),
-        builder: (controller) {
-          return SingleChildScrollView(
-            physics: const BouncingScrollPhysics(),
-            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Center(
-                  child: Column(
-                    children: [
-                      SizedBox(height: 15.h),
-                      Container(
-                        width: 170.r,
-                        height: 170.r,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          gradient: const RadialGradient(
-                            colors: [Color(0xFF8D622F), Color(0xFF382312)],
-                            center: Alignment.topLeft,
-                          ),
-                          border: Border.all(color: const Color(0xFFE5B069), width: 3),
-                          boxShadow: [
-                            BoxShadow(
-                              color: const Color(0xFFE5B069).withValues(alpha: 0.15),
-                              blurRadius: 30,
-                              spreadRadius: 5,
+      body: SafeArea(
+        child: GetBuilder<SeiruWalletController>(
+          init: SeiruWalletController(),
+          builder: (controller) {
+            return SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
+              padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Center(
+                    child: Column(
+                      children: [
+                        SizedBox(height: 15.h),
+                        Container(
+                          width: 170.r,
+                          height: 170.r,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            gradient: const RadialGradient(
+                              colors: [Color(0xFF8D622F), Color(0xFF382312)],
+                              center: Alignment.topLeft,
                             ),
-                          ],
+                            border: Border.all(color: const Color(0xFFE5B069), width: 3),
+                            boxShadow: [
+                              BoxShadow(
+                                color: const Color(0xFFE5B069).withValues(alpha: 0.2),
+                                blurRadius: 70,
+                                spreadRadius: 19,
+                              ),
+                            ],
+                          ),
+                          child: Image.asset(AppImages.japansCoin)
                         ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              '生',
-                              style: TextStyle(
-                                fontSize: 60.sp,
-                                color: const Color(0xFFE5B069),
-                                fontWeight: FontWeight.bold,
+                        SizedBox(height: 16.h),
+                        Text(
+                          '${controller.availableSeiru}',
+                          style: GoogleFonts.dmSans(
+                            color: const Color(0xFFE5B069),
+                            fontSize: 36.sp,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(height: 2.h),
+                        Text(
+                          'Available Seiru',
+                          style: GoogleFonts.dmSans(
+                            color: const Color(0xFFBF7815),
+                            fontSize: 16.sp,
+                            fontWeight: FontWeight.w400
+                          ),
+                        ),
+                        SizedBox(height: 16.h),
+                        Container(
+                          width: 170.w,
+                          height: 42.h,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(21.r),
+                            gradient: const LinearGradient(
+                              colors: [Color(0xFFE5B069), Color(0xFFB87B2E)],
+                            ),
+                          ),
+                          child: ElevatedButton(
+                            onPressed: controller.onGetSeiruPressed,
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.transparent,
+                              shadowColor: Colors.transparent,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(21.r),
                               ),
                             ),
-                            Text(
-                              'SEIRU',
+                            child: Text(
+                              'Get Seiru',
                               style: GoogleFonts.dmSans(
-                                color: const Color(0xFFE5B069),
-                                fontSize: 14.sp,
-                                letterSpacing: 3,
+                                color: const Color(0xFF0A111E),
+                                fontSize: 16.sp,
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(height: 16.h),
-                      Text(
-                        '${controller.availableSeiru}',
-                        style: GoogleFonts.dmSans(
-                          color: const Color(0xFFE5B069),
-                          fontSize: 36.sp,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      SizedBox(height: 2.h),
-                      Text(
-                        'Available Seiru',
-                        style: GoogleFonts.dmSans(
-                          color: const Color(0xFFBF7815),
-                          fontSize: 16.sp,
-                          fontWeight: FontWeight.w400
-                        ),
-                      ),
-                      SizedBox(height: 16.h),
-                      Container(
-                        width: 170.w,
-                        height: 42.h,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(21.r),
-                          gradient: const LinearGradient(
-                            colors: [Color(0xFFE5B069), Color(0xFFB87B2E)],
                           ),
                         ),
-                        child: ElevatedButton(
-                          onPressed: controller.onGetSeiruPressed,
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.transparent,
-                            shadowColor: Colors.transparent,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(21.r),
-                            ),
-                          ),
-                          child: Text(
-                            'Get Seiru',
-                            style: GoogleFonts.dmSans(
-                              color: const Color(0xFF0A111E),
-                              fontSize: 16.sp,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 28.h),
-                Text(
-                  'Recent Transactions',
-                  style: GoogleFonts.dmSans(
-                    color: Colors.white,
-                    fontSize: 18.sp,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: 12.h),
-                Container(
-                  decoration: BoxDecoration(
-                    color: const Color(0xFF131B2B),
-                    borderRadius: BorderRadius.circular(24.r),
-                    border: Border.all(
-                      color: Colors.white.withValues(alpha: 0.05),
+                      ],
                     ),
                   ),
-                  child: ListView.separated(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemCount: controller.transactions.length,
-                    separatorBuilder: (context, index) => Divider(
-                      color: Colors.white.withValues(alpha: 0.05),
-                      height: 1,
+                  SizedBox(height: 28.h),
+                  Text(
+                    'Recent Transactions',
+                    style: GoogleFonts.dmSans(
+                      color: Colors.white,
+                      fontSize: 18.sp,
+                      fontWeight: FontWeight.bold,
                     ),
-                    itemBuilder: (context, index) {
-                      final item = controller.transactions[index];
-                      return _buildTransactionRow(item);
-                    },
                   ),
-                ),
-                SizedBox(height: 20.h),
-              ],
-            ),
-          );
-        },
+                  SizedBox(height: 12.h),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: const Color(0xFF131B2B),
+                      borderRadius: BorderRadius.circular(24.r),
+                      border: Border.all(
+                        color: Colors.white.withValues(alpha: 0.05),
+                      ),
+                    ),
+                    child: ListView.separated(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: controller.transactions.length,
+                      separatorBuilder: (context, index) => Divider(
+                        color: Colors.white.withValues(alpha: 0.05),
+                        height: 1,
+                      ),
+                      itemBuilder: (context, index) {
+                        final item = controller.transactions[index];
+                        return _buildTransactionRow(item);
+                      },
+                    ),
+                  ),
+                  SizedBox(height: 20.h),
+                ],
+              ),
+            );
+          },
+        ),
       ),
     );
   }

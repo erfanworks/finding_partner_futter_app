@@ -14,12 +14,15 @@ class NavigationController extends GetxController {
       Get.offAllNamed(AppRoutes.homescreen);
         break;
       case 1:
-      Get.toNamed(AppRoutes.exploreScreen);
+      Get.toNamed(AppRoutes.messageListScreen);
         break;
       case 2:
-      Get.toNamed(AppRoutes.favoriteCompanionsScreen);
+      Get.toNamed(AppRoutes.shopScreen);
         break;
       case 3:
+      Get.toNamed(AppRoutes.exploreScreen);
+        break;
+      case 4:
       Get.toNamed(AppRoutes.profileScreen);
         break;
     }
