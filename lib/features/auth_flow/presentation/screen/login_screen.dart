@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SignInScreen extends StatelessWidget {
-  SignInScreen({super.key});
+  const SignInScreen({super.key});
 
 
 
@@ -32,17 +32,17 @@ class SignInScreen extends StatelessWidget {
               ),
               SafeArea(
                 child: SingleChildScrollView(
-                  padding: EdgeInsets.symmetric(horizontal: 24.0),
+                  padding: EdgeInsets.symmetric(horizontal: 16.0),
                   child: Column(
                     children: [
                       SizedBox(height: 80.h),
-                      Image.asset(AppImages.logo, height: 90.h),
+                      Image.asset(AppImages.logo, height: 100.h,width: 200.w),
                       SizedBox(height: 40.h),
                       Text(
                         "Sign In",
                         style: GoogleFonts.dmSans(
-                          fontSize: 28.sp,
-                          fontWeight: FontWeight.bold,
+                          fontSize: 32.sp,
+                          fontWeight: FontWeight.w700,
                           color: Colors.white,
                         ),
                       ),
@@ -52,13 +52,14 @@ class SignInScreen extends StatelessWidget {
                         style: GoogleFonts.dmSans(
                           fontSize: 14.sp,
                           color: Color(0xFFB2B2B7),
+                          fontWeight: FontWeight.w400
                         ),
                       ),
                       SizedBox(height: 40.h),
                       _socialButton(
                         iconPath: AppImages.googleIcon,
                         text: "Continue with Google",
-                        backgroundColor: const Color(0xFF1E2838),
+                        backgroundColor: const Color(0xFF1E293B),
                         textColor: Colors.white,
                         borderColor: Colors.white10,
                         onTap: () {},
@@ -84,8 +85,9 @@ class SignInScreen extends StatelessWidget {
                             child: Text(
                               "or sign in with",
                               style: GoogleFonts.dmSans(
-                                color: Colors.white54,
-                                fontSize: 13.sp,
+                                color: Color(0xFFB2B2B7),
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.w500
                               ),
                             ),
                           ),
@@ -162,8 +164,9 @@ class SignInScreen extends StatelessWidget {
                           Text(
                             "Don’t have an account? ",
                             style: GoogleFonts.dmSans(
-                              color: Colors.white70,
+                              color: Color(0xFFFFFFFF),
                               fontSize: 14.sp,
+                              fontWeight: FontWeight.w600
                             ),
                           ),
                           GestureDetector(
@@ -173,8 +176,8 @@ class SignInScreen extends StatelessWidget {
                             child: Text(
                               "Sign Up",
                               style: GoogleFonts.dmSans(
-                                color: const Color(0xFFEDC286),
-                                fontWeight: FontWeight.bold,
+                                color: Color(0xFFEDC286),
+                                fontWeight: FontWeight.w600,
                                 fontSize: 14.sp,
                               ),
                             ),
@@ -207,7 +210,7 @@ class SignInScreen extends StatelessWidget {
         filled: true,
         fillColor:  Color(0xFF1E293B),
         hintText: hintText,
-        hintStyle: GoogleFonts.dmSans(color: Color(0xFFB2B2B7), fontSize: 14.sp),
+        hintStyle: GoogleFonts.dmSans(color: Color(0xFFB2B2B7), fontSize: 14.sp,fontWeight: FontWeight.w400),
         prefixIcon: Padding(
           padding: EdgeInsets.only(left: 16.w, top: 12.h, bottom: 12.h, right: 10.w),
           child: prefixIcon,
@@ -257,44 +260,43 @@ class SignInScreen extends StatelessWidget {
     IconData? iconData,
     Color? borderColor,
   }) {
-    return SizedBox(
-      width: double.infinity,
-      height: 52.h,
-      child: ElevatedButton(
-        onPressed: onTap,
-        style: ElevatedButton.styleFrom(
-          backgroundColor: backgroundColor,
-          elevation: 0,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(500.r),
-            side: borderColor != null
-                ? BorderSide(color: borderColor)
-                : BorderSide.none,
-          ),
+    return Container(
+        width: double.infinity,
+        height: 52.h,
+        decoration: BoxDecoration(
+          color: backgroundColor,
+          borderRadius: BorderRadius.circular(500.r),
+          border: borderColor != null
+              ? Border.all(color: borderColor, width: 1.w)
+              : null,
         ),
-        child: Stack(
-          alignment: Alignment.center,
-            children: [
-              Align(
-                alignment: Alignment.centerLeft,
-                child: iconPath != null
-                    ? Image.asset(iconPath, height: 25.h)
-                    : iconData != null
-                    ? Icon(iconData, color: textColor, size: 35.sp)
-                    : const SizedBox.shrink(),
-              ),
-              SizedBox(width: 10),
-              Text(
-                text,
-                style: GoogleFonts.dmSans(
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.w600,
-                  color: textColor,
+        child: GestureDetector(
+          onTap: onTap,
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.w),
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: iconPath != null
+                      ? Image.asset(iconPath, height: 30.h)
+                      : iconData != null
+                      ? Icon(iconData, color: textColor, size: 33.sp)
+                      : const SizedBox.shrink(),
                 ),
-              ),
-            ],
+                Text(
+                  text,
+                  style: GoogleFonts.dmSans(
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.w600,
+                    color: textColor,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
-      );
-  }
+    );
+    }
 }

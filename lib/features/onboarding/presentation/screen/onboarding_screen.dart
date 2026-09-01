@@ -29,17 +29,17 @@ class OnboardingScreen extends StatelessWidget {
                   const Spacer(flex: 2),
                   Image.asset(
                     AppImages.logo,
-                    height: 100,
+                    height: 120.h,
+                    width: 231.h,
                   ),
                   const Spacer(flex: 2),
                   RichText(
                     textAlign: TextAlign.center,
                     text: TextSpan(
                       style: GoogleFonts.dmSans(
-                        fontSize: 28,
-                        fontWeight: FontWeight.bold,
+                        fontSize: 32.sp,
+                        fontWeight: FontWeight.w700,
                         color: Colors.white,
-                        height: 1.3,
                       ),
                       children: [
                         const TextSpan(text: "Need someone "),
@@ -47,13 +47,15 @@ class OnboardingScreen extends StatelessWidget {
                           text: "real\n",
                           style: TextStyle(
                             color: const Color(0xFFEDC286),
+                            fontWeight: FontWeight.w700,
+                            fontSize: 32.sp,
                           ),
                         ),
                         const TextSpan(text: "right now ?"),
                       ],
                     ),
                   ),
-                  const SizedBox(height: 16),
+                  SizedBox(height: 30.h),
                   Text(
                     "Find your verified Companion,\nsharing your interests and showing up for you.",
                     textAlign: TextAlign.center,
@@ -67,11 +69,11 @@ class OnboardingScreen extends StatelessWidget {
                   CustomButton(
                     text: "Become a Member",
                     onTap: (){
-                      // Get.toNamed(AppRoutes.signUpScreen);
-                      Get.toNamed(AppRoutes.homescreen);
+                      Get.toNamed(AppRoutes.signUpScreen);
+                      // Get.toNamed(AppRoutes.homescreen);
                     },
                   ),
-                  SizedBox(height: 16),
+                  SizedBox(height: 16.h),
                   SizedBox(
                     width: double.infinity,
                     height: 54,
@@ -80,9 +82,9 @@ class OnboardingScreen extends StatelessWidget {
                         Get.toNamed(AppRoutes.logInScreen);
                       },
                       style: OutlinedButton.styleFrom(
-                        side: const BorderSide(
+                        side: BorderSide(
                           color: Color(0xFFEDC286),
-                          width: 1,
+                          width: 1.w,
                         ),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(500.r),
@@ -98,8 +100,7 @@ class OnboardingScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-
-                  const SizedBox(height: 24),
+                  SizedBox(height: 70.h),
                 ],
               ),
             ),

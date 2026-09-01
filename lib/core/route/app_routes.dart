@@ -58,6 +58,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/src/bindings_interface.dart';
 import 'package:get/get_instance/src/extension_instance.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
+import '../../features/auth_flow/presentation/screen/forget_password_verify_screen.dart';
 import '../../features/auth_flow/presentation/screen/login_screen.dart';
 import '../../features/categrory_select_flow/presentation/screen/category_search_screen.dart';
 import '../../features/community_feed/presentation/controller/create_post_controller.dart';
@@ -142,6 +143,7 @@ class AppRoutes {
   static const String deleteAccountScreen = '/deleteAccountScreen';
   static const String privacyPolicyScreen = '/privacyPolicyScreen';
   static const String termsAndConditionScreen = '/termsAndConditionScreen';
+  static const String forgetPasswordVerifyScreen = '/forgetPasswordVerifyScreen';
 
 
   static List<GetPage> routes = [
@@ -178,6 +180,13 @@ class AppRoutes {
     GetPage(
       name: AppRoutes.verificationScreen,
       page: () => VerificationScreen(),
+      binding: BindingsBuilder((){
+        Get.put<AuthController>(AuthController());
+      }),
+    ),
+    GetPage(
+      name: AppRoutes.forgetPasswordVerifyScreen,
+      page: () => ForgetPasswordVerifyScreen(),
       binding: BindingsBuilder((){
         Get.put<AuthController>(AuthController());
       }),

@@ -61,9 +61,9 @@ class VerificationScreen extends StatelessWidget {
                   Text(
                     "Verification",
                     style: GoogleFonts.dmSans(
-                      fontSize: 28.sp,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                      fontSize: 32.sp,
+                      fontWeight: FontWeight.w600,
+                      color: Color(0xFFFDFDFD),
                     ),
                   ),
                   SizedBox(height: 8.h),
@@ -71,17 +71,17 @@ class VerificationScreen extends StatelessWidget {
                     "Enter the code sent to +1 231 456 789",
                     style: GoogleFonts.dmSans(
                       fontSize: 14.sp,
-                      color: const Color(0xFFB2B2B7),
+                      fontWeight: FontWeight.w400,
+                      color: Color(0xFFB2B2B7),
                     ),
                   ),
-                  SizedBox(height: 36.h),
+                  SizedBox(height: 60.h),
                   Text(
                     "ENTER OTP",
                     style: GoogleFonts.dmSans(
-                      fontSize: 11.sp,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.white54,
-                      letterSpacing: 1.2,
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w500,
+                      color: Color(0xFFE6E6E8),
                     ),
                   ),
                   SizedBox(height: 12.h),
@@ -112,7 +112,7 @@ class VerificationScreen extends StatelessWidget {
                       },
                     ),
                   ),
-                  SizedBox(height: 28.h),
+                  SizedBox(height: 60.h),
 
                   Row(
                     children: [
@@ -120,15 +120,16 @@ class VerificationScreen extends StatelessWidget {
                         "Resend code in ",
                         style: GoogleFonts.dmSans(
                           color: Color(0xFFE9E9E9),
-                          fontSize: 14.sp,
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w500
                         ),
                       ),
                       Text(
                         "00: 15",
                         style: GoogleFonts.dmSans(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 14.sp,
+                          color: Color(0xFFE9E9E9),
+                          fontWeight: FontWeight.w700,
+                          fontSize: 16.sp,
                         ),
                       ),
                     ],
@@ -143,7 +144,7 @@ class VerificationScreen extends StatelessWidget {
                       "Choose an alternative verification method",
                       style: GoogleFonts.dmSans(
                         color: const Color(0xFFEDC286),
-                        fontSize: 13.sp,
+                        fontSize: 16.sp,
                         fontWeight: FontWeight.w500,
                       ),
                     ),

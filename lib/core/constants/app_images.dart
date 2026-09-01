@@ -20,5 +20,6 @@ class AppImages {
   static const String worldIcon = "$baseurlIcon/world_icon.png";
   static const String trustSafetyIcon = "$baseurlIcon/trust_safty_icon.png";
   static const String hexagramShapeIcon = "$baseurlIcon/hexagram_shape.png";
+  static const String userNameIcon = "$baseurlIcon/user_name_icon.png";
 
 }

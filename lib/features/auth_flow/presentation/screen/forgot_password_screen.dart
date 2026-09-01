@@ -28,7 +28,7 @@ class ForgotPasswordScreen extends StatelessWidget {
         builder: (controller) {
           return SafeArea(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 24.w),
+              padding: EdgeInsets.symmetric(horizontal: 16.w),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -36,16 +36,16 @@ class ForgotPasswordScreen extends StatelessWidget {
                   Text(
                     "Forgot Password",
                     style: GoogleFonts.dmSans(
-                      fontSize: 28.sp,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                      fontSize: 32.sp,
+                      fontWeight: FontWeight.w600,
+                      color: Color(0xFFFFFFFF),
                     ),
                   ),
                   SizedBox(height: 8.h),
                   Text(
                     "Choose your preferred contact method\nto receive a one-time verification code.",
                     style: GoogleFonts.dmSans(
-                      fontSize: 16.sp,
+                      fontSize: 14.sp,
                       color: Color(0xFFB2B2B7),
                       fontWeight : FontWeight.w400,
                     ),
@@ -55,9 +55,8 @@ class ForgotPasswordScreen extends StatelessWidget {
                     "CONTACT METHOD",
                     style: GoogleFonts.dmSans(
                       fontSize: 14.sp,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.white54,
-                      letterSpacing: 1.2,
+                      fontWeight: FontWeight.w400,
+                      color: Color(0xFFE6E6E8),
                     ),
                   ),
                   SizedBox(height: 10.h),
@@ -76,7 +75,8 @@ class ForgotPasswordScreen extends StatelessWidget {
                     height: 54.h,
                     child: ElevatedButton(
                       onPressed: () {
-                        Get.toNamed(AppRoutes.setNewPasswordScreen);
+                        // Get.toNamed(AppRoutes.setNewPasswordScreen);
+                        Get.toNamed(AppRoutes.forgetPasswordVerifyScreen);
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFFEDC286),
@@ -120,7 +120,7 @@ class ForgotPasswordScreen extends StatelessWidget {
         fillColor: Color(0xFF1E293B),
         hintText: hintText,
         hintStyle: GoogleFonts.dmSans(
-            color: Color(0xFFB2B2B7), fontSize: 14.sp),
+            color: Color(0xFFB2B2B7), fontSize: 14.sp,fontWeight: FontWeight.w400),
         prefixIcon: Padding(
           padding: EdgeInsets.only(
               left: 16.w, top: 12.h, bottom: 12.h, right: 10.w),

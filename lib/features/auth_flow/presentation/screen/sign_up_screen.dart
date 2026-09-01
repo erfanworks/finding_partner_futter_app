@@ -6,8 +6,6 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../controller/auth_controller.dart';
 
-
-
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
 
@@ -30,17 +28,17 @@ class SignUpScreen extends StatelessWidget {
               ),
               SafeArea(
                 child: SingleChildScrollView(
-                  padding: EdgeInsets.symmetric(horizontal: 24.0),
+                  padding: EdgeInsets.symmetric(horizontal: 16.0.sp),
                   child: Column(
                     children: [
                       SizedBox(height: 50.h),
-                      Image.asset(AppImages.logo, height: 80.h),
+                      Image.asset(AppImages.logo, height: 100.h, width: 200.w),
                       SizedBox(height: 30.h),
                       Text(
                         "Become a Member",
                         style: GoogleFonts.dmSans(
-                          fontSize: 28.sp,
-                          fontWeight: FontWeight.bold,
+                          fontSize: 32.sp,
+                          fontWeight: FontWeight.w700,
                           color: Colors.white,
                         ),
                       ),
@@ -49,7 +47,8 @@ class SignUpScreen extends StatelessWidget {
                         "Join a verified community.",
                         style: GoogleFonts.dmSans(
                           fontSize: 14.sp,
-                          color: const Color(0xFFB2B2B7),
+                          color: Color(0xFFB2B2B7),
+                          fontWeight: FontWeight.w400,
                         ),
                       ),
                       SizedBox(height: 32.h),
@@ -59,9 +58,7 @@ class SignUpScreen extends StatelessWidget {
                         backgroundColor: const Color(0xFF1E2838),
                         textColor: Colors.white,
                         borderColor: Colors.white10,
-                        onTap: () {
-
-                        },
+                        onTap: () {},
                       ),
                       SizedBox(height: 12.h),
                       _socialButton(
@@ -69,9 +66,7 @@ class SignUpScreen extends StatelessWidget {
                         text: "Continue with Apple",
                         backgroundColor: const Color(0xFFE5E7EB),
                         textColor: Colors.black,
-                        onTap: () {
-
-                        },
+                        onTap: () {},
                       ),
                       SizedBox(height: 24.h),
                       Row(
@@ -80,12 +75,15 @@ class SignUpScreen extends StatelessWidget {
                             child: Divider(color: Colors.white24, thickness: 1),
                           ),
                           Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 12.0,
+                            ),
                             child: Text(
                               "or sign up with",
                               style: GoogleFonts.dmSans(
-                                color: Colors.white54,
-                                fontSize: 13.sp,
+                                color: Color(0xFFB2B2B7),
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.w500
                               ),
                             ),
                           ),
@@ -98,11 +96,7 @@ class SignUpScreen extends StatelessWidget {
                       _customTextField(
                         controller: controller.usernameController,
                         hintText: "Username",
-                        prefixIcon: Icon(
-                          Icons.person_outline,
-                          color: Colors.white38,
-                          size: 20.sp,
-                        ),
+                        prefixIcon: Image.asset(AppImages.userNameIcon,height: 20.h,width: 20.w),
                       ),
                       SizedBox(height: 10.h),
                       Row(
@@ -110,7 +104,7 @@ class SignUpScreen extends StatelessWidget {
                         children: [
                           Icon(
                             Icons.info_outline,
-                            color: Colors.white38,
+                            color: Color(0xFFEDC286),
                             size: 24.sp,
                           ),
                           SizedBox(width: 6.w),
@@ -120,7 +114,7 @@ class SignUpScreen extends StatelessWidget {
                               style: GoogleFonts.dmSans(
                                 color: Color(0xFFE6E6E8),
                                 fontSize: 14.sp,
-                                fontWeight: FontWeight.w400
+                                fontWeight: FontWeight.w400,
                               ),
                             ),
                           ),
@@ -156,18 +150,18 @@ class SignUpScreen extends StatelessWidget {
                             Get.toNamed(AppRoutes.verificationScreen);
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xFFEDC286),
+                            backgroundColor: Color(0xFFEDC286),
                             elevation: 0,
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30.r),
+                              borderRadius: BorderRadius.circular(500.r),
                             ),
                           ),
                           child: Text(
                             "Sign up",
                             style: GoogleFonts.dmSans(
                               fontSize: 16.sp,
-                              fontWeight: FontWeight.w600,
-                              color: const Color(0xFF1E2838),
+                              fontWeight: FontWeight.w700,
+                              color: const Color(0xFF383945),
                             ),
                           ),
                         ),
@@ -182,31 +176,37 @@ class SignUpScreen extends StatelessWidget {
                             height: 1.4,
                           ),
                           children: [
-                            TextSpan(text: "By continuing you agree to our ",style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w400,
-                              color: Color(0xFFE6E6E8)
-                            )),
+                            TextSpan(
+                              text: "By continuing you agree to our ",
+                              style: GoogleFonts.dmSans(
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.w500,
+                                color: Color(0xFFE6E6E8),
+                              ),
+                            ),
                             TextSpan(
                               text: "Terms & Conditions",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
-                                fontWeight: FontWeight.w600,
+                              style: GoogleFonts.dmSans(
+                                color: Color(0xFFEDC286),
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.w500,
                                 decoration: TextDecoration.underline,
                               ),
                             ),
-                            TextSpan(text: " and\nhave read our ",style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.w400,
-                                color: Color(0xFFE6E6E8)
-                            )),
+                            TextSpan(
+                              text: " and\nhave read our ",
+                              style: GoogleFonts.dmSans(
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.w500,
+                                color: Color(0xFFE6E6E8),
+                              ),
+                            ),
                             TextSpan(
                               text: "Privacy Policy",
-                              style: TextStyle(
-                                color: Color(0xFFE6E6E8),
-                                fontSize: 14,
-                                fontWeight: FontWeight.w400,
+                              style: GoogleFonts.dmSans(
+                                color: Color(0xFFEDC286),
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.w500,
                                 decoration: TextDecoration.underline,
                               ),
                             ),
@@ -220,8 +220,9 @@ class SignUpScreen extends StatelessWidget {
                           Text(
                             "Already have an account? ",
                             style: GoogleFonts.dmSans(
-                              color: Colors.white70,
+                              color: Color(0xFFFFFFFF),
                               fontSize: 14.sp,
+                              fontWeight: FontWeight.w600
                             ),
                           ),
                           GestureDetector(
@@ -231,8 +232,8 @@ class SignUpScreen extends StatelessWidget {
                             child: Text(
                               "Sign In",
                               style: GoogleFonts.dmSans(
-                                color: const Color(0xFFEDC286),
-                                fontWeight: FontWeight.bold,
+                                color: Color(0xFFEDC286),
+                                fontWeight: FontWeight.w600,
                                 fontSize: 14.sp,
                               ),
                             ),
@@ -257,32 +258,47 @@ class SignUpScreen extends StatelessWidget {
     required Widget prefixIcon,
     bool isPassword = false,
   }) {
-    return Container(
-      decoration: BoxDecoration(
-        color: const Color(0xFF1E2838),
-        borderRadius: BorderRadius.circular(30.r),
-        border: Border.all(color: Colors.white10),
+    return TextField(
+      controller: controller,
+      obscureText: isPassword,
+      style: GoogleFonts.dmSans(
+        color: Colors.white,
+        fontSize: 14.sp,
       ),
-      child: TextField(
-        controller: controller,
-        obscureText: isPassword,
-        style: const TextStyle(color: Colors.white),
-        decoration: InputDecoration(
-          hintText: hintText,
-          hintStyle: GoogleFonts.dmSans(color: Colors.white38, fontSize: 14.sp),
-          prefixIcon: Padding(
-            padding: EdgeInsets.only(left: 18.sp, top: 15, bottom: 8, right: 6),
-            child: prefixIcon,
-          ),
-          border: InputBorder.none,
-          contentPadding: const EdgeInsets.symmetric(
-            horizontal: 20,
-            vertical: 16,
-          ),
+      decoration: InputDecoration(
+        filled: true,
+        fillColor: Color(0xFF1E2838),
+        hintText: hintText,
+        hintStyle: GoogleFonts.dmSans(
+          color: Color(0xFFB2B2B7),
+          fontSize: 14.sp,
+          fontWeight: FontWeight.w400
+        ),
+        prefixIcon: Padding(
+          padding: EdgeInsets.only(left: 16.w, right: 5.w),
+          child: prefixIcon,
+        ),
+        prefixIconConstraints: BoxConstraints(
+          minWidth: 0,
+          minHeight: 0,
+        ),
+        contentPadding: EdgeInsets.symmetric(vertical: 16.h, horizontal: 20.w),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(30.r),
+          borderSide: BorderSide(color: Colors.white10, width: 1.w),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(30.r),
+          borderSide: BorderSide(color: Colors.white10, width: 1.w),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(30.r),
+          borderSide: BorderSide(color: Color(0xFFEDC286), width: 1.2.w),
         ),
       ),
     );
   }
+
 
   Widget _socialButton({
     required String text,
@@ -293,42 +309,47 @@ class SignUpScreen extends StatelessWidget {
     IconData? iconData,
     Color? borderColor,
   }) {
-    return SizedBox(
+    return Container(
       width: double.infinity,
       height: 52.h,
-      child: ElevatedButton(
-        onPressed: onTap,
-        style: ElevatedButton.styleFrom(
-          backgroundColor: backgroundColor,
-          elevation: 0,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30.r),
-            side: borderColor != null ? BorderSide(color: borderColor) : BorderSide.none,
-          ),
-        ),
-        child: Stack(
-        alignment: Alignment.center,
-        children: [
-          Align(
-            alignment: Alignment.centerLeft,
-            child: iconPath != null
-                ? Image.asset(iconPath, height: 20.h)
-                : iconData != null
-                ? Icon(iconData, color: textColor, size: 22.sp)
-                : const SizedBox.shrink(),
-          ),
-          SizedBox(width: 10),
-          Text(
-            text,
-            style: GoogleFonts.dmSans(
-              fontSize: 15.sp,
-              fontWeight: FontWeight.w600,
-              color: textColor,
+      decoration: BoxDecoration(
+        color: backgroundColor,
+        borderRadius: BorderRadius.circular(500.r),
+        border: borderColor != null
+            ? Border.all(color: borderColor, width: 1.w)
+            : null,
+      ),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: onTap,
+          borderRadius: BorderRadius.circular(500.r),
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.w),
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: iconPath != null
+                      ? Image.asset(iconPath, height: 30.h)
+                      : iconData != null
+                      ? Icon(iconData, color: textColor, size: 33.sp)
+                      : const SizedBox.shrink(),
+                ),
+                Text(
+                  text,
+                  style: GoogleFonts.dmSans(
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.w600,
+                    color: textColor,
+                  ),
+                ),
+              ],
             ),
           ),
-        ],
+        ),
       ),
-    ),
     );
   }
 }
