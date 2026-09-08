@@ -629,26 +629,26 @@ class CompanionDetailsScreen extends StatelessWidget {
   Widget _buildTrustSection() {
     return Row(
       children: [
-        _buildTrustItem("Verified",Color(0xFF34C759)),
+        _buildTrustItem("Verified", Color(0xFF2ECC71), Color(0xFF34C759)),
         SizedBox(width: 20.w),
-        _buildTrustItem("Clean Criminal Record",Color(0xFFB2B2B7)),
+        _buildTrustItem("Clean Criminal Record", Color(0xFFB2B2B7), Color(0xFFB2B2B7)),
       ],
     );
   }
 
-  Widget _buildTrustItem(String text,Color color) {
+  Widget _buildTrustItem(String text, Color iconColor, Color textColor) {
     return Row(
       children: [
         Icon(
           Icons.check_circle_outline,
-          color: Color(0xFF2ECC71),
+          color: iconColor,
           size: 22.sp,
         ),
         SizedBox(width: 6.w),
         Text(
           text,
           style: GoogleFonts.dmSans(
-            color: color,
+            color: textColor,
             fontSize: 16.sp,
           ),
         ),
