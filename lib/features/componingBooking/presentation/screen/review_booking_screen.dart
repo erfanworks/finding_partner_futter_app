@@ -243,7 +243,7 @@ class ReviewBookingScreen extends GetView<ReviewBookingController> {
         Text(
           label,
           style: GoogleFonts.dmSans(
-            color: Color(0xFFE6E6E8),
+            color: Colors.white,
             fontSize: 14.sp,
             fontWeight: FontWeight.w400
           ),
@@ -313,8 +313,9 @@ class ReviewBookingScreen extends GetView<ReviewBookingController> {
                   child: TextField(
                     controller: controller.customTipController,
                     onChanged: (val) {
-                      if (val.isNotEmpty)
+                      if (val.isNotEmpty) {
                         controller.selectedTipIndex.value = -1;
+                      }
                     },
                     style: GoogleFonts.dmSans(
                       color: Colors.white,
