@@ -137,7 +137,8 @@ class HomeScreen extends StatelessWidget {
               SizedBox(height: 20.h),
               _buildSectionHeader(
                 "Community Feed",
-                actionText: "View All ↗",
+                actionText: "View All",
+                actionIcon: AppImages.viewAllIcon,
                 onTap: () => Get.toNamed(AppRoutes.communityFeedScreen),
               ),
               SizedBox(height: 10.h),
@@ -272,6 +273,7 @@ class HomeScreen extends StatelessWidget {
   Widget _buildSectionHeader(
     String title, {
     String actionText = "See all >",
+    String? actionIcon,
     VoidCallback? onTap,
   }) {
     return Row(
@@ -292,13 +294,30 @@ class HomeScreen extends StatelessWidget {
             minimumSize: Size.zero,
             tapTargetSize: MaterialTapTargetSize.shrinkWrap,
           ),
-          child: Text(
-            actionText,
-            style: GoogleFonts.dmSans(
-              color: const Color(0xFFEDC286),
-              fontWeight: FontWeight.w600,
-              fontSize: 16.sp,
-            ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                actionText,
+                style: GoogleFonts.dmSans(
+                  color: const Color(0xFFEDC286),
+                  fontWeight: FontWeight.w600,
+                  fontSize: 16.sp,
+                ),
+              ),
+              if (actionIcon != null) ...[
+                SizedBox(width: 4.w),
+                SvgPicture.asset(
+                  actionIcon,
+                  height: 14.sp,
+                  width: 14.sp,
+                  colorFilter: const ColorFilter.mode(
+                    Color(0xFFEDC286),
+                    BlendMode.srcIn,
+                  ),
+                ),
+              ],
+            ],
           ),
         ),
       ],

@@ -40,5 +40,6 @@ class AppImages {
   static const String messageIcon = "$baseurlIcon/messege_icon.svg";
   static const String searchIcon = "$baseurlIcon/search_icon.svg";
   static const String leaderboardIcon = "$baseurlIcon/leader_board.svg";
+  static const String viewAllIcon = "$baseurlIcon/veiw_all_icon.svg";
 
 }
