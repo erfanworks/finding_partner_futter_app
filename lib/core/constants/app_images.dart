@@ -38,5 +38,7 @@ class AppImages {
   static const String calendarIcon = "$baseurlIcon/calander_icon.svg";
   static const String notificationIcon = "$baseurlIcon/notification_icon.svg";
   static const String messageIcon = "$baseurlIcon/messege_icon.svg";
+  static const String searchIcon = "$baseurlIcon/search_icon.svg";
+  static const String leaderboardIcon = "$baseurlIcon/leader_board.svg";
 
 }

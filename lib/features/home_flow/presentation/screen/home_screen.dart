@@ -201,7 +201,12 @@ class HomeScreen extends StatelessWidget {
         ),
         child: Row(
           children: [
-            Icon(Icons.search, color: Colors.white54, size: 28.sp),
+            SvgPicture.asset(
+              AppImages.searchIcon,
+              colorFilter: const ColorFilter.mode(Colors.white54, BlendMode.srcIn),
+              height: 24.sp,
+              width: 24.sp,
+            ),
             SizedBox(width: 10.w),
             Text(
               "What are you looking for?",
@@ -232,10 +237,11 @@ class HomeScreen extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              Icons.emoji_events_outlined,
-              color: const Color(0xFFEDC286),
-              size: 25.sp,
+            SvgPicture.asset(
+              AppImages.leaderboardIcon,
+              colorFilter: const ColorFilter.mode(Color(0xFFEDC286), BlendMode.srcIn),
+              height: 24.sp,
+              width: 24.sp,
             ),
             SizedBox(width: 8.w),
             Text(
