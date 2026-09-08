@@ -82,6 +82,7 @@ class CompanionDetailsScreen extends StatelessWidget {
                         review:
                             "Maya made our Miami trip unforgettable. Local spots, great vibes, will book again!",
                       ),
+                      SizedBox(height: 20.h),
                     ],
                   ),
                 ),
@@ -693,6 +694,7 @@ class CompanionDetailsScreen extends StatelessWidget {
       decoration: BoxDecoration(
         color: const Color(0xFF141F2E),
         borderRadius: BorderRadius.circular(12.r),
+        border: Border.all(color: Colors.white.withAlpha(60))
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
