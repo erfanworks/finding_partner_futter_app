@@ -483,13 +483,13 @@ class CompanionDetailsScreen extends StatelessWidget {
                   ),
                 ),
                 child: CircleAvatar(
-                  radius: 16.r,
-                  backgroundColor: const Color(0xFFEDC286),
+                  radius: 14.r,
+                  backgroundColor: Colors.white,
                   child: Text(
                     rank,
                     style: GoogleFonts.dmSans(
-                      color: Colors.black,
-                      fontSize: 12.sp,
+                      color: Color(0xFFCD9341),
+                      fontSize: 16.sp,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -516,16 +516,16 @@ class CompanionDetailsScreen extends StatelessWidget {
   Widget _buildSkillsSection() {
     return Row(
       children: [
-        _buildSkillChip("✈️", "Travel"),
+        _buildSkillChip("assets/images/airplan_img.png", "Travel"),
         SizedBox(width: 10.w),
-        _buildSkillChip("💼", "Business"),
+        _buildSkillChip("assets/images/business_img.png", "Business"),
         SizedBox(width: 10.w),
-        _buildSkillChip("🎮", "Gaming"),
+        _buildSkillChip("assets/images/gaming.png", "Gaming"),
       ],
     );
   }
 
-  Widget _buildSkillChip(String icon, String label) {
+  Widget _buildSkillChip(String imagePath, String label) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 8.h),
       decoration: BoxDecoration(
@@ -534,7 +534,7 @@ class CompanionDetailsScreen extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Text(icon, style: TextStyle(fontSize: 13.sp)),
+          Image.asset(imagePath, height: 16.h),
           SizedBox(width: 6.w),
           Text(
             label,
