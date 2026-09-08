@@ -230,12 +230,14 @@ class LeaderboardScreen extends StatelessWidget {
             Container(
               padding: EdgeInsets.all(isFirst ? 3.r : 2.r),
               decoration: BoxDecoration(
-                border: Border.all(width: 4.w),
+                border: Border.all(
+                  width: 4.w,
+                  color: isFirst ? Colors.transparent : Colors.white,
+                ),
                 shape: BoxShape.circle,
                 gradient: isFirst
                     ? const LinearGradient(colors: [Color(0xFFEDC286), Color(0xFFB17D35)])
                     : null,
-                color: isFirst ? null : Colors.white,
               ),
               child: CircleAvatar(
                 radius: isFirst ? 40.r : 35.r,
