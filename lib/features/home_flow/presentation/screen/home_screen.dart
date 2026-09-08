@@ -230,7 +230,7 @@ class HomeScreen extends StatelessWidget {
         width: double.infinity,
         padding: EdgeInsets.symmetric(vertical: 12.h),
         decoration: BoxDecoration(
-          color: const Color(0xFF131B29),
+          color: const Color(0xFF383945),
           borderRadius: BorderRadius.circular(30.r),
           border: Border.all(color: const Color(0xFFB78134), width: 2.w),
         ),
@@ -372,7 +372,7 @@ class HomeScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12.r),
                 ),
                 child: Text(
-                  "1 hourly rate",
+                  "Hourly rate",
                   style: GoogleFonts.dmSans(
                     color: Color(0xFF645138),
                     fontSize: 16.sp,
@@ -380,13 +380,24 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              Text(
-                "⏱ 45.0 Seirus",
-                style: GoogleFonts.dmSans(
-                  color: Color(0xFF383945),
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.w700,
-                ),
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Image.asset(
+                    AppImages.japansCoin,
+                    height: 18.sp,
+                    width: 18.sp,
+                  ),
+                  SizedBox(width: 4.w),
+                  Text(
+                    "45.0 Seirus",
+                    style: GoogleFonts.dmSans(
+                      color: const Color(0xFF383945),
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
