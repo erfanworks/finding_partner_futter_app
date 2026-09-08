@@ -124,7 +124,7 @@ class MyBookingsScreen extends StatelessWidget {
           margin: EdgeInsets.only(bottom: 14.h),
           padding: EdgeInsets.all(12.r),
           decoration: BoxDecoration(
-            color: const Color(0xFF131C2E),
+            color: const Color(0xFF1E293B).withAlpha(80),
             borderRadius: BorderRadius.circular(24.r),
             border: Border.all(
               color: const Color(0xFF232E42),

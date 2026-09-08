@@ -230,7 +230,7 @@ class HomeScreen extends StatelessWidget {
         decoration: BoxDecoration(
           color: const Color(0xFF383945),
           borderRadius: BorderRadius.circular(30.r),
-          border: Border.all(color: const Color(0xFFB78134), width: 2.w),
+          border: Border.all(color: const Color(0xFFB78134), width: 4.w),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -326,7 +326,7 @@ class HomeScreen extends StatelessWidget {
       padding: EdgeInsets.all(16.r),
       decoration: BoxDecoration(
         gradient: const LinearGradient(
-          colors: [Color(0xFFC69C5E), Color(0xFF8C6633)],
+          colors: [Color(0xFFEDC286), Color(0xFFB58542)],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
