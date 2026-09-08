@@ -744,10 +744,10 @@ class HomeScreen extends StatelessWidget {
 
   Widget _buildCategoriesGrid() {
     List<Map<String, dynamic>> categories = [
-      {"icon": Icons.flight, "name": "Travel"},
-      {"icon": Icons.sports_esports, "name": "Gaming"},
-      {"icon": Icons.local_activity, "name": "Activities"},
-      {"icon": Icons.forum, "name": "Social Talking"},
+      {"icon": AppImages.travelImg, "name": "Travel"},
+      {"icon": AppImages.gamingImg, "name": "Gaming"},
+      {"icon": AppImages.activitiesImg, "name": "Activities"},
+      {"icon": AppImages.messageImg, "name": "Social Talking"},
     ];
 
     return Row(
@@ -762,7 +762,7 @@ class HomeScreen extends StatelessWidget {
                 shape: BoxShape.circle,
                 border: Border.all(color: Colors.white10),
               ),
-              child: Icon(cat["icon"], color: Color(0xFF64B5F6), size: 25.sp),
+              child: Image.asset(cat["icon"], height: 25.sp, width: 25.sp),
             ),
             SizedBox(height: 6.h),
             Text(
