@@ -252,40 +252,34 @@ class CompanionDetailsScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 6.h),
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 4.h),
-                decoration: BoxDecoration(
-                  color: const Color(0xFF221A10),
-                  borderRadius: BorderRadius.circular(12.r),
-                  border: Border.all(
-                    color: const Color(0xFFEDC286).withValues(alpha: 0.4),
-                  ),
-                ),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(
+              Row(
+                children: [
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFF221A10),
+                      borderRadius: BorderRadius.circular(20.r),
+                    ),
+                    child: Text(
                       "Top Companion",
                       style: GoogleFonts.dmSans(
-                        color: Color(0xFFEDC286),
+                        color: const Color(0xFFFF8D28),
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    SizedBox(width: 6.w),
-                    Icon(
-                      Icons.hexagon_outlined,
-                      color: Color(0xFFEDC286),
-                      size: 14.sp,
-                    ),
-                    SizedBox(width: 4.w),
-                    Icon(
-                      Icons.military_tech,
-                      color: Color(0xFFEDC286),
-                      size: 18.sp,
-                    ),
-                  ],
-                ),
+                  ),
+                  SizedBox(width: 8.w),
+                  Image.asset(
+                    "assets/images/star_compenion_img.png",
+                    height: 22.h,
+                  ),
+                  SizedBox(width: 8.w),
+                  Image.asset(
+                    "assets/images/criminal_image.png",
+                    height: 40.h,
+                  ),
+                ],
               ),
             ],
           ),
