@@ -66,7 +66,7 @@ class InterestsScreen extends StatelessWidget {
 
                     return _buildInterestChip(
                       title: item['title']!,
-                      icon: item['icon']!,
+                      imagePath: item['icon']!,
                       isSelected: isSelected,
                       onTap: () => controller.toggleInterest(item['title']!),
                     );
@@ -77,7 +77,7 @@ class InterestsScreen extends StatelessWidget {
 
                 _buildInterestChip(
                   title: "Social Talking",
-                  icon: "💬",
+                  imagePath: AppImages.messageImg,
                   isFullWidth: true,
                   isSelected:
                   controller.selectedInterests.contains("Social Talking"),
@@ -102,7 +102,8 @@ class InterestsScreen extends StatelessWidget {
 
   Widget _buildInterestChip({
     required String title,
-    required String icon,
+    String? icon,
+    String? imagePath,
     required bool isSelected,
     required VoidCallback onTap,
     bool isFullWidth = false,
@@ -113,17 +114,20 @@ class InterestsScreen extends StatelessWidget {
         width: isFullWidth ? double.infinity : null,
         padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 10.h),
         decoration: BoxDecoration(
-          color: isSelected ?  Color(0xFF283242) : Color(0xFF1B2432),
+          color: isSelected ?  const Color(0xFF283242) : const Color(0xFF1B2432),
           borderRadius: BorderRadius.circular(500.r),
           border: Border.all(
-            color: isSelected ?  Color(0xFFEDC286) : Colors.white10,
+            color: isSelected ?  const Color(0xFFEDC286) : Colors.white10,
           ),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(icon, style: TextStyle(fontSize: 22.sp)),
+            if (imagePath != null)
+              Image.asset(imagePath, height: 22.sp, width: 22.sp)
+            else if (icon != null)
+              Text(icon, style: TextStyle(fontSize: 22.sp)),
             SizedBox(width: 8.w),
             Flexible(
               child: Text(
@@ -131,7 +135,7 @@ class InterestsScreen extends StatelessWidget {
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: GoogleFonts.dmSans(
-                  color: isSelected ? Color(0xFFEDC286) : Color(0xFFB2B2B7),
+                  color: isSelected ? const Color(0xFFEDC286) : const Color(0xFFB2B2B7),
                   fontWeight: FontWeight.w600,
                   fontSize: 18.sp,
                 ),

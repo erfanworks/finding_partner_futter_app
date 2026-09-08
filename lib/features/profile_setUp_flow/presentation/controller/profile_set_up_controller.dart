@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../../core/constants/app_images.dart';
 import '../screen/profile_setup_success_screen.dart';
 
 class ProfileSetUpController extends GetxController {
@@ -21,12 +22,12 @@ class ProfileSetUpController extends GetxController {
   // Step 3: Interests
   List<String> selectedInterests = ['Travel'];
   final List<Map<String, String>> interestOptions = [
-    {'title': 'Travel', 'icon': '✈️'},
-    {'title': 'Business', 'icon': '💼'},
-    {'title': 'Fitness', 'icon': '🏋️'},
-    {'title': 'Gaming', 'icon': '🎮'},
-    {'title': 'Activities', 'icon': '🍿'},
-    {'title': 'Networking', 'icon': '☕'},
+    {'title': 'Travel', 'icon': AppImages.travelImg},
+    {'title': 'Business', 'icon': AppImages.businessImg},
+    {'title': 'Fitness', 'icon': AppImages.fitnessImg},
+    {'title': 'Gaming', 'icon': AppImages.gamingImg},
+    {'title': 'Activities', 'icon': AppImages.activitiesImg},
+    {'title': 'Networking', 'icon': AppImages.networkingImg},
   ];
 
   // Step 4: Verification
