@@ -58,6 +58,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/src/bindings_interface.dart';
 import 'package:get/get_instance/src/extension_instance.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
+import 'package:get/get_navigation/src/routes/transitions_type.dart';
 import '../../features/auth_flow/presentation/screen/forget_password_verify_screen.dart';
 import '../../features/auth_flow/presentation/screen/login_screen.dart';
 import '../../features/categrory_select_flow/presentation/screen/category_search_screen.dart';
@@ -158,6 +159,8 @@ class AppRoutes {
     GetPage(
       name: AppRoutes.onBoardingScreen,
       page: () => OnboardingScreen(),
+      transition: Transition.fadeIn,
+      transitionDuration: const Duration(milliseconds: 800),
       binding: BindingsBuilder((){
         // Get.put<>(SplashController());
       }),
