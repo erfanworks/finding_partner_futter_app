@@ -15,6 +15,7 @@ class AppImages {
   static const String nonBinaryImg = "$baseurl/no_binary_img.png";
   static const String worldImg = "$baseurl/world_img.png";
   static const String pinLocationImg = "$baseurl/pin_location_img.png";
+  static const String leaderboardBgImg = "$baseurl/leaderboard_bg_img.png";
   static const String translateImg = "$baseurl/translate_img.png";
   static const String travelImg = "$baseurl/airplan_img.png";
   static const String businessImg = "$baseurl/business_img.png";

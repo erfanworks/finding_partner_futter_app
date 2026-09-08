@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../../../core/constants/app_images.dart';
 import '../controller/leader_board_controller.dart';
 
 class LeaderboardScreen extends StatelessWidget {
@@ -11,41 +12,51 @@ class LeaderboardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final LeaderboardController controller = Get.put(LeaderboardController());
 
-    return Scaffold(
-      backgroundColor: const Color(0xFF0D131E),
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
-          onPressed: () => Get.back(),
-        ),
-        title: Text(
-          "Leaderboard",
-          style: GoogleFonts.dmSans(
-            color: Colors.white,
-            fontSize: 22.sp,
-            fontWeight: FontWeight.bold,
+    return Stack(
+      children: [
+        Positioned.fill(
+          child: Image.asset(
+            AppImages.leaderboardBgImg,
+            fit: BoxFit.cover,
           ),
         ),
-        centerTitle: true,
-      ),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(horizontal: 16.w),
-          child: Column(
-            children: [
-              SizedBox(height: 10.h),
-              _buildTabBar(controller),
-              SizedBox(height: 30.h),
-              _buildTopPodiumSection(),
-              SizedBox(height: 20.h),
-              _buildSupportersList(),
-              SizedBox(height: 20.h),
-            ],
+        Scaffold(
+          backgroundColor: Colors.transparent,
+          appBar: AppBar(
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            leading: IconButton(
+              icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
+              onPressed: () => Get.back(),
+            ),
+            title: Text(
+              "Leaderboard",
+              style: GoogleFonts.dmSans(
+                color: Colors.white,
+                fontSize: 22.sp,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            centerTitle: true,
+          ),
+          body: SafeArea(
+            child: SingleChildScrollView(
+              padding: EdgeInsets.symmetric(horizontal: 16.w),
+              child: Column(
+                children: [
+                  SizedBox(height: 10.h),
+                  _buildTabBar(controller),
+                  SizedBox(height: 30.h),
+                  _buildTopPodiumSection(),
+                  SizedBox(height: 20.h),
+                  _buildSupportersList(),
+                  SizedBox(height: 20.h),
+                ],
+              ),
+            ),
           ),
         ),
-      ),
+      ],
     );
   }
 
@@ -214,6 +225,7 @@ class LeaderboardScreen extends StatelessWidget {
       children: [
         Stack(
           alignment: Alignment.center,
+          clipBehavior: Clip.none,
           children: [
             Container(
               padding: EdgeInsets.all(isFirst ? 3.r : 2.r),
