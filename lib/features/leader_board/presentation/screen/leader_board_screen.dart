@@ -126,7 +126,7 @@ class LeaderboardScreen extends StatelessWidget {
                   rank: "#2",
                   barHeight: 160.h,
                   barGradient: const LinearGradient(
-                    colors: [Color(0xFF2C384A), Color(0xFF19222E)],
+                    colors: [Color(0xFF3E4E6C), Color(0xFF151C2A)],
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                   ),
@@ -140,7 +140,7 @@ class LeaderboardScreen extends StatelessWidget {
                   barHeight: 210.h,
                   isFirst: true,
                   barGradient: const LinearGradient(
-                    colors: [Color(0xFFE5B36B), Color(0xFFBD8A40)],
+                    colors: [Color(0xFFF7C986), Color(0xFFE4A44D)],
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                   ),
@@ -153,7 +153,7 @@ class LeaderboardScreen extends StatelessWidget {
                   rank: "#3",
                   barHeight: 160.h,
                   barGradient: const LinearGradient(
-                    colors: [Color(0xFF2C384A), Color(0xFF19222E)],
+                    colors: [Color(0xFF3E4E6C), Color(0xFF151C2A)],
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                   ),
