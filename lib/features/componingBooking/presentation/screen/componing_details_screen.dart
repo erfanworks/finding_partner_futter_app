@@ -380,10 +380,14 @@ class CompanionDetailsScreen extends StatelessWidget {
   Widget _buildTabSelector(CompanionDetailsController controller) {
     final tabs = ["Tips", "Gifts", "Bookings"];
     return Container(
-      padding: EdgeInsets.all(3.r),
+      padding: EdgeInsets.all(6.r),
       decoration: BoxDecoration(
         color: const Color(0xFF141F2E),
-        borderRadius: BorderRadius.circular(25.r),
+        borderRadius: BorderRadius.circular(30.r),
+        border: Border.all(
+          color: Colors.white.withValues(alpha: 0.1),
+          width: 1,
+        ),
       ),
       child: Obx(
         () => Row(
@@ -393,7 +397,7 @@ class CompanionDetailsScreen extends StatelessWidget {
               child: GestureDetector(
                 onTap: () => controller.changeTab(index),
                 child: Container(
-                  padding: EdgeInsets.symmetric(vertical: 10.h),
+                  padding: EdgeInsets.symmetric(vertical: 12.h),
                   decoration: BoxDecoration(
                     gradient: controller.selectedTabIndex.value == index
                         ? const LinearGradient(
@@ -402,10 +406,7 @@ class CompanionDetailsScreen extends StatelessWidget {
                             colors: [Color(0xFFECC27D), Color(0xFFB58843)],
                           )
                         : null,
-                    color: controller.selectedTabIndex.value == index
-                        ? null
-                        : Colors.transparent,
-                    borderRadius: BorderRadius.circular(22.r),
+                    borderRadius: BorderRadius.circular(26.r),
                   ),
                   alignment: Alignment.center,
                   child: Text(
