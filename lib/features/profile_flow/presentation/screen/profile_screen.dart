@@ -38,7 +38,7 @@ class ProfileScreen extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      bottomNavigationBar: CustomBottomNavBar(selectedIndex: 4),
+      bottomNavigationBar: const CustomBottomNavBar(selectedIndex: 3),
       body: GetBuilder<ProfileController>(
         init: ProfileController(),
         builder: (controller) {

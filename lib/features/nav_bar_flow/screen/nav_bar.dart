@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../controller/navbar_controller.dart';
@@ -13,12 +14,9 @@ class CustomBottomNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.put(NavigationController());
 
-
-
     WidgetsBinding.instance.addPostFrameCallback((_) {
       controller.selectedIndex.value = selectedIndex;
     });
-
 
     const backgroundColor = Color(0xFF1E293B);
     const topBorderColor = Color(0xFF383945);
@@ -28,28 +26,23 @@ class CustomBottomNavBar extends StatelessWidget {
     final List<NavItemData> items = [
       NavItemData(
         label: 'Home',
-        activeIcon: Icons.home_rounded,
-        inactiveIcon: Icons.home_outlined,
-      ),
-      NavItemData(
-        label: 'message',
-        activeIcon: Icons.messenger_outline_outlined,
-        inactiveIcon: Icons.messenger_outline,
-      ),
-      NavItemData(
-        label: 'shop',
-        activeIcon: Icons.shop_sharp,
-        inactiveIcon: Icons.shop_sharp,
+        activeIcon: 'assets/icons/home_fill_icon.svg',
+        inactiveIcon: 'assets/icons/home_icon.svg',
       ),
       NavItemData(
         label: 'Explore',
-        activeIcon: Icons.explore_rounded,
-        inactiveIcon: Icons.explore_outlined,
+        activeIcon: 'assets/icons/discover_fill_icon.svg',
+        inactiveIcon: 'assets/icons/explore_icon.svg',
+      ),
+      NavItemData(
+        label: 'Message',
+        activeIcon: 'assets/icons/message_fill_icon.svg',
+        inactiveIcon: 'assets/icons/messege_icon.svg',
       ),
       NavItemData(
         label: 'Profile',
-        activeIcon: Icons.person_rounded,
-        inactiveIcon: Icons.person_outline_rounded,
+        activeIcon: 'assets/icons/profile_fill_icon.svg',
+        inactiveIcon: 'assets/icons/profile_icon_unfill.svg',
       ),
     ];
 
@@ -69,7 +62,7 @@ class CustomBottomNavBar extends StatelessWidget {
           height: 64.h,
           padding: EdgeInsets.symmetric(horizontal: 16.w),
           child: Obx(
-                () => Row(
+            () => Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: List.generate(items.length, (index) {
                 final isSelected = controller.selectedIndex.value == index;
@@ -84,10 +77,14 @@ class CustomBottomNavBar extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Icon(
+                        SvgPicture.asset(
                           isSelected ? item.activeIcon : item.inactiveIcon,
-                          color: isSelected ? activeColor : inactiveColor,
-                          size: 28.r,
+                          colorFilter: ColorFilter.mode(
+                            isSelected ? activeColor : inactiveColor,
+                            BlendMode.srcIn,
+                          ),
+                          height: 28.r,
+                          width: 28.r,
                         ),
                         SizedBox(height: 6.h),
                         Text(
@@ -113,8 +110,8 @@ class CustomBottomNavBar extends StatelessWidget {
 
 class NavItemData {
   final String label;
-  final IconData activeIcon;
-  final IconData inactiveIcon;
+  final String activeIcon;
+  final String inactiveIcon;
 
   NavItemData({
     required this.label,

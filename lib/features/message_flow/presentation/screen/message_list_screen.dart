@@ -30,7 +30,7 @@ class MessageListScreen extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      bottomNavigationBar: CustomBottomNavBar(selectedIndex: 1),
+      bottomNavigationBar: const CustomBottomNavBar(selectedIndex: 2),
       body: GetBuilder<ChatScreenController>(
         init: ChatScreenController(),
         builder: (controller) {
