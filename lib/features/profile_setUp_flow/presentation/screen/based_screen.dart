@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../../../core/constants/app_images.dart';
 import '../controller/profile_set_up_controller.dart';
 import '../widget/build_bottom_navigation.dart';
 
@@ -39,13 +40,13 @@ class BasedScreen extends StatelessWidget {
                 SizedBox(height: 24.h),
                 Text("COUNTRY", style: _labelStyle()),
                 SizedBox(height: 8.h),
-                _dropdownBox("🌐", controller.selectedCountry, () {
+                _dropdownBox(AppImages.worldImg, controller.selectedCountry, () {
                   controller.setCountry("Germany");
                 }),
                 SizedBox(height: 16.h),
                 Text("CITY", style: _labelStyle()),
                 SizedBox(height: 8.h),
-                _dropdownBox("📍", controller.selectedCity, () {
+                _dropdownBox(AppImages.pinLocationImg, controller.selectedCity, () {
                   controller.setCity("Berlin");
                 }),
                 SizedBox(height: 16.h),
@@ -100,7 +101,7 @@ class BasedScreen extends StatelessWidget {
     fontWeight: FontWeight.bold,
   );
 
-  Widget _dropdownBox(String prefixEmoji, String value, VoidCallback onTap) {
+  Widget _dropdownBox(String imagePath, String value, VoidCallback onTap) {
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -111,7 +112,7 @@ class BasedScreen extends StatelessWidget {
         ),
         child: Row(
           children: [
-            Text(prefixEmoji, style: TextStyle(fontSize: 16.sp)),
+            Image.asset(imagePath, height: 18.sp, width: 18.sp),
             SizedBox(width: 10.w),
             Expanded(
               child: Text(
@@ -123,7 +124,7 @@ class BasedScreen extends StatelessWidget {
                 ),
               ),
             ),
-            Icon(Icons.keyboard_arrow_down, color: Colors.white54, size: 30.sp),
+            Icon(Icons.keyboard_arrow_down, color: Colors.white, size: 30.sp),
           ],
         ),
       ),
@@ -141,7 +142,7 @@ class BasedScreen extends StatelessWidget {
         children: [
           Row(
             children: [
-              Text("🗣️", style: TextStyle(fontSize: 18.sp)),
+              Image.asset(AppImages.translateImg, height: 18.sp, width: 18.sp),
               SizedBox(width: 10.w),
               Expanded(
                 child: Text(
@@ -152,7 +153,7 @@ class BasedScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              const Icon(Icons.keyboard_arrow_down, color: Colors.white54),
+              const Icon(Icons.keyboard_arrow_down, color: Colors.white),
             ],
           ),
           SizedBox(height: 12.h),
