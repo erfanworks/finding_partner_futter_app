@@ -2,6 +2,7 @@ import 'package:amychebbi/core/constants/app_color.dart';
 import 'package:amychebbi/core/route/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../controller/SelectDateTimeController.dart';
@@ -55,7 +56,12 @@ class SelectDateTimeScreen extends GetView<SelectDateTimeController> {
                       style: GoogleFonts.dmSans(color: Colors.white, fontSize: 13.sp),
                     ),
                   ),
-                  const Icon(Icons.calendar_today_outlined, color: Colors.white70, size: 18),
+                  SvgPicture.asset(
+                    'assets/icons/calendar.svg',
+                    colorFilter: const ColorFilter.mode(Colors.white70, BlendMode.srcIn),
+                    height: 18.h,
+                    width: 18.w,
+                  ),
                 ],
               ),
             ),
