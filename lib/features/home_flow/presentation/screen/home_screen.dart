@@ -1,7 +1,9 @@
 import 'package:amychebbi/core/constants/app_color.dart';
+import 'package:amychebbi/core/constants/app_images.dart';
 import 'package:amychebbi/core/route/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../nav_bar_flow/screen/nav_bar.dart';
@@ -54,17 +56,17 @@ class HomeScreen extends StatelessWidget {
         ),
         actions: [
           _buildIconButton(
-            Icons.account_balance_wallet_outlined,
+            AppImages.calendarIcon,
             onTap: () => Get.toNamed(AppRoutes.bookingsScreen),
           ),
           SizedBox(width: 8.w),
           _buildIconButton(
-            Icons.notifications_none,
+            AppImages.notificationIcon,
             onTap: () => Get.toNamed(AppRoutes.notificationScreen),
           ),
           SizedBox(width: 8.w),
           _buildIconButton(
-            Icons.chat_bubble_outline,
+            AppImages.messageIcon,
             onTap: () => Get.toNamed(AppRoutes.messageListScreen),
           ),
           SizedBox(width: 16.w),
@@ -165,17 +167,22 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildIconButton(IconData icon, {VoidCallback? onTap}) {
+  Widget _buildIconButton(String iconPath, {VoidCallback? onTap}) {
     return GestureDetector(
       onTap: onTap,
       child: Container(
         padding: EdgeInsets.all(8.r),
         decoration: BoxDecoration(
-          color: const Color(0xFF131B29),
+          color:  Colors.white.withAlpha(20),
           shape: BoxShape.circle,
           border: Border.all(color: Colors.white.withValues(alpha: 0.1)),
         ),
-        child: Icon(icon, color: Colors.white, size: 28.sp),
+        child: SvgPicture.asset(
+          iconPath,
+          colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+          height: 24.sp,
+          width: 24.sp,
+        ),
       ),
     );
   }
