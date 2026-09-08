@@ -2,6 +2,7 @@ import 'package:amychebbi/core/constants/app_color.dart';
 import 'package:amychebbi/core/constants/app_images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../controller/review_booking_controller.dart';
@@ -31,7 +32,7 @@ class ReviewBookingScreen extends GetView<ReviewBookingController> {
           'Review booking',
           style: GoogleFonts.dmSans(
             color: Colors.white,
-            fontSize: 20.sp,
+            fontSize: 24.sp,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -197,7 +198,6 @@ class ReviewBookingScreen extends GetView<ReviewBookingController> {
           Column(
             children: [
               Image.asset(AppImages.criminalImage,height: 80.h,width: 80.w,),
-              SizedBox(height: 2.h),
               Text(
                 'CLEAN CRIMINAL\nRECORD',
                 textAlign: TextAlign.center,
@@ -340,7 +340,7 @@ class ReviewBookingScreen extends GetView<ReviewBookingController> {
             children: [
               Expanded(
                 child: _buildActionCard(
-                  icon: Icons.monetization_on_outlined,
+                  icon: Image.asset(AppImages.japansCoin, height: 22.h, width: 22.w),
                   title: 'Send Seirus',
                   subtitle: 'Direct support',
                   onTab: (){
@@ -355,7 +355,12 @@ class ReviewBookingScreen extends GetView<ReviewBookingController> {
               SizedBox(width: 10.w),
               Expanded(
                 child: _buildActionCard(
-                  icon: Icons.card_giftcard_rounded,
+                  icon: SvgPicture.asset(
+                    AppImages.calendarIcon,
+                    height: 20.h,
+                    width: 20.w,
+                    colorFilter: const ColorFilter.mode(Color(0xFFECC27D), BlendMode.srcIn),
+                  ),
                   title: 'Send a Gift',
                   subtitle: 'Browse shop',
                   onTab: (){
@@ -421,7 +426,7 @@ class ReviewBookingScreen extends GetView<ReviewBookingController> {
   }
 
   Widget _buildActionCard({
-    required IconData icon,
+    required Widget icon,
     required String title,
     required String subtitle,
     required VoidCallback onTab,
@@ -441,7 +446,7 @@ class ReviewBookingScreen extends GetView<ReviewBookingController> {
             CircleAvatar(
               radius: 20.r,
               backgroundColor: const Color(0xFF1B2838),
-              child: Icon(icon, color: Color(0xFFECC27D), size: 20),
+              child: icon,
             ),
             SizedBox(height: 8.h),
             Text(

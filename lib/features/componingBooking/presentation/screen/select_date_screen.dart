@@ -83,7 +83,7 @@ class SelectDateTimeScreen extends GetView<SelectDateTimeController> {
                         'September, 2026',
                         style: GoogleFonts.dmSans(
                           color: Colors.white,
-                          fontSize: 14.sp,
+                          fontSize: 16.sp,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
@@ -97,7 +97,7 @@ class SelectDateTimeScreen extends GetView<SelectDateTimeController> {
                         .map((day) => Text(
                       day,
                       style: GoogleFonts.dmSans(
-                        color: const Color(0xFF8C8D94),
+                        color: Colors.white,
                         fontSize: 11.sp,
                       ),
                     ))
@@ -127,14 +127,14 @@ class SelectDateTimeScreen extends GetView<SelectDateTimeController> {
                               shape: BoxShape.circle,
                               color: isSelected
                                   ? const Color(0xFFECC27D)
-                                  : const Color(0xFF1A2736),
+                                  : const Color(0xFF0C1929),
                             ),
                             child: Center(
                               child: Text(
                                 '$dayNumber',
                                 style: GoogleFonts.dmSans(
                                   color: isSelected ? Colors.black : Colors.white,
-                                  fontSize: 12.sp,
+                                  fontSize: 14.sp,
                                   fontWeight: isSelected ? FontWeight.bold : FontWeight.w400,
                                 ),
                               ),
@@ -234,12 +234,12 @@ class SelectDateTimeScreen extends GetView<SelectDateTimeController> {
       return GestureDetector(
         onTap: () => controller.changeSlot(slotIndex),
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 26.h),
           decoration: BoxDecoration(
-            color: const Color(0xFF131F2C),
+            color: isSelected ? const Color(0xFFEDC286).withAlpha(60) : const Color(0xFF131F2C),
             borderRadius: BorderRadius.circular(20.r),
             border: Border.all(
-              color: isSelected ? const Color(0xFFECC27D) : Colors.transparent,
+              color: isSelected ? const Color(0xFFEDC286) : Colors.white.withAlpha(80),
               width: 1.2,
             ),
           ),
@@ -250,22 +250,22 @@ class SelectDateTimeScreen extends GetView<SelectDateTimeController> {
                 title,
                 style: GoogleFonts.dmSans(
                   color: Colors.white,
-                  fontSize: 14.sp,
+                  fontSize: 16.sp,
                   fontWeight: FontWeight.w500,
                 ),
               ),
               Text(
                 timeRange,
                 style: GoogleFonts.dmSans(
-                  color: const Color(0xFF8C8D94),
-                  fontSize: 14.sp,
+                  color: Colors.white.withAlpha(130),
+                  fontSize: 16.sp,
                 ),
               ),
               Text(
                 duration,
                 style: GoogleFonts.dmSans(
                   color: const Color(0xFFECC27D),
-                  fontSize: 14.sp,
+                  fontSize: 16.sp,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -293,10 +293,10 @@ class SelectDateTimeScreen extends GetView<SelectDateTimeController> {
           value: value,
           isExpanded: true,
           dropdownColor: const Color(0xFF131F2C),
-          icon: const Icon(Icons.keyboard_arrow_down_rounded, color: Colors.white70),
+          icon: const Icon(Icons.keyboard_arrow_down_rounded, color: Colors.white),
           style: GoogleFonts.dmSans(
             color: Colors.white,
-            fontSize: 13.sp,
+            fontSize: 16.sp,
           ),
           items: items.map((String item) {
             return DropdownMenuItem<String>(
