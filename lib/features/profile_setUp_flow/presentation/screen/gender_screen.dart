@@ -241,11 +241,11 @@ class GenderScreen extends StatelessWidget {
                           ),
                           SizedBox(height: 20.h),
 
-                          _genderTile("Male", "👨‍💼", controller),
+                          _genderTile("Male", AppImages.maleImg, controller),
                           SizedBox(height: 14.h),
-                          _genderTile("Female", "👩‍💼", controller),
+                          _genderTile("Female", AppImages.femaleImg, controller),
                           SizedBox(height: 14.h),
-                          _genderTile("Non-binary", "🧑‍🎤", controller),
+                          _genderTile("Non-binary", AppImages.nonBinaryImg, controller),
 
                           SizedBox(height: 24.h),
                           Text(
@@ -320,7 +320,7 @@ class GenderScreen extends StatelessWidget {
     );
   }
 
-  Widget _genderTile(String title, String emoji, ProfileSetUpController controller) {
+  Widget _genderTile(String title, String imagePath, ProfileSetUpController controller) {
     bool isSelected = controller.selectedGender == title;
     return GestureDetector(
       onTap: () => controller.selectGender(title),
@@ -341,7 +341,15 @@ class GenderScreen extends StatelessWidget {
             CircleAvatar(
               radius: 18.r,
               backgroundColor: const Color(0xFFEDC286),
-              child: Text(emoji, style: TextStyle(fontSize: 16.sp)),
+              child: ClipOval(
+                child: Padding(
+                  padding: EdgeInsets.all(4.r),
+                  child: Image.asset(
+                    imagePath,
+                    fit: BoxFit.contain,
+                  ),
+                ),
+              ),
             ),
             SizedBox(width: 14.w),
             Text(

@@ -11,6 +11,9 @@ class AppImages {
   static const String criminalImage = "$baseurl/criminal_image.png";
   static const String japansCoin = "$baseurl/chinis_coin.png";
   static const String shieldWithIcon = "$baseurl/sheild_with_icon.png";
+  static const String maleImg = "$baseurl/male_img.png";
+  static const String femaleImg = "$baseurl/female_img.png";
+  static const String nonBinaryImg = "$baseurl/no_binary_img.png";
 
 
   //>>>>>>>>>>>>>>>> Icons <<<<<<<<<<<<<<<<<<//
