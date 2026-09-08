@@ -336,16 +336,16 @@ class LeaderboardScreen extends StatelessWidget {
 
     return Container(
       decoration: BoxDecoration(
-        color: const Color(0xFF131B29),
+        color: const Color(0xFF1E293B),
         borderRadius: BorderRadius.circular(20.r),
-        border: Border.all(color: Colors.white.withValues(alpha: 0.05)),
+        border: Border.all(color: Colors.white.withValues(alpha: 0.20)),
       ),
       child: ListView.separated(
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
         itemCount: supporters.length,
         separatorBuilder: (context, index) => Divider(
-          color: Colors.white.withValues(alpha: 0.05),
+          color: Colors.white.withValues(alpha: 0.20),
           height: 1,
         ),
         itemBuilder: (context, index) {
