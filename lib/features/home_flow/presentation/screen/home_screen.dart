@@ -701,10 +701,11 @@ class HomeScreen extends StatelessWidget {
         SizedBox(height: 12.h),
         Row(
           children: [
-            Icon(
-              Icons.chat_bubble_outline,
-              color: Color(0xFFB2B2B7),
-              size: 22.sp,
+            SvgPicture.asset(
+              AppImages.messageIcon,
+              colorFilter: const ColorFilter.mode(Color(0xFFB2B2B7), BlendMode.srcIn),
+              height: 22.sp,
+              width: 22.sp,
             ),
             SizedBox(width: 4.w),
             Text(
