@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../../../core/constants/app_images.dart';
 import '../controller/profile_set_up_controller.dart';
 import '../widget/build_bottom_navigation.dart';
 import '../widget/profile_setup_header.dart';
@@ -98,7 +100,15 @@ class ProfileSetUpStep5View extends StatelessWidget {
                         bottom: 12.h,
                         right: 10.w,
                       ),
-                      child: Icon(Icons.person,size: 35.sp,color: Color(0xFFB2B2B7),),
+                      child: SvgPicture.asset(
+                        AppImages.profileIcon,
+                        height: 25.sp,
+                        width: 25.sp,
+                        colorFilter: const ColorFilter.mode(
+                          Color(0xFFB2B2B7),
+                          BlendMode.srcIn,
+                        ),
+                      ),
                     ),
                     contentPadding: EdgeInsets.symmetric(
                       horizontal: 20.w,

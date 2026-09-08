@@ -194,7 +194,6 @@
 //   }
 // }
 
-
 import 'package:amychebbi/core/constants/app_images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -217,12 +216,13 @@ class TrustAndSafetyScreen extends StatelessWidget {
               return SingleChildScrollView(
                 physics: const BouncingScrollPhysics(),
                 child: ConstrainedBox(
-                  constraints: BoxConstraints(
-                    minHeight: constraints.maxHeight,
-                  ),
+                  constraints: BoxConstraints(minHeight: constraints.maxHeight),
                   child: IntrinsicHeight(
                     child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 20.w,
+                        vertical: 10.h,
+                      ),
                       child: Column(
                         children: [
                           Row(
@@ -266,7 +266,7 @@ class TrustAndSafetyScreen extends StatelessWidget {
                             title: "Confirm your identity",
                             ImagPath: AppImages.confirmIdentity,
                             desc:
-                            "Have your government ID or passport ready. You'll also take a real-time photo or short video to confirm it's really you.",
+                                "Have your government ID or passport ready. You'll also take a real-time photo or short video to confirm it's really you.",
                             buttonText: "Verify Now",
                             onTap: () {},
                           ),
@@ -276,7 +276,7 @@ class TrustAndSafetyScreen extends StatelessWidget {
                             title: "Criminal Check (optional)",
                             ImagPath: AppImages.criminalCheckIcon,
                             desc:
-                            "Upload a clean criminal record certificate, not older than 6 months. Once verified, it's shown on your public profile.",
+                                "Upload a clean criminal record certificate, not older than 6 months. Once verified, it's shown on your public profile.",
                             buttonText: "Upload Now",
                             onTap: () {},
                           ),
@@ -297,7 +297,9 @@ class TrustAndSafetyScreen extends StatelessWidget {
                               color: const Color(0xFF0F2B22),
                               borderRadius: BorderRadius.circular(12.r),
                               border: Border.all(
-                                color: const Color(0xFF10B981).withValues(alpha: 0.3),
+                                color: const Color(
+                                  0xFF10B981,
+                                ).withValues(alpha: 0.3),
                               ),
                             ),
                             child: Text(
@@ -316,7 +318,8 @@ class TrustAndSafetyScreen extends StatelessWidget {
                           buildBottomNavigation(
                             stepText: "Step ${controller.currentStep + 1}/5",
                             onNext: () => controller.nextPage(),
-                            onSkip: () => showVerificationAlert(context, controller),
+                            onSkip: () =>
+                                showVerificationAlert(context, controller),
                           ),
                         ],
                       ),

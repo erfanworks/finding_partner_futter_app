@@ -279,7 +279,7 @@ class GenderScreen extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Image.asset(
-                                  AppImages.shieldWithIcon,
+                                  AppImages.trustSafetyIcon,
                                   height: 30.sp,
                                   width: 30.sp,
                                 ),

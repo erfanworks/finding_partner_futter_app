@@ -10,7 +10,6 @@ class AppImages {
   static const String criminalCheckIcon = "$baseurl/criminal_check_icon.png";
   static const String criminalImage = "$baseurl/criminal_image.png";
   static const String japansCoin = "$baseurl/chinis_coin.png";
-  static const String shieldWithIcon = "$baseurl/sheild_with_icon.png";
   static const String maleImg = "$baseurl/male_img.png";
   static const String femaleImg = "$baseurl/female_img.png";
   static const String nonBinaryImg = "$baseurl/no_binary_img.png";
@@ -35,5 +34,6 @@ class AppImages {
   static const String trustSafetyIcon = "$baseurlIcon/trust_safty_icon.png";
   static const String hexagramShapeIcon = "$baseurlIcon/hexagram_shape.png";
   static const String userNameIcon = "$baseurlIcon/user_name_icon.png";
+  static const String profileIcon = "$baseurlIcon/profile_icon.svg";
 
 }
