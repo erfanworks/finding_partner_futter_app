@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../../../core/constants/app_images.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
@@ -55,10 +57,17 @@ class SearchScreen extends StatelessWidget {
                       fontSize: 16.sp,
                       fontWeight: FontWeight.w400
                     ),
-                    prefixIcon: const Icon(
-                      Icons.search_rounded,
-                      color: Color(0xFF8C8D94),
-                      size: 26,
+                    prefixIcon: Padding(
+                      padding: EdgeInsets.all(12.r),
+                      child: SvgPicture.asset(
+                        AppImages.searchIcon,
+                        colorFilter: const ColorFilter.mode(
+                          Color(0xFF8C8D94),
+                          BlendMode.srcIn,
+                        ),
+                        height: 24.sp,
+                        width: 24.sp,
+                      ),
                     ),
                     border: InputBorder.none,
                     contentPadding: EdgeInsets.symmetric(vertical: 12.h),
