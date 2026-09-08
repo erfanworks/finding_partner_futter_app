@@ -140,7 +140,7 @@ class LeaderboardScreen extends StatelessWidget {
                   barHeight: 210.h,
                   isFirst: true,
                   barGradient: const LinearGradient(
-                    colors: [Color(0xFFF7C986), Color(0xFFE4A44D)],
+                    colors: [Color(0xFFF7C986), Color(0xFFC27C1B)],
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                   ),
@@ -244,14 +244,11 @@ class LeaderboardScreen extends StatelessWidget {
             ),
             if (isFirst)
               Positioned(
-                top: -6.h,
-                child: Container(
-                  padding: EdgeInsets.all(2.r),
-                  decoration: const BoxDecoration(
-                    color: Color(0xFFB17D35),
-                    shape: BoxShape.circle,
-                  ),
-                  child: Icon(Icons.star, color: const Color(0xFFEDC286), size: 14.sp),
+                top: -18.h,
+                child: Image.asset(
+                  AppImages.topBadge,
+                  height: 30.sp,
+                  width: 30.sp,
                 ),
               ),
             Positioned(
