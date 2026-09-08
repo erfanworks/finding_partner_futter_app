@@ -1,6 +1,7 @@
 import 'package:amychebbi/core/route/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../controller/componing_details_controller.dart';
@@ -186,6 +187,7 @@ class CompanionDetailsScreen extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white.withValues(alpha: 0.2),
         shape: BoxShape.circle,
+        border: Border.all(color: Colors.white)
       ),
       child: Icon(icon, color: Colors.white, size: 18.sp),
     );
@@ -290,16 +292,16 @@ class CompanionDetailsScreen extends StatelessWidget {
         ),
         Row(
           children: [
-            _buildActionIcon(Icons.chat_bubble_outline),
+            _buildActionIcon("assets/icons/messege_icon.svg"),
             SizedBox(width: 8.w),
-            _buildActionIcon(Icons.card_giftcard),
+            _buildActionIcon("assets/icons/gift_icon.svg"),
           ],
         ),
       ],
     );
   }
 
-  Widget _buildActionIcon(IconData icon) {
+  Widget _buildActionIcon(String iconPath) {
     return Container(
       padding: EdgeInsets.all(9.r),
       decoration: BoxDecoration(
@@ -307,7 +309,12 @@ class CompanionDetailsScreen extends StatelessWidget {
         shape: BoxShape.circle,
         border: Border.all(color: Colors.white.withValues(alpha: 0.08)),
       ),
-      child: Icon(icon, color: Colors.white, size: 18.sp),
+      child: SvgPicture.asset(
+        iconPath,
+        width: 18.sp,
+        height: 18.sp,
+        colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+      ),
     );
   }
 
