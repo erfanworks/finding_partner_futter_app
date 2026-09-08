@@ -64,11 +64,6 @@ class HomeScreen extends StatelessWidget {
             AppImages.notificationIcon,
             onTap: () => Get.toNamed(AppRoutes.notificationScreen),
           ),
-          SizedBox(width: 8.w),
-          _buildIconButton(
-            AppImages.messageIcon,
-            onTap: () => Get.toNamed(AppRoutes.messageListScreen),
-          ),
           SizedBox(width: 16.w),
         ],
       ),

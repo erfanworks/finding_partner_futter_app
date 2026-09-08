@@ -34,8 +34,8 @@ class AppImages {
   static const String trustSafetyIcon = "$baseurlIcon/trust_safty_icon.png";
   static const String hexagramShapeIcon = "$baseurlIcon/hexagram_shape.png";
   static const String userNameIcon = "$baseurlIcon/user_name_icon.png";
-  static const String profileIcon = "$baseurlIcon/profile_icon.svg";
-  static const String calendarIcon = "$baseurlIcon/calander_icon.svg";
+  static const String profileIcon = "$baseurlIcon/profile_icon_unfill.svg";
+  static const String calendarIcon = "$baseurlIcon/calendar.svg";
   static const String notificationIcon = "$baseurlIcon/notification_icon.svg";
   static const String messageIcon = "$baseurlIcon/messege_icon.svg";
   static const String searchIcon = "$baseurlIcon/search_icon.svg";
