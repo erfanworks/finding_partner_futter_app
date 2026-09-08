@@ -910,87 +910,101 @@ class HomeScreen extends StatelessWidget {
         Get.toNamed(AppRoutes.companionDetailsScreen);
       },
       child: Container(
-        padding: EdgeInsets.all(8.r),
+        height: 280.h,
         decoration: BoxDecoration(
-          color: const Color(0xFF131B29),
-          borderRadius: BorderRadius.circular(16.r),
+          borderRadius: BorderRadius.circular(24.r),
+          image: DecorationImage(
+            image: NetworkImage(imageUrl),
+            fit: BoxFit.cover,
+            alignment: const Alignment(0, -0.5), // Image pushed more towards the top
+          ),
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(12.r),
-              child: Image.network(
-                imageUrl,
-                height: 150.h,
-                width: double.infinity,
-                fit: BoxFit.cover,
-              ),
-            ),
-            SizedBox(height: 8.h),
-            Text(
-              name,
-              style: GoogleFonts.dmSans(
-                color: Colors.white,
-                fontSize: 16.sp,
-                fontWeight: FontWeight.w600,
-              ),
-              maxLines: 1,
-            ),
-            Text(
-              tag,
-              style: GoogleFonts.dmSans(
-                color: Color(0xFFEDC286),
-                fontSize: 14.sp,
-                fontWeight: FontWeight.w400,
-              ),
-            ),
-            SizedBox(height: 8.h),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                _buildStat("4.9", "Rating"),
-                _buildStat("4.8k", "Jobs"),
-                _buildStat("100/hr", "Rate"),
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(24.r),
+            gradient: LinearGradient(
+              begin: Alignment.bottomCenter,
+              end: Alignment.topCenter,
+              colors: [
+                Colors.black, // Opaque black at the very bottom
+                Colors.black.withOpacity(0.8),
+                Colors.transparent,
               ],
+              stops: const [0.0, 0.4, 0.7], // Solid black area at bottom, then fades
             ),
-            SizedBox(height: 10.h),
-            Row(
-              children: [
-                Expanded(
-                  child: Container(
-                    padding: EdgeInsets.symmetric(vertical: 6.h),
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      color: const Color(0xFFEDC286),
-                      borderRadius: BorderRadius.circular(16.r),
-                    ),
-                    child: Text(
-                      "Send Message",
-                      style: GoogleFonts.dmSans(
-                        color: const Color(0xFF090E17),
-                        fontSize: 10.sp,
-                        fontWeight: FontWeight.bold,
+          ),
+          padding: EdgeInsets.all(12.r),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Spacer(flex: 2), // Added spacer to push content down
+              Text(
+                name,
+                style: GoogleFonts.dmSans(
+                  color: Colors.white,
+                  fontSize: 16.sp,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Text(
+                tag,
+                style: GoogleFonts.dmSans(
+                  color: const Color(0xFFEDC286),
+                  fontSize: 14.sp,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              SizedBox(height: 12.h),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  _buildStat("4.5", "Rating"),
+                  _buildVerticalDivider(),
+                  _buildStat("45+", "Jobs"),
+                  _buildVerticalDivider(),
+                  _buildStat("\$45/hr", "Rate"),
+                ],
+              ),
+              SizedBox(height: 12.h),
+              Row(
+                children: [
+                  Expanded(
+                    child: Container(
+                      padding: EdgeInsets.symmetric(vertical: 10.h),
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFEDC286),
+                        borderRadius: BorderRadius.circular(30.r),
+                      ),
+                      child: Text(
+                        "Send Message",
+                        style: GoogleFonts.dmSans(
+                          color: const Color(0xFF090E17),
+                          fontSize: 12.sp,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                SizedBox(width: 4.w),
-                Container(
-                  padding: EdgeInsets.all(6.r),
-                  decoration: BoxDecoration(
-                    color: Colors.white10,
-                    borderRadius: BorderRadius.circular(12.r),
+                  SizedBox(width: 8.w),
+                  Container(
+                    padding: EdgeInsets.all(10.r),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFF131B29).withOpacity(0.7),
+                      borderRadius: BorderRadius.circular(16.r),
+                      border: Border.all(color: Colors.white10),
+                    ),
+                    child: Icon(
+                      Icons.favorite_border,
+                      color: Colors.white,
+                      size: 20.sp,
+                    ),
                   ),
-                  child: Icon(
-                    Icons.favorite_border,
-                    color: Colors.white,
-                    size: 14.sp,
-                  ),
-                ),
-              ],
-            ),
-          ],
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -1072,24 +1086,32 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
+  Widget _buildVerticalDivider() {
+    return Container(
+      height: 30.h,
+      width: 1.w,
+      color: Colors.white24,
+    );
+  }
+
   Widget _buildStat(String value, String label) {
     return Column(
       children: [
         Row(
+          mainAxisSize: MainAxisSize.min,
           children: [
             if (label == "Rating")
-              Icon(
-                Icons.star,
-                color: Color(0xFFEDC286),
-                size: 18.sp,
-                fontWeight: FontWeight.w600,
-              ),
+              Icon(Icons.star, color: const Color(0xFFFF8D28), size: 18.sp),
+            if (label == "Jobs")
+              Icon(Icons.check, color: const Color(0xFF10B981), size: 18.sp),
+            if (label == "Rate") const SizedBox.shrink(),
+            if (label != "Rate") SizedBox(width: 4.w),
             Text(
               value,
               style: GoogleFonts.dmSans(
                 color: Colors.white,
-                fontSize: 14.sp,
-                fontWeight: FontWeight.w600,
+                fontSize: 16.sp,
+                fontWeight: FontWeight.bold,
               ),
             ),
           ],
@@ -1097,7 +1119,7 @@ class HomeScreen extends StatelessWidget {
         Text(
           label,
           style: GoogleFonts.dmSans(
-            color: Color(0xFFFFFFFF),
+            color: Colors.white70,
             fontSize: 12.sp,
             fontWeight: FontWeight.w400,
           ),
