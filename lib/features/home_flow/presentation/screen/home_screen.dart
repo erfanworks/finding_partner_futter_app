@@ -143,6 +143,8 @@ class HomeScreen extends StatelessWidget {
               ),
               SizedBox(height: 10.h),
               _buildCommunityPostCard(),
+              SizedBox(height: 10.h),
+              _buildAvailabilityStatus(),
               SizedBox(height: 20.h),
               _buildSectionHeader(
                 "Browse Categories",
@@ -699,6 +701,7 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
         SizedBox(height: 12.h),
+        const Divider(color: Color(0xFF3D4754), thickness: 1),
         Row(
           children: [
             SvgPicture.asset(
@@ -988,6 +991,82 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildAvailabilityStatus() {
+    return Column(
+      children: [
+        const Divider(color: Color(0xFF3D4754), thickness: 1),
+        SizedBox(height: 12.h),
+        Row(
+          children: [
+            SizedBox(
+              width: 75.w,
+              height: 35.h,
+              child: Stack(
+                children: [
+                  _buildMiniAvatar(
+                    'https://images.unsplash.com/photo-1500648767791-00dcc994a43e',
+                    0,
+                  ),
+                  _buildMiniAvatar(
+                    'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d',
+                    20,
+                  ),
+                  _buildMiniAvatar(
+                    'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6',
+                    40,
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(width: 8.w),
+            Text(
+              "3 companions available",
+              style: GoogleFonts.dmSans(
+                color: const Color(0xFF10B981),
+                fontSize: 14.sp,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            const Spacer(),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
+              decoration: BoxDecoration(
+                color: const Color(0xFFEDC286),
+                borderRadius: BorderRadius.circular(30.r),
+              ),
+              child: Text(
+                "Available",
+                style: GoogleFonts.dmSans(
+                  color: const Color(0xFF090E17),
+                  fontSize: 14.sp,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ],
+        ),
+        SizedBox(height: 12.h),
+        const Divider(color: Color(0xFF645138), thickness: 1),
+      ],
+    );
+  }
+
+  Widget _buildMiniAvatar(String url, double left) {
+    return Positioned(
+      left: left.w,
+      child: Container(
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          border: Border.all(color: const Color(0xFF0C131D), width: 2.w),
+        ),
+        child: CircleAvatar(
+          radius: 16.r,
+          backgroundImage: NetworkImage(url),
         ),
       ),
     );
