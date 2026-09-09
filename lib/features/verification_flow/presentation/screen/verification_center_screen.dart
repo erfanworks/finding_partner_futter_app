@@ -189,8 +189,8 @@ class VerificationCenterScreen extends StatelessWidget {
         // Trust & Safety Icon
         Image.asset(
           AppImages.trustSafetyIcon,
-          width: 60.r,
-          height: 68.r,
+          width: 80.r,
+          height: 80.r,
         ),
         SizedBox(width: 16.w),
         Expanded(
@@ -201,8 +201,8 @@ class VerificationCenterScreen extends StatelessWidget {
                 'Trust & Safety',
                 style: GoogleFonts.dmSans(
                   color: Colors.white,
-                  fontSize: 22.sp,
-                  fontWeight: FontWeight.bold,
+                  fontSize: 24.sp,
+                  fontWeight: FontWeight.w700,
                 ),
               ),
               SizedBox(height: 4.h),
@@ -210,7 +210,7 @@ class VerificationCenterScreen extends StatelessWidget {
                 'Every real interaction starts with real identity.',
                 style: GoogleFonts.dmSans(
                   color: Colors.white.withValues(alpha: 0.8),
-                  fontSize: 12.sp,
+                  fontSize: 13.sp,
                 ),
               ),
               SizedBox(height: 10.h),
@@ -332,19 +332,10 @@ class VerificationCenterScreen extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
+              Image.asset(
+                AppImages.criminalCheckIcon,
                 width: 46.r,
                 height: 46.r,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12.r),
-                  border: Border.all(color: const Color(0xFFE5B069).withValues(alpha: 0.5)),
-                  color: const Color(0xFF2A2118),
-                ),
-                child: Icon(
-                  Icons.shield_outlined,
-                  color: const Color(0xFFE5B069),
-                  size: 24.r,
-                ),
               ),
               SizedBox(width: 14.w),
               Expanded(
