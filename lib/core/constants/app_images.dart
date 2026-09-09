@@ -39,12 +39,31 @@ class AppImages {
   static const String hexagramShapeIcon = "$baseurlIcon/hexagram_shape.png";
   static const String userNameIcon = "$baseurlIcon/user_name_icon.png";
   static const String profileIcon = "$baseurlIcon/profile_icon_unfill.svg";
+  static const String profileIconUnfill = "$baseurlIcon/profile_icon_unfill.svg";
   static const String calendarIcon = "$baseurlIcon/calendar.svg";
   static const String notificationIcon = "$baseurlIcon/notification_icon.svg";
   static const String messageIcon = "$baseurlIcon/messege_icon.svg";
   static const String searchIcon = "$baseurlIcon/search_icon.svg";
-  static const String leaderboardIcon = "$baseurlIcon/leader_board.svg";
-  static const String locationIcon = "$baseurlIcon/location_icon.svg";
+  static const String leaderboardIcon = "$baseurlIcon/leaderboard_icon.svg";
+  static const String shopIcon = "$baseurlIcon/shop_icon.svg";
   static const String viewAllIcon = "$baseurlIcon/veiw_all_icon.svg";
+  static const String locationIcon = "$baseurlIcon/location_icon.svg";
+  static const String serviceIcon = "$baseurlIcon/service_icon.svg";
+  static const String financeIcon = "$baseurlIcon/finance_icon.svg";
+  static const String availabilityIcon = "$baseurlIcon/time_circle_icon.svg";
+  static const String savedIcon = "$baseurlIcon/saved_icon.svg";
+  static const String walletIcon = "$baseurlIcon/wallet_icon.svg";
+  static const String rankIcon = "$baseurlIcon/rank_icon.svg";
+  static const String ratingReviewIcon = "$baseurlIcon/rating_review_icon.svg";
+  static const String vacationModeIcon = "$baseurlIcon/vacation_mode_icon.svg";
+  static const String friendsIcon = "$baseurlIcon/friends_icon.svg";
+  static const String favouriteIcon = "$baseurlIcon/favourite_icon.svg";
+  static const String membershipIcon = "$baseurlIcon/membership_icon.svg";
+  static const String verificationIcon = "$baseurlIcon/verification_icon.svg";
+  static const String settingIcon = "$baseurlIcon/setting_icon.svg";
+  static const String privacyIcon = "$baseurlIcon/privacy_icon.svg";
+  static const String termsConditionIcon = "$baseurlIcon/terms_codition.svg";
+  static const String deleteIcon = "$baseurlIcon/delete_icon.svg";
+  static const String logoutIcon = "$baseurlIcon/logout_icon.svg";
 
 }

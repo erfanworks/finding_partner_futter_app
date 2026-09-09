@@ -5,6 +5,7 @@ import 'package:amychebbi/features/help_and_support_flow/presentation/screen/hel
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../nav_bar_flow/screen/nav_bar.dart';
@@ -187,22 +188,22 @@ class ProfileScreen extends StatelessWidget {
           childAspectRatio: 1.8,
           children: [
             _HubCard(
-              icon: Icons.calendar_today_outlined,
+              iconPath: AppImages.calendarIcon,
               title: 'Bookings',
               onTab: () => Get.toNamed(AppRoutes.myBookingScreen),
             ),
             _HubCard(
-              icon: Icons.build_outlined,
+              iconPath: AppImages.serviceIcon,
               title: 'Services',
               onTab: () => Get.toNamed(AppRoutes.serviceScreen),
             ),
             _HubCard(
-              icon: Icons.monetization_on_outlined,
+              iconPath: AppImages.financeIcon,
               title: 'Finance',
               onTab: () => Get.toNamed(AppRoutes.financeScreen),
             ),
             _HubCard(
-              icon: Icons.access_time_rounded,
+              iconPath: AppImages.availabilityIcon,
               title: 'Availability',
               onTab: () => Get.toNamed(AppRoutes.availabilityScreen),
             ),
@@ -212,50 +213,35 @@ class ProfileScreen extends StatelessWidget {
         SizedBox(height: 12.h),
 
         _buildMenuItem(
-          icon: Icons.bookmark_border_rounded,
+          iconPath: AppImages.savedIcon,
           title: 'Saved Feed',
           onTap: () {
             Get.toNamed(AppRoutes.savedFeedScreen);
           },
         ),
         _buildMenuItem(
-          icon: Icons.account_balance_wallet_outlined,
+          iconPath: AppImages.walletIcon,
           title: 'Wallet',
           onTap: () {
             Get.toNamed(AppRoutes.walletScreen);
           },
         ),
-        // _buildMenuItem(icon: Icons.bar_chart_rounded, title: 'Analytics'),
-        // _buildMenuItem(
-        //   icon: Icons.calendar_month_outlined,
-        //   title: 'Booking History',
-        //   onTap: (){
-        //     Get.toNamed(AppRoutes.bookingHistoryScreen);
-        //   },
-        // ),
-        // _buildMenuItem(
-        //   icon: Icons.face_retouching_natural_outlined,
-        //   title: 'Verification',
-        //   onTap: (){
-        //     Get.toNamed(AppRoutes.verificationCenterScreen);
-        //   }
-        // ),
         _buildMenuItem(
-          icon: Icons.military_tech_outlined,
+          iconPath: AppImages.rankIcon,
           title: 'Rank & Reputation',
           onTap: () {
             Get.toNamed(AppRoutes.rankReputationScreen);
           },
         ),
         _buildMenuItem(
-          icon: Icons.leaderboard_outlined,
+          iconPath: AppImages.leaderboardIcon,
           title: 'Leaderboard',
           onTap: () {
             Get.toNamed(AppRoutes.leaderBoardScreen);
           },
         ),
         _buildMenuItem(
-          icon: Icons.rate_review_outlined,
+          iconPath: AppImages.ratingReviewIcon,
           title: 'Ratings & Review',
           onTap: () {
             Get.toNamed(AppRoutes.ratingReviewScreen);
@@ -277,10 +263,11 @@ class ProfileScreen extends StatelessWidget {
                   color: const Color(0xFF1D2A3B),
                   borderRadius: BorderRadius.circular(10.r),
                 ),
-                child: Icon(
-                  Icons.beach_access_outlined,
-                  color: const Color(0xFFE5BA73),
-                  size: 20.r,
+                child: SvgPicture.asset(
+                  AppImages.vacationModeIcon,
+                  colorFilter: const ColorFilter.mode(Color(0xFFE5BA73), BlendMode.srcIn),
+                  height: 20.r,
+                  width: 20.r,
                 ),
               ),
               SizedBox(width: 14.w),
@@ -326,83 +313,106 @@ class ProfileScreen extends StatelessWidget {
     return Column(
       children: [
         _buildMenuItem(
-          icon: Icons.person_outline_rounded,
+          iconPath: AppImages.profileIcon,
           title: 'Account information',
           onTap: () {
             Get.toNamed(AppRoutes.profileInformationScreen);
           },
         ),
         _buildMenuItem(
-          icon: Icons.people_outline_rounded,
+          iconPath: AppImages.calendarIcon,
+          title: 'My Bookings',
+          onTap: () {
+            Get.toNamed(AppRoutes.myBookingScreen);
+          },
+        ),
+        _buildMenuItem(
+          iconPath: AppImages.shopIcon,
+          title: 'Shop',
+          onTap: () {
+            Get.toNamed(AppRoutes.shopScreen);
+          },
+        ),
+        _buildMenuItem(
+          iconPath: AppImages.friendsIcon,
           title: 'Friends',
           onTap: () {
             Get.toNamed(AppRoutes.friendsScreen);
           },
         ),
         _buildMenuItem(
-          icon: Icons.calendar_today_outlined,
-          title: 'My Bookings',
-          onTap: () {
-            Get.toNamed(AppRoutes.myBookingScreen);
-          },
-        ),
-        // _buildMenuItem(
-        //   icon: Icons.storefront_outlined,
-        //   title: 'Shop',
-        //   onTap: () {
-        //     Get.toNamed(AppRoutes.shopScreen);
-        //   },
-        // ),
-        _buildMenuItem(
-          icon: Icons.favorite_border_rounded,
-          title: 'Favorites',
-          onTap: () {
-            Get.toNamed(AppRoutes.favoriteCompanionsScreen);
-          },
-        ),
-        _buildMenuItem(
-          icon: Icons.card_membership_outlined,
+          iconPath: AppImages.membershipIcon,
           title: 'Membership',
           onTap: () {
             Get.toNamed(AppRoutes.membershipScreen);
           },
         ),
         _buildMenuItem(
-          icon: Icons.shield_outlined,
-          title: 'Trust & Safety',
+          iconPath: AppImages.favouriteIcon,
+          title: 'Favorites',
+          onTap: () {
+            Get.toNamed(AppRoutes.favoriteCompanionsScreen);
+          },
+        ),
+        _buildMenuItem(
+          iconPath: AppImages.verificationIcon,
+          title: 'Verification',
           onTap: () {
             Get.toNamed(AppRoutes.verificationCenterScreen);
           },
         ),
-        _buildMenuItem(icon: Icons.settings_outlined, title: 'Setting',onTap: (){
-          Get.toNamed(AppRoutes.settingsScreen);
-        })
-        ,_buildMenuItem(icon: Icons.privacy_tip_outlined, title: 'Privacy Policy',onTap: (){
-          Get.toNamed(AppRoutes.privacyPolicyScreen);
-        })
-        ,_buildMenuItem(icon: Icons.description_outlined, title: 'Terms & Conditions',onTap: (){
-          Get.toNamed(AppRoutes.termsAndConditionScreen);
-        }),
-        _buildMenuItem(icon: Icons.delete_outline_sharp, title: 'Delete Account',onTap: (){
-          Get.toNamed(AppRoutes.deleteAccountScreen);
-        }),
-        _buildMenuItem(icon: Icons.settings_outlined, title: 'Help & Support',onTap: (){
-          Get.to(HelpSupportScreen());
-        }),
-        _logoutBuildMenuItem(title: "Logout",onTap: (){
-          showLogoutDialog(
-            Get.context!,
-            onLogout: () {
-              Get.offAllNamed(AppRoutes.logInScreen);
-            },
-          );
-        }),
+        _buildMenuItem(
+          iconPath: AppImages.settingIcon,
+          title: 'Setting',
+          onTap: () {
+            Get.toNamed(AppRoutes.settingsScreen);
+          },
+        ),
+        _buildMenuItem(
+          iconPath: AppImages.termsConditionIcon,
+          title: 'Terms & Conditions',
+          onTap: () {
+            Get.toNamed(AppRoutes.termsAndConditionScreen);
+          },
+        ),
+        _buildMenuItem(
+          iconPath: AppImages.privacyIcon,
+          title: 'Privacy Policy',
+          onTap: () {
+            Get.toNamed(AppRoutes.privacyPolicyScreen);
+          },
+        ),
+        _buildMenuItem(
+          iconPath: AppImages.deleteIcon,
+          title: 'Delete Account',
+          onTap: () {
+            Get.toNamed(AppRoutes.deleteAccountScreen);
+          },
+        ),
+        _buildMenuItem(
+          iconPath: AppImages.deleteIcon,
+          title: 'Help & Support',
+          onTap: () {
+            Get.to(const HelpSupportScreen());
+          },
+        ),
+        _logoutBuildMenuItem(
+          title: "Logout",
+          onTap: () {
+            showLogoutDialog(
+              Get.context!,
+              onLogout: () {
+                Get.offAllNamed(AppRoutes.logInScreen);
+              },
+            );
+          },
+        ),
       ],
     );
   }
 
   Widget _buildMenuItem({
-    required IconData icon,
+    required String iconPath,
     required String title,
     VoidCallback? onTap,
   }) {
@@ -417,7 +427,12 @@ class ProfileScreen extends StatelessWidget {
             color: const Color(0xFF1D2A3B),
             borderRadius: BorderRadius.circular(10.r),
           ),
-          child: Icon(icon, color: const Color(0xFFE5BA73), size: 20.r),
+          child: SvgPicture.asset(
+            iconPath,
+            colorFilter: const ColorFilter.mode(Color(0xFFE5BA73), BlendMode.srcIn),
+            height: 20.r,
+            width: 20.r,
+          ),
         ),
         title: Text(
           title,
@@ -452,31 +467,31 @@ class ProfileScreen extends StatelessWidget {
             color: const Color(0xFFFF383C).withValues(alpha: 0.2),
             borderRadius: BorderRadius.circular(10.r),
           ),
-          child: Icon(Icons.logout, color: const Color(0xFFFF383C), size: 20.r),
+          child: SvgPicture.asset(
+            AppImages.logoutIcon,
+            colorFilter: const ColorFilter.mode(Color(0xFFFF383C), BlendMode.srcIn),
+            height: 20.r,
+            width: 20.r,
+          ),
         ),
         title: Text(
           title,
           style: GoogleFonts.dmSans(
-            color: Color(0xFFFF383C),
+            color: const Color(0xFFFF383C),
             fontSize: 14.sp,
             fontWeight: FontWeight.w500,
           ),
         ),
-        // trailing: const Icon(
-        //   Icons.arrow_forward_ios_rounded,
-        //   color: Colors.white70,
-        //   size: 14,
-        // ),
       ),
     );
   }
 }
 
 class _HubCard extends StatelessWidget {
-  final IconData icon;
+  final String iconPath;
   final String title;
   final VoidCallback? onTab;
-  const _HubCard({required this.icon, required this.title, this.onTab});
+  const _HubCard({required this.iconPath, required this.title, this.onTab});
 
   @override
   Widget build(BuildContext context) {
@@ -493,7 +508,12 @@ class _HubCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Icon(icon, color: const Color(0xFFE5BA73), size: 22.r),
+            SvgPicture.asset(
+              iconPath,
+              colorFilter: const ColorFilter.mode(Color(0xFFE5BA73), BlendMode.srcIn),
+              height: 22.r,
+              width: 22.r,
+            ),
             Text(
               title,
               style: GoogleFonts.dmSans(
