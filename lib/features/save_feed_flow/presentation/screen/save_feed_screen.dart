@@ -260,7 +260,7 @@ class SavedFeedScreen extends StatelessWidget {
                   style: GoogleFonts.dmSans(
                     color: const Color(0xFF22C55E),
                     fontSize: 12.sp,
-                    fontWeight: FontWeight.w500,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ],
