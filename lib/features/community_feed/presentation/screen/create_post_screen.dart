@@ -197,9 +197,14 @@ class CreatePostScreen extends StatelessWidget {
                                         fontSize: 14.sp,
                                       ),
                                     ),
-                                    const Icon(
-                                      Icons.calendar_month_outlined,
-                                      color: Color(0xFF7E8B9B),
+                                    SvgPicture.asset(
+                                      AppImages.calendarIcon,
+                                      colorFilter: const ColorFilter.mode(
+                                        Color(0xFF7E8B9B),
+                                        BlendMode.srcIn,
+                                      ),
+                                      height: 20.sp,
+                                      width: 20.sp,
                                     ),
                                   ],
                                 ),
