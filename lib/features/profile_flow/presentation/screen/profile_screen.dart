@@ -49,7 +49,7 @@ class ProfileScreen extends StatelessWidget {
             child: Column(
               children: [
                 Container(
-                  padding: EdgeInsets.all(12.r),
+                  padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
                   decoration: BoxDecoration(
                     color: Color(0xFF1E293B),
                     borderRadius: BorderRadius.circular(16.r),
@@ -58,7 +58,7 @@ class ProfileScreen extends StatelessWidget {
                   child: Row(
                     children: [
                       CircleAvatar(
-                        radius: 30.r,
+                        radius: 35.r,
                         backgroundImage: const NetworkImage(
                           'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop',
                         ),
@@ -67,6 +67,7 @@ class ProfileScreen extends StatelessWidget {
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.min,
                           children: [
                             Text(
                               'tanvirchowdhury, 27',
@@ -89,19 +90,21 @@ class ProfileScreen extends StatelessWidget {
                         ),
                       ),
                       Column(
+                        mainAxisSize: MainAxisSize.min,
                         children: [
                           Image.asset(
                             AppImages.criminalImage,
-                            height: 70.h,
-                            width: 70.w,
+                            height: 60.h,
+                            width: 90.w,
                           ),
                           Text(
                             'CLEAN CRIMINAL\nRECORD',
                             textAlign: TextAlign.center,
                             style: GoogleFonts.dmSans(
                               color: Color(0xFFEDC286),
-                              fontSize: 12.sp,
-                              fontWeight: FontWeight.w400,
+                              fontSize: 10.sp,
+                              fontWeight: FontWeight.bold,
+                              height: 1.1,
                             ),
                           ),
                         ],
