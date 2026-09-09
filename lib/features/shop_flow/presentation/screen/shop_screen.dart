@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../../../core/constants/app_images.dart';
 import '../../../nav_bar_flow/screen/nav_bar.dart';
 import '../controller/shop_controller.dart';
 
@@ -32,33 +33,37 @@ class ShopScreen extends StatelessWidget {
         ),
         centerTitle: true,
         actions: [
-          Padding(
-            padding: EdgeInsets.only(right: 16.w),
-            child: Center(
+          GetBuilder<ShopController>(
+            init: ShopController(),
+            builder: (controller) => Center(
               child: GestureDetector(
-                onTap: (){
+                onTap: () {
                   Get.toNamed(AppRoutes.seiWalletScreen);
                 },
                 child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 4.h),
+                  margin: EdgeInsets.only(right: 16.w),
+                  height: 30.h,
                   decoration: BoxDecoration(
-                    color: const Color(0xFF1E293B),
-                    borderRadius: BorderRadius.circular(16.r),
-                    border: Border.all(color: const Color(0xFFE5B069).withValues(alpha: 0.4)),
+                    color: const Color(0xFF282D33),
+                    borderRadius: BorderRadius.circular(20.r),
+                    border: Border.all(color: const Color(0xFFEDC286), width: 1.2),
                   ),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Icon(Icons.monetization_on, color: const Color(0xFFE5B069), size: 16.r),
-                      SizedBox(width: 6.w),
-                      GetBuilder<ShopController>(
-                        init: ShopController(),
-                        builder: (controller) => Text(
+                      Image.asset(
+                        AppImages.japansCoin,
+                        height: 34.h,
+                        width: 32.w,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(left: 4.w, right: 12.w),
+                        child: Text(
                           controller.coinCount,
                           style: GoogleFonts.dmSans(
-                            color: Colors.white,
-                            fontSize: 12.sp,
-                            fontWeight: FontWeight.bold,
+                            color: const Color(0xFFEDC286),
+                            fontSize: 16.sp,
+                            fontWeight: FontWeight.w700,
                           ),
                         ),
                       ),
