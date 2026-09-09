@@ -174,7 +174,7 @@ class CategorySearchScreen extends GetView<CategorySearchController> {
                           child: Icon(
                             profile.isFavorite.value ? Icons.favorite : Icons.favorite_border,
                             color: profile.isFavorite.value ? Colors.redAccent : const Color(0xFF8A95A5),
-                            size: 20,
+                            size: 22,
                           ),
                         ),
                       ),
@@ -186,20 +186,19 @@ class CategorySearchScreen extends GetView<CategorySearchController> {
                   '${profile.category}  •  ${profile.location}',
                   style: GoogleFonts.dmSans(
                     color: const Color(0xFF8A95A5),
-                    fontSize: 11.sp,
+                    fontSize: 12.sp,
                   ),
                 ),
                 SizedBox(height: 6.h),
                 Row(
                   children: [
-                    const Icon(Icons.star, color: Color(0xFFF59E0B), size: 16),
+                    const Icon(Icons.star, color: Color(0xFFB85701), size: 16),
                     SizedBox(width: 4.w),
                     Text(
                       '${profile.rating}',
                       style: GoogleFonts.dmSans(
-                        color: const Color(0xFFF59E0B),
+                        color: const Color(0xFFDA7113),
                         fontSize: 12.sp,
-                        fontWeight: FontWeight.bold,
                       ),
                     ),
                     SizedBox(width: 4.w),
@@ -237,10 +236,10 @@ class CategorySearchScreen extends GetView<CategorySearchController> {
                                 fontSize: 10.sp,
                               ),
                             ),
-                            const Icon(
-                              Icons.monetization_on_outlined,
-                              color: Color(0xFFD4A359),
-                              size: 11,
+                            Image.asset(
+                              AppImages.japansCoin,
+                              height: 11,
+                              width: 11,
                             ),
                             SizedBox(width: 2.w),
                             Text(
