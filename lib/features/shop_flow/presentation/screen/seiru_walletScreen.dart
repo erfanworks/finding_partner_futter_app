@@ -24,8 +24,8 @@ class SeiruWalletScreen extends StatelessWidget {
           'Seiru',
           style: GoogleFonts.dmSans(
             color: Colors.white,
-            fontSize: 20.sp,
-            fontWeight: FontWeight.bold,
+            fontSize: 24.sp,
+            fontWeight: FontWeight.w700,
           ),
         ),
         centerTitle: true,
