@@ -157,10 +157,10 @@ class AvatarFramesScreen extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    CircleAvatar(
-                      radius: 6.r,
-                      backgroundColor: const Color(0xFFE5B069),
-                      child: Text('生', style: TextStyle(fontSize: 6.sp, color: Colors.black)),
+                    Image.asset(
+                      AppImages.japansCoin,
+                      width: 12.r,
+                      height: 12.r,
                     ),
                     SizedBox(width: 4.w),
                     Text(
