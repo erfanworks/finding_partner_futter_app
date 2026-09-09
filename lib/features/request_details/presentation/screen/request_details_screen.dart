@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../../../core/constants/app_images.dart';
 import '../controller/request_details_controller.dart';
 import '../widget/accept_confirmating_dialog.dart';
 import '../widget/declineConfirmationDialog.dart';
@@ -30,7 +31,7 @@ class RequestDetailsScreen extends StatelessWidget {
           "Request Details",
           style: GoogleFonts.dmSans(
             color: Colors.white,
-            fontSize: 20.sp,
+            fontSize: 24.sp,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -82,8 +83,8 @@ class RequestDetailsScreen extends StatelessWidget {
             borderRadius: BorderRadius.circular(12.r),
             child: Image.network(
               'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d',
-              width: 60.r,
-              height: 60.r,
+              width: 80.r,
+              height: 80.r,
               fit: BoxFit.cover,
             ),
           ),
@@ -113,10 +114,10 @@ class RequestDetailsScreen extends StatelessWidget {
           ),
           Column(
             children: [
-              Icon(
-                Icons.shield_outlined,
-                color: const Color(0xFFD4AF37),
-                size: 28.sp,
+              Image.asset(
+                AppImages.criminalImage,
+                height: 55.sp,
+                width: 79.sp,
               ),
               SizedBox(height: 2.h),
               Text(
