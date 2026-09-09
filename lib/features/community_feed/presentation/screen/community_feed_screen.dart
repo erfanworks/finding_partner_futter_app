@@ -304,10 +304,11 @@ class CommunityFeedScreen extends StatelessWidget {
         SizedBox(height: 12.h),
         Row(
           children: [
-            Icon(
-              Icons.chat_bubble_outline,
-              color: const Color(0xFF8C9BAE),
-              size: 18.sp,
+            SvgPicture.asset(
+              AppImages.messageIcon,
+              colorFilter: const ColorFilter.mode(Color(0xFF8C9BAE), BlendMode.srcIn),
+              height: 18.sp,
+              width: 18.sp,
             ),
             SizedBox(width: 6.w),
             RichText(
@@ -317,7 +318,7 @@ class CommunityFeedScreen extends StatelessWidget {
                   fontSize: 12.sp,
                 ),
                 children: const [
-                  TextSpan(text: "12  Comented on "),
+                  TextSpan(text: "12  Commented on "),
                   TextSpan(
                     text: "Jhon ",
                     style: TextStyle(
@@ -426,7 +427,7 @@ class CommunityFeedScreen extends StatelessWidget {
                       "Gaming- Xbox",
                       style: GoogleFonts.dmSans(
                         color: Color(0xFFD49E53),
-                        fontSize: 14.sp,
+                        fontSize: 12.sp,
                         fontWeight: FontWeight.w400
                       ),
                     ),
@@ -438,7 +439,7 @@ class CommunityFeedScreen extends StatelessWidget {
                 "Male  •  Florida",
                 style: GoogleFonts.dmSans(
                   color: Color(0xFF8C8D94),
-                  fontSize: 16.sp,
+                  fontSize: 14.sp,
                   fontWeight: FontWeight.w400
                 ),
               ),
@@ -468,12 +469,12 @@ class CommunityFeedScreen extends StatelessWidget {
               "15m ago",
               style: GoogleFonts.dmSans(
                 color: Color(0xFF8C9BAE),
-                fontSize: 14.sp,
-                fontWeight: FontWeight.w400
+                fontSize: 12.sp,
+                fontWeight: FontWeight.w500
               ),
             ),
             SizedBox(height: 4.h),
-            Icon(Icons.more_vert, color: const Color(0xFF8C9BAE), size: 18.sp),
+            Icon(Icons.more_vert, color: Colors.white, size: 20.sp),
           ],
         ),
       ],
