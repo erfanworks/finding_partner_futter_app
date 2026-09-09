@@ -67,5 +67,7 @@ class AppImages {
   static const String deleteIcon = "$baseurlIcon/delete_icon.svg";
   static const String logoutIcon = "$baseurlIcon/logout_icon.svg";
   static const String giftIcon = "$baseurlIcon/gift_icon.svg";
+  static const String framesIcon = "$baseurlIcon/frames_icon.svg";
+  static const String badgeIcon = "$baseurlIcon/badge_icon.svg";
 
 }

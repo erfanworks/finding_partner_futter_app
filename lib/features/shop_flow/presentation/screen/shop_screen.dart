@@ -1,6 +1,7 @@
 import 'package:amychebbi/core/route/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -87,15 +88,27 @@ class ShopScreen extends StatelessWidget {
               // SizedBox(height: 20.h),
               Row(
                 children: [
-                  _buildCategoryCard(icon:  Icons.crop_square_rounded,onTap: (){
-                    Get.toNamed(AppRoutes.avatarFramesScreen);
-                  }, title: 'Frames',),
+                  _buildCategoryCard(
+                    iconPath: AppImages.framesIcon,
+                    onTap: () {
+                      Get.toNamed(AppRoutes.avatarFramesScreen);
+                    },
+                    title: 'Frames',
+                  ),
                   SizedBox(width: 12.w),
-                  _buildCategoryCard(title: 'Badges',icon:  Icons.verified_outlined,onTap: (){}),
+                  _buildCategoryCard(
+                    title: 'Badges',
+                    iconPath: AppImages.badgeIcon,
+                    onTap: () {},
+                  ),
                   SizedBox(width: 12.w),
-                  _buildCategoryCard(title: 'Gifts',icon:  Icons.card_giftcard_rounded,onTap: (){
-                    Get.toNamed(AppRoutes.shopGiftScreen);
-                  }),
+                  _buildCategoryCard(
+                    title: 'Gifts',
+                    iconPath: AppImages.giftIcon,
+                    onTap: () {
+                      Get.toNamed(AppRoutes.shopGiftScreen);
+                    },
+                  ),
                 ],
               ),
               SizedBox(height: 24.h),
@@ -246,7 +259,7 @@ class ShopScreen extends StatelessWidget {
 
   Widget _buildCategoryCard({
     required String title,
-    required IconData icon,
+    required String iconPath,
     required VoidCallback onTap,
   }) {
     return Expanded(
@@ -268,7 +281,12 @@ class ShopScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(icon, color: const Color(0xFF2E2213), size: 30.r),
+              SvgPicture.asset(
+                iconPath,
+                colorFilter: const ColorFilter.mode(Color(0xFF2E2213), BlendMode.srcIn),
+                height: 30.r,
+                width: 30.r,
+              ),
               SizedBox(height: 8.h),
               Text(
                 title,
