@@ -1,6 +1,7 @@
 import 'package:amychebbi/core/constants/app_images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
@@ -84,9 +85,10 @@ class CreatePostScreen extends StatelessWidget {
                             : 'city or country',
                         prefixIcon:
                             controller.postType.value == PostType.scheduled
-                            ? const Icon(
-                                Icons.location_on_outlined,
-                                color: Color(0xFF7E8B9B),
+                            ? SvgPicture.asset(
+                                AppImages.locationIcon,
+                                colorFilter: const ColorFilter.mode(Color(0xFF7E8B9B), BlendMode.srcIn),
+                                fit: BoxFit.scaleDown,
                               )
                             : null,
                       ),
@@ -217,9 +219,10 @@ class CreatePostScreen extends StatelessWidget {
                         hintText: controller.postType.value == PostType.now
                             ? 'City, Country'
                             : 'Miami',
-                        prefixIcon: const Icon(
-                          Icons.location_on_outlined,
-                          color: Color(0xFF7E8B9B),
+                        prefixIcon: SvgPicture.asset(
+                          AppImages.locationIcon,
+                          colorFilter: const ColorFilter.mode(Color(0xFF7E8B9B), BlendMode.srcIn),
+                          fit: BoxFit.scaleDown,
                         ),
                       ),
                     ),
@@ -247,7 +250,7 @@ class CreatePostScreen extends StatelessWidget {
                             'Only with clean criminal record',
                             style: GoogleFonts.dmSans(
                               color: Colors.white,
-                              fontSize: 14.sp,
+                              fontSize: 16.sp,
                               fontWeight: FontWeight.w500,
                             ),
                           ),
@@ -394,7 +397,7 @@ class CreatePostScreen extends StatelessWidget {
                   width: double.infinity,
                   padding: EdgeInsets.symmetric(vertical: 14.h),
                   decoration: BoxDecoration(
-                    color: const Color(0xFFF1D199),
+                    color: const Color(0xFFEDC286),
                     borderRadius: BorderRadius.circular(28.r),
                   ),
                   child: Center(
