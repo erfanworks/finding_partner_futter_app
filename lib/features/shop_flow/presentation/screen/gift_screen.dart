@@ -99,7 +99,7 @@ class ShopGiftsScreen extends StatelessWidget {
         decoration: BoxDecoration(
           color: const Color(0xFF151F30),
           borderRadius: BorderRadius.circular(20.r),
-          border: Border.all(color: Colors.white.withValues(alpha: 0.04)),
+          border: Border.all(color: Colors.white.withValues(alpha: 0.30)),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -117,7 +117,7 @@ class ShopGiftsScreen extends StatelessWidget {
               gift.name,
               style: GoogleFonts.dmSans(
                 color: Colors.white,
-                fontSize: 13.sp,
+                fontSize: 16.sp,
                 fontWeight: FontWeight.w600,
               ),
             ),
@@ -145,10 +145,10 @@ class ShopGiftsScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  CircleAvatar(
-                    radius: 6.r,
-                    backgroundColor: const Color(0xFFE5B069),
-                    child: Text('生', style: TextStyle(fontSize: 6.sp, color: Colors.black)),
+                  Image.asset(
+                    AppImages.japansCoin,
+                    height: 16.r,
+                    width: 16.r,
                   ),
                   SizedBox(width: 4.w),
                   Text(
