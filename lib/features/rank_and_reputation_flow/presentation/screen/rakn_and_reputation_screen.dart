@@ -92,7 +92,7 @@ class RankReputationScreen extends StatelessWidget {
         children: [
           SvgPicture.asset(
             AppImages.rankIcon,
-            colorFilter: const ColorFilter.mode(Color(0xFFE5B069), BlendMode.srcIn),
+            colorFilter: const ColorFilter.mode(Color(0xFFFF8D28), BlendMode.srcIn),
             height: 44.r,
             width: 44.r,
           ),
@@ -165,10 +165,11 @@ class RankReputationScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(
-            Icons.card_giftcard_rounded,
-            color: const Color(0xFFE5B069),
-            size: 24.r,
+          SvgPicture.asset(
+            AppImages.giftIcon,
+            colorFilter: const ColorFilter.mode(Color(0xFFE5B069), BlendMode.srcIn),
+            height: 24.r,
+            width: 24.r,
           ),
           const Spacer(),
           Text(

@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         defaultTransition: Transition.fadeIn,
         theme: themeData,
         transitionDuration: const Duration(milliseconds: 300),
-        initialRoute: AppRoutes.rankReputationScreen,
+        initialRoute: AppRoutes.homescreen,
         getPages: AppRoutes.routes,
       ),
     );

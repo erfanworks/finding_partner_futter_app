@@ -79,7 +79,6 @@ class SavedFeedScreen extends StatelessWidget {
                         AppImages.starCompenionImg,
                         width: 16.r,
                         height: 16.r,
-                        color: Color(0xFFFF8D28),
                       ),
                       SizedBox(width: 8.w),
                       Container(
