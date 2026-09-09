@@ -30,7 +30,6 @@ class ExploreScreen extends StatelessWidget {
                     separatorBuilder: (context, index) => SizedBox(width: 8.w),
                     itemBuilder: (context, index) {
                       final category = controller.categories[index];
-                      // এখানে controller.selectedCategory এখন সাধারণ String
                       final isSelected = controller.selectedCategory == category;
 
                       return GestureDetector(
@@ -48,9 +47,9 @@ class ExploreScreen extends StatelessWidget {
                             child: Text(
                               category,
                               style: GoogleFonts.dmSans(
-                                color: isSelected ? const Color(0xFF1E160D) : const Color(0xFF98A5B3),
-                                fontSize: 14.sp,
-                                fontWeight: isSelected ? FontWeight.bold : FontWeight.w500,
+                                color: isSelected ? Colors.white : const Color(0xFF98A5B3),
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.w500,
                               ),
                             ),
                           ),
@@ -72,21 +71,21 @@ class ExploreScreen extends StatelessWidget {
                       return Container(
                         padding: EdgeInsets.all(12.r),
                         decoration: BoxDecoration(
-                          color: const Color(0xFF162232),
-                          borderRadius: BorderRadius.circular(24.r),
+                          color: const Color(0xFF101C2B),
+                          borderRadius: BorderRadius.circular(20.r),
                           border: Border.all(
-                            color: Colors.white.withValues(alpha: 0.05),
+                            color: Colors.white.withValues(alpha: 0.08),
+                            width: 1,
                           ),
                         ),
                         child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             ClipRRect(
-                              borderRadius: BorderRadius.circular(18.r),
+                              borderRadius: BorderRadius.circular(20.r),
                               child: Image.network(
                                 item.image,
-                                width: 100.w,
-                                height: 110.h,
+                                width: 111.w,
+                                height: 109.h,
                                 fit: BoxFit.cover,
                               ),
                             ),
@@ -94,9 +93,10 @@ class ExploreScreen extends StatelessWidget {
                             Expanded(
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Row(
-                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
                                       Expanded(
                                         child: Row(
@@ -106,29 +106,39 @@ class ExploreScreen extends StatelessWidget {
                                                 item.name,
                                                 style: GoogleFonts.dmSans(
                                                   color: Colors.white,
-                                                  fontSize: 15.sp,
-                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 14.sp,
+                                                  fontWeight: FontWeight.w600,
                                                 ),
                                                 overflow: TextOverflow.ellipsis,
                                               ),
                                             ),
-                                            SizedBox(width: 6.w),
+                                            SizedBox(width: 4.w),
                                             Image.asset(
-                                              AppImages.hexagramShapeIcon,
-                                              height: 20.h,
-                                              width: 20.w,
+                                              AppImages.starCompenionImg,
+                                              height: 16,
+                                              width: 18,
                                             ),
                                           ],
                                         ),
                                       ),
                                       GestureDetector(
                                         onTap: () => controller.toggleFavorite(index),
-                                        child: Icon(
-                                          item.isFavorite
-                                              ? Icons.favorite_rounded
-                                              : Icons.favorite_border_rounded,
-                                          color: item.isFavorite ? Colors.red : const Color(0xFF8FA1B5),
-                                          size: 20.r,
+                                        child: Container(
+                                          padding: EdgeInsets.all(6.r),
+                                          decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            border: Border.all(
+                                              color: Colors.white.withValues(alpha: 0.1),
+                                              width: 1,
+                                            ),
+                                          ),
+                                          child: Icon(
+                                            item.isFavorite
+                                                ? Icons.favorite
+                                                : Icons.favorite_border,
+                                            color: item.isFavorite ? Colors.redAccent : const Color(0xFF8A95A5),
+                                            size: 22,
+                                          ),
                                         ),
                                       ),
                                     ],
@@ -137,40 +147,40 @@ class ExploreScreen extends StatelessWidget {
                                   Text(
                                     '${item.category}  •  ${item.location}',
                                     style: GoogleFonts.dmSans(
-                                      color: const Color(0xFF8FA1B5),
-                                      fontSize: 11.sp,
+                                      color: const Color(0xFF8A95A5),
+                                      fontSize: 12.sp,
                                     ),
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis,
                                   ),
-                                  SizedBox(height: 4.h),
+                                  SizedBox(height: 6.h),
                                   Row(
                                     children: [
-                                      Icon(
-                                        Icons.star_rounded,
-                                        color: const Color(0xFFE5BA73),
-                                        size: 16.r,
+                                      const Icon(
+                                        Icons.star,
+                                        color: Color(0xFFB85701),
+                                        size: 16,
                                       ),
                                       SizedBox(width: 4.w),
                                       Text(
                                         item.rating,
                                         style: GoogleFonts.dmSans(
-                                          color: const Color(0xFFE5BA73),
+                                          color: const Color(0xFFDA7113),
                                           fontSize: 12.sp,
                                           fontWeight: FontWeight.bold,
                                         ),
                                       ),
-                                      SizedBox(width: 2.w),
+                                      SizedBox(width: 4.w),
                                       Text(
                                         ' (${item.reviews})',
                                         style: GoogleFonts.dmSans(
-                                          color: const Color(0xFF8FA1B5),
+                                          color: const Color(0xFF8A95A5),
                                           fontSize: 12.sp,
                                         ),
                                       ),
                                     ],
                                   ),
-                                  SizedBox(height: 6.h),
+                                  SizedBox(height: 8.h),
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     crossAxisAlignment: CrossAxisAlignment.end,
@@ -181,8 +191,8 @@ class ExploreScreen extends StatelessWidget {
                                           Text(
                                             item.price,
                                             style: GoogleFonts.dmSans(
-                                              color: Colors.white,
-                                              fontSize: 16.sp,
+                                              color: const Color(0xFFEDC286),
+                                              fontSize: 15.sp,
                                               fontWeight: FontWeight.bold,
                                             ),
                                           ),
@@ -191,21 +201,21 @@ class ExploreScreen extends StatelessWidget {
                                               Text(
                                                 'or ',
                                                 style: GoogleFonts.dmSans(
-                                                  color: const Color(0xFF8FA1B5),
+                                                  color: const Color(0xFF8A95A5),
                                                   fontSize: 10.sp,
                                                 ),
                                               ),
-                                              Icon(
-                                                Icons.generating_tokens_rounded,
-                                                color: const Color(0xFFE5BA73),
-                                                size: 12.r,
+                                              Image.asset(
+                                                AppImages.japansCoin,
+                                                height: 11,
+                                                width: 11,
                                               ),
                                               SizedBox(width: 2.w),
                                               Text(
                                                 item.coinText,
                                                 style: GoogleFonts.dmSans(
-                                                  color: const Color(0xFF8FA1B5),
-                                                  fontSize: 10.sp,
+                                                  color: const Color(0xFF8A95A5),
+                                                  fontSize: 12.sp,
                                                 ),
                                               ),
                                             ],
@@ -215,17 +225,24 @@ class ExploreScreen extends StatelessWidget {
                                       GestureDetector(
                                         onTap: () => Get.toNamed(AppRoutes.messageListScreen),
                                         child: Container(
-                                          padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 8.h),
+                                          padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 7.h),
                                           decoration: BoxDecoration(
-                                            color: const Color(0xFFE5BA73),
-                                            borderRadius: BorderRadius.circular(20.r),
+                                            gradient: const LinearGradient(
+                                              colors: [
+                                                Color(0xFFECC27D),
+                                                Color(0xFFBD8E48),
+                                              ],
+                                              begin: Alignment.centerLeft,
+                                              end: Alignment.centerRight,
+                                            ),
+                                            borderRadius: BorderRadius.circular(16.r),
                                           ),
                                           child: Text(
                                             'Send Message',
                                             style: GoogleFonts.dmSans(
-                                              color: const Color(0xFF1E160D),
+                                              color: const Color(0xFF1A120B),
                                               fontSize: 12.sp,
-                                              fontWeight: FontWeight.bold,
+                                              fontWeight: FontWeight.w500,
                                             ),
                                           ),
                                         ),
