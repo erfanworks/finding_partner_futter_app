@@ -225,7 +225,7 @@ class CreatePostScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 20.h),
                     Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Obx(
                           () => Checkbox(
@@ -243,15 +243,12 @@ class CreatePostScreen extends StatelessWidget {
                           ),
                         ),
                         Expanded(
-                          child: Padding(
-                            padding: EdgeInsets.only(top: 12.h),
-                            child: Text(
-                              'Only with clean criminal record',
-                              style: GoogleFonts.dmSans(
-                                color: Colors.white,
-                                fontSize: 14.sp,
-                                fontWeight: FontWeight.w500,
-                              ),
+                          child: Text(
+                            'Only with clean criminal record',
+                            style: GoogleFonts.dmSans(
+                              color: Colors.white,
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w500,
                             ),
                           ),
                         ),
@@ -504,7 +501,7 @@ class CreatePostScreen extends StatelessWidget {
   Widget _buildCriminalRecordBadge() {
     return Column(
       children: [
-       Image.asset(AppImages.criminalImage,height: 50.h,width: 50.w),
+       Image.asset(AppImages.criminalImage,height: 55.h,width: 79.w),
         SizedBox(height: 2.h),
         Text(
           'CLEAN CRIMINAL\nRECORD',
