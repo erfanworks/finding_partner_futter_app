@@ -1,9 +1,11 @@
 import 'package:amychebbi/core/constants/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../../../core/constants/app_images.dart';
 import '../controller/rank_and_reputation_controller.dart';
 
 
@@ -88,10 +90,11 @@ class RankReputationScreen extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Icon(
-            Icons.workspace_premium_outlined, // Crown style icon
-            color: const Color(0xFFE5B069),
-            size: 44.r,
+          SvgPicture.asset(
+            AppImages.rankIcon,
+            colorFilter: const ColorFilter.mode(Color(0xFFE5B069), BlendMode.srcIn),
+            height: 44.r,
+            width: 44.r,
           ),
           SizedBox(height: 8.h),
           Text(

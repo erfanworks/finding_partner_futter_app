@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../../../core/constants/app_images.dart';
 import '../controller/save_feed_controller.dart';
 
 
@@ -75,9 +76,10 @@ class SavedFeedScreen extends StatelessWidget {
                       ),
                       SizedBox(width: 6.w),
                       Image.asset(
-                        'assets/images/star_compenion_img.png',
+                        AppImages.starCompenionImg,
                         width: 16.r,
                         height: 16.r,
+                        color: Color(0xFFFF8D28),
                       ),
                       SizedBox(width: 8.w),
                       Container(
@@ -173,7 +175,7 @@ class SavedFeedScreen extends StatelessWidget {
             Row(
               children: [
                 SvgPicture.asset(
-                  'assets/icons/messege_icon.svg',
+                  AppImages.messageIcon,
                   width: 20.r,
                   height: 20.r,
                 ),
