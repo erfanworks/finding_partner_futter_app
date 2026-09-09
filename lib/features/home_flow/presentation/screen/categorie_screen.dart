@@ -1,3 +1,4 @@
+import 'package:amychebbi/core/constants/app_images.dart';
 import 'package:amychebbi/core/route/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -9,13 +10,13 @@ class CategoriesScreen extends StatelessWidget {
   const CategoriesScreen({super.key});
 
   final List<Map<String, String>> categories = const [
-    {'title': 'Travel', 'emoji': '✈️'},
-    {'title': 'Business', 'emoji': '💼'},
-    {'title': 'Fitness', 'emoji': '🏋️'},
-    {'title': 'Gaming', 'emoji': '🎮'},
-    {'title': 'Activities', 'emoji': '🍿'},
-    {'title': 'Networking', 'emoji': '☕'},
-    {'title': 'Social Talking', 'emoji': '💬'},
+    {'title': 'Travel', 'icon': AppImages.travelImg},
+    {'title': 'Business', 'icon': AppImages.businessImg},
+    {'title': 'Fitness', 'icon': AppImages.fitnessImg},
+    {'title': 'Gaming', 'icon': AppImages.gamingImg},
+    {'title': 'Activities', 'icon': AppImages.activitiesImg},
+    {'title': 'Networking', 'icon': AppImages.networkingImg},
+    {'title': 'Social Talking', 'icon': AppImages.messageImg},
   ];
 
   @override
@@ -66,9 +67,10 @@ class CategoriesScreen extends StatelessWidget {
                 ),
                 child: Row(
                   children: [
-                    Text(
-                      category['emoji']!,
-                      style: TextStyle(fontSize: 22.sp),
+                    Image.asset(
+                      category['icon']!,
+                      height: 25.sp,
+                      width: 25.sp,
                     ),
                     SizedBox(width: 16.w),
                     Expanded(
