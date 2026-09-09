@@ -33,8 +33,8 @@ class ProfileScreen extends StatelessWidget {
           'My Profile',
           style: GoogleFonts.dmSans(
             color: Colors.white,
-            fontSize: 20.sp,
-            fontWeight: FontWeight.bold,
+            fontSize: 24.sp,
+            fontWeight: FontWeight.w700,
           ),
         ),
         centerTitle: true,
@@ -74,7 +74,7 @@ class ProfileScreen extends StatelessWidget {
                               style: GoogleFonts.dmSans(
                                 color: Colors.white,
                                 fontSize: 16.sp,
-                                fontWeight: FontWeight.bold,
+                                fontWeight: FontWeight.w600,
                               ),
                             ),
                             SizedBox(height: 2.h),
@@ -427,7 +427,7 @@ class ProfileScreen extends StatelessWidget {
         leading: Container(
           padding: EdgeInsets.all(10.r),
           decoration: BoxDecoration(
-            color: const Color(0xFF1D2A3B),
+            color: const Color(0xFFEDC286).withAlpha(40),
             borderRadius: BorderRadius.circular(10.r),
           ),
           child: SvgPicture.asset(
@@ -442,12 +442,12 @@ class ProfileScreen extends StatelessWidget {
           style: GoogleFonts.dmSans(
             color: Colors.white,
             fontSize: 14.sp,
-            fontWeight: FontWeight.w500,
+            fontWeight: FontWeight.w600,
           ),
         ),
         trailing: const Icon(
           Icons.arrow_forward_ios_rounded,
-          color: Colors.white70,
+          color: Colors.white,
           size: 14,
         ),
       ),

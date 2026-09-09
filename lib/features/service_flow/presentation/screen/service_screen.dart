@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../../../core/constants/app_images.dart';
 import '../controller/service_controller.dart';
 import 'add_service_screen.dart';
 
@@ -144,16 +146,24 @@ class ServicesScreen extends StatelessWidget {
                       IconButton(
                         padding: EdgeInsets.zero,
                         constraints: const BoxConstraints(),
-                        icon: Icon(Icons.delete_outline_rounded,
-                            color: const Color(0xFFFF4D4D), size: 28.r),
+                        icon: SvgPicture.asset(
+                          AppImages.deleteIcon,
+                          colorFilter: const ColorFilter.mode(Color(0xFFFF4D4D), BlendMode.srcIn),
+                          height: 28.r,
+                          width: 28.r,
+                        ),
                         onPressed: () => controller.deleteService(item.id),
                       ),
                       SizedBox(width: 12.w),
                       IconButton(
                         padding: EdgeInsets.zero,
                         constraints: const BoxConstraints(),
-                        icon: Icon(Icons.edit_outlined,
-                            color: const Color(0xFF8C9BAE), size: 28.r),
+                        icon: SvgPicture.asset(
+                          AppImages.editIcon,
+                          colorFilter: const ColorFilter.mode(Color(0xFF8C9BAE), BlendMode.srcIn),
+                          height: 28.r,
+                          width: 28.r,
+                        ),
                         onPressed: () {},
                       ),
                     ],

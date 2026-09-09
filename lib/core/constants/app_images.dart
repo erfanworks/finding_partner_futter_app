@@ -48,6 +48,7 @@ class AppImages {
   static const String shopIcon = "$baseurlIcon/shop_icon.svg";
   static const String viewAllIcon = "$baseurlIcon/veiw_all_icon.svg";
   static const String locationIcon = "$baseurlIcon/location_icon.svg";
+  static const String editIcon = "$baseurlIcon/edit_icon.svg";
   static const String serviceIcon = "$baseurlIcon/service_icon.svg";
   static const String financeIcon = "$baseurlIcon/finance_icon.svg";
   static const String availabilityIcon = "$baseurlIcon/time_circle_icon.svg";
