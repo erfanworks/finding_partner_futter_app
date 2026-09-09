@@ -244,7 +244,7 @@ class CommunityFeedScreen extends StatelessWidget {
     return Row(
       children: [
         CircleAvatar(
-          radius: 20.r,
+          radius: 28.r,
           backgroundImage: const NetworkImage(
             'https://images.unsplash.com/photo-1534528741775-53994a69daeb',
           ),
@@ -384,7 +384,7 @@ class CommunityFeedScreen extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CircleAvatar(
-          radius: 18.r,
+          radius: 22.r,
           backgroundImage: const NetworkImage(
             'https://images.unsplash.com/photo-1544005313-94ddf0286df2',
           ),
@@ -400,15 +400,15 @@ class CommunityFeedScreen extends StatelessWidget {
                     "Jamie L, 27",
                     style: GoogleFonts.dmSans(
                       color: Colors.white,
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.bold,
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                   SizedBox(width: 6.w),
-                  Icon(
-                    Icons.hexagon,
-                    color: const Color(0xFFD49E53),
-                    size: 14.sp,
+                  Image.asset(
+                    AppImages.starCompenionImg,
+                    height: 20.sp,
+                    width: 20.sp,
                   ),
                   SizedBox(width: 8.w),
                   Container(
