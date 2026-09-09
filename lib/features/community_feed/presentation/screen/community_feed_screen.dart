@@ -123,7 +123,12 @@ class CommunityFeedScreen extends StatelessWidget {
             alignment: Alignment.center,
             child: Row(
               children: [
-                Icon(Icons.search, color: Color(0xFF8C8D94), size: 25.sp),
+                SvgPicture.asset(
+                  AppImages.searchIcon,
+                  colorFilter: const ColorFilter.mode(Color(0xFF8C8D94), BlendMode.srcIn),
+                  height: 25.sp,
+                  width: 25.sp,
+                ),
                 SizedBox(width: 10.w),
                 Expanded(
                   child: TextField(
@@ -155,7 +160,7 @@ class CommunityFeedScreen extends StatelessWidget {
             shape: BoxShape.circle,
             border: Border.all(color: Colors.white.withValues(alpha: 0.08)),
           ),
-          child: Icon(Icons.tune, color: Colors.white, size: 20.sp),
+          child: Icon(Icons.filter_list_outlined, color: Colors.white, size: 20.sp),
         ),
       ],
     );
