@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../../../../core/constants/app_images.dart';
 import '../controller/profile_information_controller.dart';
 
 
@@ -214,7 +217,7 @@ class ProfileInformationScreen extends StatelessWidget {
       title,
       style: GoogleFonts.dmSans(
         color: const Color(0xFF8C8D94),
-        fontSize: 12.sp,
+        fontSize: 14.sp,
         fontWeight: FontWeight.w400,
         letterSpacing: 0.8,
       ),
@@ -331,7 +334,13 @@ class ProfileInformationScreen extends StatelessWidget {
           radius: 16.r,
           child: IconButton(
             padding: EdgeInsets.zero,
-            icon: Icon(Icons.edit_outlined, color: Colors.white70, size: 14.r),
+            icon: SvgPicture.asset(
+              AppImages.editIcon,
+              colorFilter:
+                  const ColorFilter.mode(Colors.white70, BlendMode.srcIn),
+              height: 14.r,
+              width: 14.r,
+            ),
             onPressed: controller.onEditInterests,
           ),
         ),
@@ -386,7 +395,13 @@ class ProfileInformationScreen extends StatelessWidget {
           radius: 16.r,
           child: IconButton(
             padding: EdgeInsets.zero,
-            icon: Icon(Icons.edit_outlined, color: Colors.white70, size: 14.r),
+            icon: SvgPicture.asset(
+              AppImages.editIcon,
+              colorFilter:
+                  const ColorFilter.mode(Colors.white70, BlendMode.srcIn),
+              height: 14.r,
+              width: 14.r,
+            ),
             onPressed: controller.onEditLanguages,
           ),
         ),

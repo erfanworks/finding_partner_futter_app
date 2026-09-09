@@ -8,7 +8,6 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../../core/constants/app_images.dart';
 import '../controller/rank_and_reputation_controller.dart';
 
-
 class RankReputationScreen extends StatelessWidget {
   const RankReputationScreen({super.key});
 
@@ -19,7 +18,11 @@ class RankReputationScreen extends StatelessWidget {
         surfaceTintColor: AppColors.appBackgroundColor,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new, color: Colors.white, size: 18),
+          icon: const Icon(
+            Icons.arrow_back_ios_new,
+            color: Colors.white,
+            size: 18,
+          ),
           onPressed: () => Get.back(),
         ),
         title: Text(
@@ -81,18 +84,17 @@ class RankReputationScreen extends StatelessWidget {
         gradient: const LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: [
-            Color(0xFF4A2C11),
-            Color(0xFF1B1813),
-            Color(0xFF111722),
-          ],
+          colors: [Color(0xFF4A2C11), Color(0xFF1B1813), Color(0xFF111722)],
         ),
       ),
       child: Column(
         children: [
           SvgPicture.asset(
             AppImages.rankIcon,
-            colorFilter: const ColorFilter.mode(Color(0xFFFF8D28), BlendMode.srcIn),
+            colorFilter: const ColorFilter.mode(
+              Color(0xFFFF8D28),
+              BlendMode.srcIn,
+            ),
             height: 44.r,
             width: 44.r,
           ),
@@ -118,10 +120,7 @@ class RankReputationScreen extends StatelessWidget {
           SizedBox(height: 2.h),
           Text(
             controller.rankSubtitle,
-            style: GoogleFonts.dmSans(
-              color: Colors.white70,
-              fontSize: 12.sp,
-            ),
+            style: GoogleFonts.dmSans(color: Colors.white70, fontSize: 12.sp),
           ),
           SizedBox(height: 14.h),
           InkWell(
@@ -131,12 +130,11 @@ class RankReputationScreen extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 8.h),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20.r),
-                border: Border.all(color: const Color(0xFFE5B069).withValues(alpha: 0.5)),
+                border: Border.all(
+                  color: const Color(0xFFE5B069).withValues(alpha: 0.5),
+                ),
                 gradient: const LinearGradient(
-                  colors: [
-                    Color(0xFFD39B52),
-                    Color(0xFFA17235),
-                  ],
+                  colors: [Color(0xFFD39B52), Color(0xFFA17235)],
                 ),
               ),
               child: Text(
@@ -160,6 +158,7 @@ class RankReputationScreen extends StatelessWidget {
       decoration: BoxDecoration(
         color: const Color(0xFF151F30),
         borderRadius: BorderRadius.circular(16.r),
+        border: Border.all(color: Colors.white.withAlpha(50)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -167,7 +166,10 @@ class RankReputationScreen extends StatelessWidget {
         children: [
           SvgPicture.asset(
             AppImages.giftIcon,
-            colorFilter: const ColorFilter.mode(Color(0xFFE5B069), BlendMode.srcIn),
+            colorFilter: const ColorFilter.mode(
+              Color(0xFFE5B069),
+              BlendMode.srcIn,
+            ),
             height: 24.r,
             width: 24.r,
           ),
@@ -194,13 +196,15 @@ class RankReputationScreen extends StatelessWidget {
   }
 
   Widget _buildProgressCard(RankReputationController controller) {
-    final double progressRatio = controller.currentProgress / controller.totalProgress;
+    final double progressRatio =
+        controller.currentProgress / controller.totalProgress;
 
     return Container(
       padding: EdgeInsets.all(18.r),
       decoration: BoxDecoration(
         color: const Color(0xFF151F30),
         borderRadius: BorderRadius.circular(20.r),
+        border: Border.all(color: Colors.white.withAlpha(50)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
