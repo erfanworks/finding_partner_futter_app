@@ -93,6 +93,7 @@ class SeiroShopScreen extends StatelessWidget {
 
   Widget _buildShopCard(SeiroPackModel pack, SeiroShopController controller) {
     return Container(
+      clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
         color: const Color(0xFF151F30),
         borderRadius: BorderRadius.circular(24.r),
@@ -106,7 +107,7 @@ class SeiroShopScreen extends StatelessWidget {
             child: Text(
               pack.title,
               style: GoogleFonts.dmSans(
-                color: Colors.white,
+                color: const Color(0xFFEDC286),
                 fontSize: 14.sp,
                 fontWeight: FontWeight.bold,
               ),
@@ -115,22 +116,10 @@ class SeiroShopScreen extends StatelessWidget {
 
           Positioned.fill(
             top: 36.h,
-            bottom: 50.h,
-            child: Padding(
-              padding: EdgeInsets.all(8.r),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(12.r),
-                child: Image.network(
-                  pack.imageUrl,
-                  fit: BoxFit.cover,
-                  errorBuilder: (context, error, stackTrace) => Center(
-                    child: Text(
-                      '生',
-                      style: TextStyle(fontSize: 50.sp, color: const Color(0xFFE5B069)),
-                    ),
-                  ),
-                ),
-              ),
+            bottom: 48.h,
+            child: Image.asset(
+              AppImages.seiruCoin,
+              fit: BoxFit.cover,
             ),
           ),
           Positioned(

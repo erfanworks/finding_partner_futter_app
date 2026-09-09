@@ -19,6 +19,7 @@ class AppImages {
   static const String leaderboardBgImg = "$baseurl/leaderboard_bg_img.png";
   static const String starCompenionImg = "$baseurl/star_compenion_img.png";
   static const String starCoinImg = "$baseurl/star_coin_img.png";
+  static const String seiruCoin = "$baseurl/seiru_coin.png";
   static const String topBadge = "$baseurl/top_badge.png";
   static const String translateImg = "$baseurl/translate_img.png";
   static const String travelImg = "$baseurl/airplan_img.png";
