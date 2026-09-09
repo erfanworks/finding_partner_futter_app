@@ -1,3 +1,4 @@
+import 'package:amychebbi/core/constants/app_images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -6,7 +7,7 @@ import '../controller/categorie_search_controller.dart';
 
 
 class CategorySearchScreen extends GetView<CategorySearchController> {
-  const CategorySearchScreen({Key? key}) : super(key: key);
+  const CategorySearchScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +45,6 @@ class CategorySearchScreen extends GetView<CategorySearchController> {
         children: [
           SizedBox(height: 12.h),
 
-          // ১. ক্যাটাগরি ফিল্টার চিপস
           SizedBox(
             height: 40.h,
             child: ListView.separated(
@@ -110,6 +110,7 @@ class CategorySearchScreen extends GetView<CategorySearchController> {
       padding: EdgeInsets.all(12.r),
       decoration: BoxDecoration(
         color: const Color(0xFF101C2B),
+        borderRadius: BorderRadius.circular(20.r),
         border: Border.all(
           color: Colors.white.withValues(alpha: 0.08),
           width: 1,
@@ -121,8 +122,8 @@ class CategorySearchScreen extends GetView<CategorySearchController> {
             borderRadius: BorderRadius.circular(20.r),
             child: Image.network(
               profile.imageUrl,
-              width: 105.w,
-              height: 105.h,
+              width: 111.w,
+              height: 109.h,
               fit: BoxFit.cover,
             ),
           ),
@@ -145,15 +146,15 @@ class CategorySearchScreen extends GetView<CategorySearchController> {
                               style: GoogleFonts.dmSans(
                                 color: Colors.white,
                                 fontSize: 14.sp,
-                                fontWeight: FontWeight.bold,
+                                fontWeight: FontWeight.w600,
                               ),
                             ),
                           ),
                           SizedBox(width: 4.w),
-                          Icon(
-                            Icons.hexagon_rounded,
-                            color: Color(0xFFD4A359),
-                            size: 16,
+                          Image.asset(
+                            AppImages.starCompenionImg,
+                            height: 16,
+                            width: 18,
                           ),
                         ],
                       ),
@@ -161,10 +162,20 @@ class CategorySearchScreen extends GetView<CategorySearchController> {
                     GestureDetector(
                       onTap: () => controller.toggleFavorite(index),
                       child: Obx(
-                            () => Icon(
-                          profile.isFavorite.value ? Icons.favorite : Icons.favorite_border,
-                          color: profile.isFavorite.value ? Colors.redAccent : const Color(0xFF8A95A5),
-                          size: 20,
+                        () => Container(
+                          padding: EdgeInsets.all(6.r),
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                              color: Colors.white.withValues(alpha: 0.1),
+                              width: 1,
+                            ),
+                          ),
+                          child: Icon(
+                            profile.isFavorite.value ? Icons.favorite : Icons.favorite_border,
+                            color: profile.isFavorite.value ? Colors.redAccent : const Color(0xFF8A95A5),
+                            size: 20,
+                          ),
                         ),
                       ),
                     ),
