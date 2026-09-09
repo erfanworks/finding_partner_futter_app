@@ -123,7 +123,7 @@ class CreatePostScreen extends StatelessWidget {
                                 border: Border.all(
                                   color: isSelected
                                       ? const Color(0xFFE5BA73)
-                                      : Colors.transparent,
+                                      : Colors.white.withAlpha(40),
                                   width: 1.5,
                                 ),
                               ),
@@ -166,8 +166,9 @@ class CreatePostScreen extends StatelessWidget {
                                   firstDate: DateTime.now(),
                                   lastDate: DateTime(2030),
                                 );
-                                if (date != null)
+                                if (date != null) {
                                   controller.selectedDate.value = date;
+                                }
                               },
                               child: Container(
                                 padding: EdgeInsets.symmetric(
@@ -454,7 +455,7 @@ class CreatePostScreen extends StatelessWidget {
       style: GoogleFonts.dmSans(
         color: const Color(0xFFB2B2B7),
         fontSize: 14.sp,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w400,
         letterSpacing: 0.8,
       ),
     );
@@ -469,7 +470,7 @@ class CreatePostScreen extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(
         horizontal: 16.w,
-        vertical: maxLines > 1 ? 12.h : 2.h,
+        vertical: maxLines > 1 ? 12.h : 0,
       ),
       decoration: BoxDecoration(
         color: const Color(0xFF162232),
@@ -479,10 +480,17 @@ class CreatePostScreen extends StatelessWidget {
       child: TextField(
         controller: controller,
         maxLines: maxLines,
+        textAlignVertical: TextAlignVertical.center,
         style: GoogleFonts.dmSans(color: Colors.white, fontSize: 14.sp),
         decoration: InputDecoration(
+          isDense: true,
+          contentPadding: EdgeInsets.symmetric(vertical: maxLines > 1 ? 0 : 14.h),
           border: InputBorder.none,
           prefixIcon: prefixIcon,
+          prefixIconConstraints: BoxConstraints(
+            minWidth: 32.w,
+            maxHeight: 20.h,
+          ),
           hintText: hintText,
           hintStyle: GoogleFonts.dmSans(
             color: const Color(0xFFE6E6E8),
