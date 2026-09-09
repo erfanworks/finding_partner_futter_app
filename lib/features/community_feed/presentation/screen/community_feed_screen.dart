@@ -323,7 +323,6 @@ class CommunityFeedScreen extends StatelessWidget {
                     text: "Jhon ",
                     style: TextStyle(
                       color: Colors.white,
-                      fontWeight: FontWeight.bold,
                     ),
                   ),
                   TextSpan(text: "and "),
@@ -331,7 +330,6 @@ class CommunityFeedScreen extends StatelessWidget {
                     text: "11 others",
                     style: TextStyle(
                       color: Colors.white,
-                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ],
@@ -341,17 +339,17 @@ class CommunityFeedScreen extends StatelessWidget {
             OutlinedButton(
               onPressed: () {},
               style: OutlinedButton.styleFrom(
-                side: const BorderSide(color: Color(0xFFD49E53)),
+                side: const BorderSide(color: Color(0xFFEDC286)),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20.r),
                 ),
-                padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 6.h),
+                padding: EdgeInsets.symmetric(horizontal: 18.w, vertical: 4.h),
               ),
               child: Text(
                 "Send Message",
                 style: GoogleFonts.dmSans(
-                  color: const Color(0xFFD49E53),
-                  fontSize: 12.sp,
+                  color: const Color(0xFFEDC286),
+                  fontSize: 14.sp,
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -490,8 +488,8 @@ class CommunityFeedScreen extends StatelessWidget {
     return Row(
       children: [
         SizedBox(
-          width: 65.w,
-          height: 26.h,
+          width: 72.w,
+          height: 28.h,
           child: Stack(
             children: [
               Positioned(
@@ -528,9 +526,9 @@ class CommunityFeedScreen extends StatelessWidget {
         Text(
           "3 companions available",
           style: GoogleFonts.dmSans(
-            color: const Color(0xFF2ECC71),
+            color: const Color(0xFF34C759),
             fontSize: 12.sp,
-            fontWeight: FontWeight.w500,
+            fontWeight: FontWeight.w600,
           ),
         ),
         const Spacer(),
@@ -546,8 +544,7 @@ class CommunityFeedScreen extends StatelessWidget {
               statusText,
               style: GoogleFonts.dmSans(
                 color: textColor,
-                fontSize: 12.sp,
-                fontWeight: FontWeight.bold,
+                fontSize: 14.sp,
               ),
             ),
           ),
