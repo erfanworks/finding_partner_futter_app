@@ -1,3 +1,4 @@
+import 'package:amychebbi/core/constants/app_images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -304,37 +305,11 @@ class SendSeirusBottomSheet extends StatelessWidget {
     );
   }
   Widget _buildCoinIcon({required double size}) {
-    return Container(
+    return Image.asset(
+      AppImages.japansCoin,
       width: size,
       height: size,
-      decoration: const BoxDecoration(
-        shape: BoxShape.circle,
-        gradient: LinearGradient(
-          colors: [Color(0xFFC79549), Color(0xFF704A1F)],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        ),
-      ),
-      child: Center(
-        child: Container(
-          width: size * 0.8,
-          height: size * 0.8,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            border: Border.all(color: const Color(0xFFE8BA73), width: 0.8),
-          ),
-          child: Center(
-            child: Text(
-              '生',
-              style: TextStyle(
-                color: const Color(0xFFFBF1D9),
-                fontSize: size * 0.45,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-        ),
-      ),
+      fit: BoxFit.contain,
     );
   }
 
