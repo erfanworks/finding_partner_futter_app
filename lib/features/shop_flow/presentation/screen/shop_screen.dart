@@ -284,8 +284,8 @@ class ShopScreen extends StatelessWidget {
               SvgPicture.asset(
                 iconPath,
                 colorFilter: const ColorFilter.mode(Color(0xFF2E2213), BlendMode.srcIn),
-                height: 30.r,
-                width: 30.r,
+                height: 24.r,
+                width: 24.r,
               ),
               SizedBox(height: 8.h),
               Text(
@@ -320,21 +320,12 @@ class ShopScreen extends StatelessWidget {
                 borderRadius: BorderRadius.circular(14.r),
               ),
               child: Center(
-                child: Container(
-                  width: 38.r,
-                  height: 38.r,
-                  decoration: BoxDecoration(
-                    color: const Color(0xFF8B4513),
-                    shape: BoxShape.circle,
-                    border: Border.all(color: const Color(0xFFE5B069), width: 2.r),
-                  ),
-                  child: Icon(
-                    item.iconType == 'star'
-                        ? Icons.star_rounded
-                        : Icons.verified_rounded,
-                    color: const Color(0xFFE5B069),
-                    size: 20.r,
-                  ),
+                child: Image.asset(
+                  item.iconType == 'star'
+                      ? AppImages.starCompenionImg
+                      : AppImages.starCoinImg,
+                  width: 32.r,
+                  height: 32.r,
                 ),
               ),
             ),
