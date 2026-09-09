@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../../../core/constants/app_images.dart';
 import '../controller/help_and_support_controller.dart';
 
 
@@ -82,10 +83,10 @@ class HelpSupportScreen extends StatelessWidget {
                     ),
                     prefixIcon: Padding(
                       padding: EdgeInsets.only(left: 16.w, right: 10.w),
-                      child: Icon(
-                        Icons.lock_outline_rounded,
-                        color: const Color(0xFF94A3B8),
-                        size: 20.sp,
+                      child: Image.asset(
+                        AppImages.lockIcon,
+                        height: 20.sp,
+                        width: 20.sp,
                       ),
                     ),
                     prefixIconConstraints: BoxConstraints(minWidth: 0, minHeight: 0),

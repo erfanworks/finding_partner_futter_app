@@ -266,8 +266,8 @@ class VerificationCenterScreen extends StatelessWidget {
                       'Confirm your identity',
                       style: GoogleFonts.dmSans(
                         color: Colors.white,
-                        fontSize: 15.sp,
-                        fontWeight: FontWeight.bold,
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                     SizedBox(height: 4.h),
@@ -346,8 +346,8 @@ class VerificationCenterScreen extends StatelessWidget {
                       'Criminal Check (optional)',
                       style: GoogleFonts.dmSans(
                         color: Colors.white,
-                        fontSize: 15.sp,
-                        fontWeight: FontWeight.bold,
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                     SizedBox(height: 4.h),
