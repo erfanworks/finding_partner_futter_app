@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../../../core/constants/app_images.dart';
 import '../controller/verificationCenterController.dart';
 
 
@@ -24,8 +25,8 @@ class VerificationCenterScreen extends StatelessWidget {
           'Verification Center',
           style: GoogleFonts.dmSans(
             color: Colors.white,
-            fontSize: 20.sp,
-            fontWeight: FontWeight.bold,
+            fontSize: 24.sp,
+            fontWeight: FontWeight.w800,
           ),
         ),
         centerTitle: true,
@@ -185,36 +186,11 @@ class VerificationCenterScreen extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // Custom Shield Icon Box
-        Container(
+        // Trust & Safety Icon
+        Image.asset(
+          AppImages.trustSafetyIcon,
           width: 60.r,
           height: 68.r,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12.r),
-            border: Border.all(color: const Color(0xFFE5B069), width: 1.5),
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                '生',
-                style: TextStyle(
-                  color: const Color(0xFFE5B069),
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(height: 2.h),
-              Text(
-                'SEIRU',
-                style: GoogleFonts.dmSans(
-                  color: const Color(0xFFE5B069),
-                  fontSize: 8.sp,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ],
-          ),
         ),
         SizedBox(width: 16.w),
         Expanded(

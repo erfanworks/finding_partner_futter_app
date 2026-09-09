@@ -95,6 +95,7 @@ class FavoriteCompanionsScreen extends StatelessWidget {
                             decoration: BoxDecoration(
                               color: Colors.white.withValues(alpha: 0.2),
                               shape: BoxShape.circle,
+                              border: Border.all(color: Colors.white.withAlpha(60))
                             ),
                             child: Icon(
                               item.isFavorite
