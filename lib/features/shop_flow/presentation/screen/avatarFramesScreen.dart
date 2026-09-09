@@ -99,7 +99,7 @@ class AvatarFramesScreen extends StatelessWidget {
       decoration: BoxDecoration(
         color: const Color(0xFF151F30),
         borderRadius: BorderRadius.circular(24.r),
-        border: Border.all(color: Colors.white.withValues(alpha: 0.04)),
+        border: Border.all(color: Colors.white.withValues(alpha: 0.30)),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -131,7 +131,7 @@ class AvatarFramesScreen extends StatelessWidget {
                 frame.title,
                 style: GoogleFonts.dmSans(
                   color: Colors.white,
-                  fontSize: 14.sp,
+                  fontSize: 16.sp,
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -159,8 +159,8 @@ class AvatarFramesScreen extends StatelessWidget {
                   children: [
                     Image.asset(
                       AppImages.japansCoin,
-                      width: 12.r,
-                      height: 12.r,
+                      width: 16.r,
+                      height: 16.r,
                     ),
                     SizedBox(width: 4.w),
                     Text(
@@ -211,7 +211,7 @@ class AvatarFramesScreen extends StatelessWidget {
               child: Text(
                 'Unlock',
                 style: GoogleFonts.dmSans(
-                  color: const Color(0xFF0A111E),
+                  color: Colors.white,
                   fontSize: 12.sp,
                   fontWeight: FontWeight.bold,
                 ),
