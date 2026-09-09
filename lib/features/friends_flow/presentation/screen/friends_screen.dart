@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../../../core/constants/app_images.dart';
 import '../controller/friends_controller.dart';
 
 
@@ -89,10 +91,14 @@ class FriendsScreen extends StatelessWidget {
           ),
           prefixIcon: Padding(
             padding: EdgeInsets.only(left: 16.w, right: 10.w),
-            child: Icon(
-              Icons.search_rounded,
-              color: const Color(0xFF8C9BAE),
-              size: 20.r,
+            child: SvgPicture.asset(
+              AppImages.searchIcon,
+              colorFilter: const ColorFilter.mode(
+                Color(0xFF8C9BAE),
+                BlendMode.srcIn,
+              ),
+              height: 20.r,
+              width: 20.r,
             ),
           ),
           border: InputBorder.none,
@@ -124,7 +130,7 @@ class FriendsScreen extends StatelessWidget {
                 style: GoogleFonts.dmSans(
                   color: Colors.white,
                   fontSize: 14.sp,
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
               SizedBox(height: 3.h),
@@ -150,8 +156,8 @@ class FriendsScreen extends StatelessWidget {
           child: Text(
             'Unfriend',
             style: GoogleFonts.dmSans(
-              color: const Color(0xFFFF4D4D),
-              fontSize: 13.sp,
+              color: const Color(0xFFFF383C),
+              fontSize: 16.sp,
               fontWeight: FontWeight.w600,
             ),
           ),
