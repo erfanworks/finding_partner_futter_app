@@ -52,7 +52,7 @@ class RequestDetailsScreen extends StatelessWidget {
                 style: GoogleFonts.dmSans(
                   color: Colors.white,
                   fontSize: 14.sp,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
               SizedBox(height: 10.h),
@@ -106,7 +106,7 @@ class RequestDetailsScreen extends StatelessWidget {
                   "Male  •  Florida",
                   style: GoogleFonts.dmSans(
                     color: const Color(0xFF8C9BAE),
-                    fontSize: 13.sp,
+                    fontSize: 14.sp,
                   ),
                 ),
               ],
@@ -125,7 +125,7 @@ class RequestDetailsScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: GoogleFonts.dmSans(
                   color: const Color(0xFFD4AF37),
-                  fontSize: 8.sp,
+                  fontSize: 10.sp,
                   fontWeight: FontWeight.bold,
                   height: 1.1,
                 ),
@@ -224,7 +224,7 @@ class RequestDetailsScreen extends StatelessWidget {
             value,
             style: GoogleFonts.dmSans(
               color: Colors.white,
-              fontSize: 13.sp,
+              fontSize: 16.sp,
               fontWeight: FontWeight.w500,
             ),
           ),
@@ -233,7 +233,7 @@ class RequestDetailsScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildGiftsAndBadges() {
+  Widget  _buildGiftsAndBadges() {
     return Row(
       children: [
         Expanded(
@@ -277,15 +277,15 @@ class RequestDetailsScreen extends StatelessWidget {
                 title,
                 style: GoogleFonts.dmSans(
                   color: Colors.white,
-                  fontSize: 12.sp,
-                  fontWeight: FontWeight.bold,
+                  fontSize: 14.sp,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
               Text(
                 subtitle,
                 style: GoogleFonts.dmSans(
                   color: const Color(0xFF8C9BAE),
-                  fontSize: 10.sp,
+                  fontSize: 12.sp,
                 ),
               ),
             ],
@@ -309,8 +309,8 @@ class RequestDetailsScreen extends StatelessWidget {
             "Specific request",
             style: GoogleFonts.dmSans(
               color: Colors.white,
-              fontSize: 13.sp,
-              fontWeight: FontWeight.bold,
+              fontSize: 16.sp,
+              fontWeight: FontWeight.w600,
             ),
           ),
           SizedBox(height: 6.h),
@@ -345,7 +345,7 @@ class RequestDetailsScreen extends StatelessWidget {
                   "\$",
                   style: GoogleFonts.dmSans(
                     color: Colors.white,
-                    fontSize: 13.sp,
+                    fontSize: 16.sp,
                   ),
                 ),
                 SizedBox(width: 6.w),
@@ -370,16 +370,16 @@ class RequestDetailsScreen extends StatelessWidget {
           ),
           SizedBox(height: 10.h),
           Container(
-            padding: EdgeInsets.all(12.r),
+            padding: EdgeInsets.all(19.r),
             decoration: BoxDecoration(
               color: Color(0xFF0D141E),
               borderRadius: BorderRadius.circular(14.r),
-              border: Border.all(color: Colors.white.withValues(alpha: 0.1)),
+              border: Border.all(color: Colors.white),
             ),
             child: Text(
               "Seeking a travel companion for the upcoming tech expo in Tokyo. Expenses shared.",
               style: GoogleFonts.dmSans(
-                color: Colors.white.withValues(alpha: 0.8),
+                color: Colors.white,
                 fontSize: 14.sp,
                 fontWeight: FontWeight.w400
               ),
@@ -395,7 +395,7 @@ class RequestDetailsScreen extends StatelessWidget {
       children: [
         Expanded(
           child: SizedBox(
-            height: 44.h,
+            height: 55.h,
             child: ElevatedButton(
               onPressed: () {
                 Get.dialog(
@@ -428,7 +428,7 @@ class RequestDetailsScreen extends StatelessWidget {
         SizedBox(width: 12.w),
         Expanded(
           child: SizedBox(
-            height: 44.h,
+            height: 55.h,
             child: ElevatedButton(
               onPressed: () {
                 Get.dialog(
