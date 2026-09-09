@@ -145,8 +145,8 @@ class AvailabilityScreen extends StatelessWidget {
                     color: controller.selectedTab == 'NOW'
                         ? const Color(0xFF0A111E)
                         : const Color(0xFF8C9BAE),
-                    fontSize: 12.sp,
-                    fontWeight: FontWeight.bold,
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ),
@@ -170,8 +170,8 @@ class AvailabilityScreen extends StatelessWidget {
                     color: controller.selectedTab == 'SCHEDULED'
                         ? const Color(0xFF0A111E)
                         : const Color(0xFF8C9BAE),
-                    fontSize: 12.sp,
-                    fontWeight: FontWeight.bold,
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ),
@@ -191,7 +191,7 @@ class AvailabilityScreen extends StatelessWidget {
       decoration: BoxDecoration(
         color: const Color(0xFF151F30),
         borderRadius: BorderRadius.circular(20.r),
-        border: Border.all(color: Colors.white.withValues(alpha: 0.04)),
+        border: Border.all(color: Colors.white.withValues(alpha: 0.08)),
       ),
       child: Column(
         children: [
@@ -206,8 +206,8 @@ class AvailabilityScreen extends StatelessWidget {
                 'September, 2026',
                 style: GoogleFonts.dmSans(
                   color: Colors.white,
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.bold,
+                  fontSize: 16.sp,
+                  fontWeight: FontWeight.w700,
                 ),
               ),
               IconButton(
@@ -226,8 +226,8 @@ class AvailabilityScreen extends StatelessWidget {
                 day,
                 textAlign: TextAlign.center,
                 style: GoogleFonts.dmSans(
-                  color: const Color(0xFF8C9BAE),
-                  fontSize: 11.sp,
+                  color: Colors.white,
+                  fontSize: 12.sp,
                 ),
               ),
             ))
@@ -244,43 +244,41 @@ class AvailabilityScreen extends StatelessWidget {
               crossAxisSpacing: 8,
             ),
             itemBuilder: (context, index) {
-              const offset = 2;
+              const offset = 4;
               final dayNumber = index - offset + 1;
 
-              if (index < offset || dayNumber > 30) {
-                return const SizedBox.shrink();
-              }
+              bool isDate = dayNumber >= 1 && dayNumber <= 30;
 
-              final isSelected = controller.selectedDates.contains(dayNumber);
-              final isSubSelected = [16, 17, 18, 19, 20].contains(dayNumber);
+              final isSelected = isDate && controller.selectedDates.contains(dayNumber);
+              final isSubSelected = isDate && [16, 17, 18, 19, 20].contains(dayNumber);
 
-              Color bgColor = Colors.transparent;
+              Color bgColor = const Color(0xFF111926);
               Color textColor = Colors.white;
 
               if (isSelected) {
-                bgColor = const Color(0xFFE5B069);
+                bgColor = const Color(0xFFEDC286);
                 textColor = const Color(0xFF0A111E);
               } else if (isSubSelected) {
-                bgColor = Colors.white.withValues(alpha: 0.1);
+                bgColor = const Color(0xFF33363F);
                 textColor = Colors.white;
               }
 
               return GestureDetector(
-                onTap: () => controller.toggleDate(dayNumber),
+                onTap: isDate ? () => controller.toggleDate(dayNumber) : null,
                 child: Container(
                   decoration: BoxDecoration(
                     color: bgColor,
                     shape: BoxShape.circle,
                   ),
                   alignment: Alignment.center,
-                  child: Text(
+                  child: isDate ? Text(
                     '$dayNumber',
                     style: GoogleFonts.dmSans(
                       color: textColor,
-                      fontSize: 12.sp,
-                      fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+                      fontSize: 14.sp,
+                      fontWeight: isSelected ? FontWeight.bold : FontWeight.w500,
                     ),
-                  ),
+                  ) : null,
                 ),
               );
             },
@@ -298,8 +296,8 @@ class AvailabilityScreen extends StatelessWidget {
           label,
           style: GoogleFonts.dmSans(
             color: Colors.white,
-            fontSize: 14.sp,
-            fontWeight: FontWeight.bold,
+            fontSize: 16.sp,
+            fontWeight: FontWeight.w600,
           ),
         ),
         Column(
