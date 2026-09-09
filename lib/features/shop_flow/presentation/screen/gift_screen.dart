@@ -104,11 +104,11 @@ class ShopGiftsScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Rose Icon Placeholder (Replace with Image.asset if needed)
-            Icon(
-              Icons.local_florist_rounded,
-              color: const Color(0xFFFF4B6E),
-              size: 34.r,
+            // Rose Icon (Using Image asset)
+            Image.asset(
+              AppImages.roseImg,
+              height: 34.r,
+              width: 34.r,
             ),
             SizedBox(height: 10.h),
 
