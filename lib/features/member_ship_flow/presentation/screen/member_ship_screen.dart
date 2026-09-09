@@ -24,8 +24,8 @@ class MembershipScreen extends StatelessWidget {
           'Membership',
           style: GoogleFonts.dmSans(
             color: Colors.white,
-            fontSize: 20.sp,
-            fontWeight: FontWeight.bold,
+            fontSize: 24.sp,
+            fontWeight: FontWeight.w700,
           ),
         ),
         centerTitle: true,
@@ -40,140 +40,138 @@ class MembershipScreen extends StatelessWidget {
             separatorBuilder: (context, index) => SizedBox(height: 16.h),
             itemBuilder: (context, index) {
               final plan = controller.plans[index];
-              return Container(
-                padding: EdgeInsets.all(20.r),
-                decoration: BoxDecoration(
-                  color: const Color(0xFF162232),
-                  borderRadius: BorderRadius.circular(24.r),
-                  border: Border.all(
+              return GestureDetector(
+                onTap: () => controller.selectPlan(index),
+                child: Container(
+                  padding: EdgeInsets.all(20.r),
+                  decoration: BoxDecoration(
                     color: plan.isHighlighted
-                        ? const Color(0xFFE8B878)
-                        : Colors.white.withValues(alpha: 0.05),
-                    width: plan.isHighlighted ? 1.5 : 1,
+                        ? const Color(0xFFE8B878).withValues(alpha: 0.1)
+                        : const Color(0xFF162232),
+                    borderRadius: BorderRadius.circular(24.r),
+                    border: Border.all(
+                      color: plan.isHighlighted
+                          ? const Color(0xFFE8B878)
+                          : Colors.white.withValues(alpha: 0.05),
+                      width: plan.isHighlighted ? 1.5 : 1,
+                    ),
                   ),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // Title & Price Row
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.baseline,
-                      textBaseline: TextBaseline.alphabetic,
-                      children: [
-                        Row(
-                          children: [
-                            Text(
-                              plan.title,
-                              style: GoogleFonts.dmSans(
-                                color: Colors.white,
-                                fontSize: 22.sp,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            if (plan.iconEmoji != null) ...[
-                              SizedBox(width: 6.w),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // Title & Price Row
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.baseline,
+                        textBaseline: TextBaseline.alphabetic,
+                        children: [
+                          Row(
+                            children: [
                               Text(
-                                plan.iconEmoji!,
-                                style: TextStyle(fontSize: 18.sp),
+                                plan.title,
+                                style: GoogleFonts.dmSans(
+                                  color: Colors.white,
+                                  fontSize: 22.sp,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
-                            ],
-                          ],
-                        ),
-                        if (plan.price != null)
-                          RichText(
-                            text: TextSpan(
-                              text: plan.price,
-                              style: GoogleFonts.dmSans(
-                                color: Colors.white,
-                                fontSize: 22.sp,
-                                fontWeight: FontWeight.bold,
-                              ),
-                              children: [
-                                TextSpan(
-                                  text: ' ${plan.period}',
-                                  style: GoogleFonts.dmSans(
-                                    color: const Color(0xFF8FA1B5),
-                                    fontSize: 12.sp,
-                                    fontWeight: FontWeight.normal,
-                                  ),
+                              if (plan.iconEmoji != null) ...[
+                                SizedBox(width: 6.w),
+                                Text(
+                                  plan.iconEmoji!,
+                                  style: TextStyle(fontSize: 18.sp),
                                 ),
                               ],
-                            ),
+                            ],
                           ),
-                      ],
-                    ),
-
-                    SizedBox(height: 16.h),
-
-                    // Feature List
-                    ...plan.features.map(
-                          (feature) => Padding(
-                        padding: EdgeInsets.only(bottom: 12.h),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Icon(
-                              Icons.check,
-                              color: const Color(0xFFE8B878),
-                              size: 18.r,
-                            ),
-                            SizedBox(width: 12.w),
-                            Expanded(
-                              child: Text(
-                                feature.text,
+                          if (plan.price != null)
+                            RichText(
+                              text: TextSpan(
+                                text: plan.price,
                                 style: GoogleFonts.dmSans(
-                                  color: Colors.white.withValues(alpha: 0.9),
-                                  fontSize: 12.sp,
-                                  height: 1.35,
+                                  color: Colors.white,
+                                  fontSize: 22.sp,
+                                  fontWeight: FontWeight.bold,
                                 ),
+                                children: [
+                                  TextSpan(
+                                    text: ' ${plan.period}',
+                                    style: GoogleFonts.dmSans(
+                                      color: const Color(0xFF8FA1B5),
+                                      fontSize: 12.sp,
+                                      fontWeight: FontWeight.normal,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
-                          ],
-                        ),
+                        ],
                       ),
-                    ),
 
-                    // Buy Now Button
-                    if (plan.hasBuyButton) ...[
-                      SizedBox(height: 8.h),
-                      Container(
-                        width: double.infinity,
-                        height: 42.h,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(21.r),
-                          gradient: const LinearGradient(
-                            begin: Alignment.centerLeft,
-                            end: Alignment.centerRight,
-                            colors: [
-                              Color(0xFFE8B878),
-                              Color(0xFFB57D3E),
+                      SizedBox(height: 16.h),
+
+                      // Feature List
+                      ...plan.features.map(
+                        (feature) => Padding(
+                          padding: EdgeInsets.only(bottom: 12.h),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Icon(
+                                Icons.check,
+                                color: const Color(0xFFE8B878),
+                                size: 18.r,
+                              ),
+                              SizedBox(width: 12.w),
+                              Expanded(
+                                child: Text(
+                                  feature.text,
+                                  style: GoogleFonts.dmSans(
+                                    color: Colors.white.withValues(alpha: 0.9),
+                                    fontSize: 12.sp,
+                                    height: 1.35,
+                                  ),
+                                ),
+                              ),
                             ],
                           ),
                         ),
-                        child: ElevatedButton(
-                          onPressed: () => controller.onBuyPlan(plan),
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.transparent,
-                            shadowColor: Colors.transparent,
-                            elevation: 0,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(21.r),
-                            ),
-                            padding: EdgeInsets.zero,
+                      ),
+
+                      // Buy Now Button
+                      if (plan.hasBuyButton) ...[
+                        SizedBox(height: 8.h),
+                        Container(
+                          width: double.infinity,
+                          height: 48.h,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(24.r),
+                            color: const Color(0xFFE5B069),
                           ),
-                          child: Text(
-                            'Buy Now',
-                            style: GoogleFonts.dmSans(
-                              color: const Color(0xFF1E160D),
-                              fontSize: 13.sp,
-                              fontWeight: FontWeight.bold,
+                          child: ElevatedButton(
+                            onPressed: () => controller.onBuyPlan(plan),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.transparent,
+                              shadowColor: Colors.transparent,
+                              elevation: 0,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(24.r),
+                              ),
+                              padding: EdgeInsets.zero,
+                            ),
+                            child: Text(
+                              'Buy Now',
+                              style: GoogleFonts.dmSans(
+                                color: const Color(0xFF0A111E),
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
                         ),
-                      ),
+                      ],
                     ],
-                  ],
+                  ),
                 ),
               );
             },

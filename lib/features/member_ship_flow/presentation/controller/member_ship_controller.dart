@@ -11,7 +11,7 @@ class MembershipPlan {
   final String? period;
   final String? iconEmoji;
   final List<PlanFeature> features;
-  final bool isHighlighted; 
+  bool isHighlighted; 
   final bool hasBuyButton;
 
   MembershipPlan({
@@ -26,6 +26,8 @@ class MembershipPlan {
 }
 
 class MembershipController extends GetxController {
+  int selectedIndex = 1;
+
   final List<MembershipPlan> plans = [
     MembershipPlan(
       title: 'Free',
@@ -63,6 +65,14 @@ class MembershipController extends GetxController {
       ],
     ),
   ];
+
+  void selectPlan(int index) {
+    for (int i = 0; i < plans.length; i++) {
+      plans[i].isHighlighted = (i == index);
+    }
+    selectedIndex = index;
+    update();
+  }
 
   void onBuyPlan(MembershipPlan plan) {
 
