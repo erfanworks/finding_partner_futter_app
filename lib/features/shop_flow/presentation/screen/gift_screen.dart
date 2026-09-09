@@ -155,7 +155,7 @@ class ShopGiftsScreen extends StatelessWidget {
                     gift.price,
                     style: GoogleFonts.dmSans(
                       color: const Color(0xFF8C9BAE),
-                      fontSize: 11.sp,
+                      fontSize: 12.sp,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
