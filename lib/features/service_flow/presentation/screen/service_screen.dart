@@ -149,8 +149,8 @@ class ServicesScreen extends StatelessWidget {
                         icon: SvgPicture.asset(
                           AppImages.deleteIcon,
                           colorFilter: const ColorFilter.mode(Color(0xFFFF4D4D), BlendMode.srcIn),
-                          height: 28.r,
-                          width: 28.r,
+                          height: 24.r,
+                          width: 24.r,
                         ),
                         onPressed: () => controller.deleteService(item.id),
                       ),
@@ -161,8 +161,8 @@ class ServicesScreen extends StatelessWidget {
                         icon: SvgPicture.asset(
                           AppImages.editIcon,
                           colorFilter: const ColorFilter.mode(Color(0xFF8C9BAE), BlendMode.srcIn),
-                          height: 28.r,
-                          width: 28.r,
+                          height: 24.r,
+                          width: 24.r,
                         ),
                         onPressed: () {},
                       ),
