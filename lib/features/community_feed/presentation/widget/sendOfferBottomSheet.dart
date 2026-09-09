@@ -41,7 +41,7 @@ class SendOfferBottomSheet extends StatelessWidget {
                   style: GoogleFonts.dmSans(
                     color: Colors.white,
                     fontSize: 20.sp,
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
                 GestureDetector(
@@ -84,7 +84,7 @@ class SendOfferBottomSheet extends StatelessWidget {
                           style: GoogleFonts.dmSans(
                             color: Colors.white,
                             fontSize: 16.sp,
-                            fontWeight: FontWeight.bold,
+                            fontWeight: FontWeight.w600,
                           ),
                         ),
                         SizedBox(height: 4.h),
@@ -108,7 +108,6 @@ class SendOfferBottomSheet extends StatelessWidget {
               style: GoogleFonts.dmSans(
                 color: const Color(0xFFE6E6E8),
                 fontSize: 14.sp,
-                fontWeight: FontWeight.w600,
               ),
             ),
             SizedBox(height: 12.h),
@@ -191,7 +190,7 @@ class SendOfferBottomSheet extends StatelessWidget {
                 color: Colors.transparent,
                 borderRadius: BorderRadius.circular(20.r),
                 border: Border.all(
-                  color: Colors.white.withValues(alpha: 0.2),
+                  color: Colors.white.withAlpha(100),
                 ),
               ),
               child: TextField(

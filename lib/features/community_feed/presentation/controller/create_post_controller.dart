@@ -1,3 +1,4 @@
+import 'package:amychebbi/core/constants/app_images.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -17,9 +18,9 @@ class CreatePostController extends GetxController {
   var uploadedImagePath = ''.obs;
 
   final List<Map<String, String>> interests = [
-    {'name': 'Travel', 'icon': '✈️'},
-    {'name': 'Business', 'icon': '💼'},
-    {'name': 'Gaming', 'icon': '🎮'},
+    {'name': 'Travel', 'icon': AppImages.travelImg},
+    {'name': 'Business', 'icon': AppImages.businessImg},
+    {'name': 'Gaming', 'icon': AppImages.gamingImg},
   ];
 
   void setPostType(PostType type) {

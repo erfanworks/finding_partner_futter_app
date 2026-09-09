@@ -31,8 +31,8 @@ class CreatePostScreen extends StatelessWidget {
           'Create Post',
           style: GoogleFonts.dmSans(
             color: Colors.white,
-            fontSize: 20.sp,
-            fontWeight: FontWeight.bold,
+            fontSize: 24.sp,
+            fontWeight: FontWeight.w700,
           ),
         ),
       ),
@@ -129,9 +129,10 @@ class CreatePostScreen extends StatelessWidget {
                               ),
                               child: Row(
                                 children: [
-                                  Text(
+                                  Image.asset(
                                     item['icon']!,
-                                    style: TextStyle(fontSize: 14.sp),
+                                    height: 14.sp,
+                                    width: 14.sp,
                                   ),
                                   SizedBox(width: 6.w),
                                   Text(

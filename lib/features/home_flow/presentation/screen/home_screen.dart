@@ -715,7 +715,7 @@ class HomeScreen extends StatelessWidget {
             ),
             const Spacer(),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {Get.toNamed(AppRoutes.messageListScreen);},
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.transparent,
                 side: const BorderSide(color: Color(0xFFEDC286)),
@@ -965,19 +965,22 @@ class HomeScreen extends StatelessWidget {
               Row(
                 children: [
                   Expanded(
-                    child: Container(
-                      padding: EdgeInsets.symmetric(vertical: 10.h),
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        color: const Color(0xFFEDC286),
-                        borderRadius: BorderRadius.circular(30.r),
-                      ),
-                      child: Text(
-                        "Send Message",
-                        style: GoogleFonts.dmSans(
-                          color: const Color(0xFF090E17),
-                          fontSize: 12.sp,
-                          fontWeight: FontWeight.bold,
+                    child: GestureDetector(
+                      onTap: (){Get.toNamed(AppRoutes.messageListScreen);},
+                      child: Container(
+                        padding: EdgeInsets.symmetric(vertical: 10.h),
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          color: const Color(0xFFEDC286),
+                          borderRadius: BorderRadius.circular(30.r),
+                        ),
+                        child: Text(
+                          "Send Message",
+                          style: GoogleFonts.dmSans(
+                            color: const Color(0xFF090E17),
+                            fontSize: 12.sp,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),

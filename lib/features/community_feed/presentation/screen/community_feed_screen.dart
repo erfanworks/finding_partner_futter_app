@@ -337,7 +337,7 @@ class CommunityFeedScreen extends StatelessWidget {
             ),
             const Spacer(),
             OutlinedButton(
-              onPressed: () {},
+              onPressed: () {Get.toNamed(AppRoutes.messageListScreen);},
               style: OutlinedButton.styleFrom(
                 side: const BorderSide(color: Color(0xFFEDC286)),
                 shape: RoundedRectangleBorder(
