@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../../../core/constants/app_images.dart';
 import '../controller/shop_gift_controller.dart';
 
 
@@ -24,8 +25,8 @@ class ShopGiftsScreen extends StatelessWidget {
           'Gifts',
           style: GoogleFonts.dmSans(
             color: Colors.white,
-            fontSize: 20.sp,
-            fontWeight: FontWeight.bold,
+            fontSize: 24.sp,
+            fontWeight: FontWeight.w700,
           ),
         ),
         centerTitle: true,
@@ -33,31 +34,36 @@ class ShopGiftsScreen extends StatelessWidget {
           // Top Right Golden Coin Badge
           GetBuilder<ShopGiftsController>(
             init: ShopGiftsController(),
-            builder: (controller) => Container(
-              margin: EdgeInsets.only(right: 16.w),
-              padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 4.h),
-              decoration: BoxDecoration(
-                color: const Color(0xFF151F30),
-                borderRadius: BorderRadius.circular(20.r),
-                border: Border.all(color: const Color(0xFFE5B069).withValues(alpha: 0.4)),
-              ),
-              child: Row(
-                children: [
-                  CircleAvatar(
-                    radius: 10.r,
-                    backgroundColor: const Color(0xFFE5B069),
-                    child: Text('生', style: TextStyle(fontSize: 10.sp, color: Colors.black)),
-                  ),
-                  SizedBox(width: 6.w),
-                  Text(
-                    controller.coinCount,
-                    style: GoogleFonts.dmSans(
-                      color: const Color(0xFFE5B069),
-                      fontSize: 13.sp,
-                      fontWeight: FontWeight.bold,
+            builder: (controller) => Center(
+              child: Container(
+                margin: EdgeInsets.only(right: 16.w),
+                height: 30.h,
+                decoration: BoxDecoration(
+                  color: const Color(0xFF282D33),
+                  borderRadius: BorderRadius.circular(20.r),
+                  border: Border.all(color: const Color(0xFFEDC286), width: 1.2),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Image.asset(
+                      AppImages.japansCoin,
+                      height: 34.h,
+                      width: 32.w,
                     ),
-                  ),
-                ],
+                    Padding(
+                      padding: EdgeInsets.only(left: 4.w, right: 12.w),
+                      child: Text(
+                        controller.coinCount,
+                        style: GoogleFonts.dmSans(
+                          color: const Color(0xFFEDC286),
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
