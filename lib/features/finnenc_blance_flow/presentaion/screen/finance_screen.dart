@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../../../core/constants/app_images.dart';
 import '../controller/financeController.dart';
 import '../widget/chartPainter.dart';
 
@@ -27,8 +28,8 @@ class FinanceScreen extends StatelessWidget {
           'Finance',
           style: GoogleFonts.dmSans(
             color: Colors.white,
-            fontSize: 20.sp,
-            fontWeight: FontWeight.bold,
+            fontSize: 24.sp,
+            fontWeight: FontWeight.w700,
           ),
         ),
         centerTitle: true,
@@ -36,31 +37,36 @@ class FinanceScreen extends StatelessWidget {
           // Top Right Coin Badge
           GetBuilder<FinanceController>(
             init: FinanceController(),
-            builder: (controller) => Container(
-              margin: EdgeInsets.only(right: 16.w),
-              padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 4.h),
-              decoration: BoxDecoration(
-                color: const Color(0xFF151F30),
-                borderRadius: BorderRadius.circular(20.r),
-                border: Border.all(color: const Color(0xFFE5B069).withValues(alpha: 0.4)),
-              ),
-              child: Row(
-                children: [
-                  CircleAvatar(
-                    radius: 10.r,
-                    backgroundColor: const Color(0xFFE5B069),
-                    child: Text('金', style: TextStyle(fontSize: 10.sp, color: Colors.black)),
-                  ),
-                  SizedBox(width: 6.w),
-                  Text(
-                    controller.coinCount,
-                    style: GoogleFonts.dmSans(
-                      color: const Color(0xFFE5B069),
-                      fontSize: 13.sp,
-                      fontWeight: FontWeight.bold,
+            builder: (controller) => Center(
+              child: Container(
+                margin: EdgeInsets.only(right: 16.w),
+                height: 30.h,
+                decoration: BoxDecoration(
+                  color: const Color(0xFF282D33),
+                  borderRadius: BorderRadius.circular(20.r),
+                  border: Border.all(color: const Color(0xFFEDC286), width: 1.2),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Image.asset(
+                      AppImages.japansCoin,
+                      height: 34.h,
+                      width: 32.w,
                     ),
-                  ),
-                ],
+                    Padding(
+                      padding: EdgeInsets.only(left: 4.w, right: 12.w),
+                      child: Text(
+                        controller.coinCount,
+                        style: GoogleFonts.dmSans(
+                          color: const Color(0xFFEDC286),
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
@@ -105,7 +111,7 @@ class FinanceScreen extends StatelessWidget {
                   children: [
                     Text(
                       'Show:',
-                      style: GoogleFonts.dmSans(color: const Color(0xFF8C9BAE), fontSize: 13.sp),
+                      style: GoogleFonts.dmSans(color: const Color(0xFF8C9BAE), fontSize: 14.sp),
                     ),
                     SizedBox(width: 10.w),
                     _buildTimeframeDropdown(controller),
@@ -160,8 +166,7 @@ class FinanceScreen extends StatelessWidget {
             'TOTAL EARNINGS',
             style: GoogleFonts.dmSans(
               color: Colors.black54,
-              fontSize: 10.sp,
-              fontWeight: FontWeight.bold,
+              fontSize: 12.sp,
               letterSpacing: 0.8,
             ),
           ),
@@ -170,8 +175,8 @@ class FinanceScreen extends StatelessWidget {
             controller.totalEarnings,
             style: GoogleFonts.dmSans(
               color: const Color(0xFF0A111E),
-              fontSize: 28.sp,
-              fontWeight: FontWeight.bold,
+              fontSize: 32.sp,
+              fontWeight: FontWeight.w800,
             ),
           ),
           SizedBox(height: 4.h),
@@ -179,7 +184,7 @@ class FinanceScreen extends StatelessWidget {
             'Next payout ${controller.nextPayoutDate}',
             style: GoogleFonts.dmSans(
               color: Colors.black87,
-              fontSize: 11.sp,
+              fontSize: 12.sp,
               fontWeight: FontWeight.w500,
             ),
           ),
@@ -201,8 +206,8 @@ class FinanceScreen extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            width: 18.r,
-            height: 18.r,
+            width: 24.r,
+            height: 24.r,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               border: Border.all(
@@ -213,8 +218,8 @@ class FinanceScreen extends StatelessWidget {
             child: isSelected
                 ? Center(
               child: Container(
-                width: 8.r,
-                height: 8.r,
+                width: 12.r,
+                height: 12.r,
                 decoration: const BoxDecoration(
                   shape: BoxShape.circle,
                   color: Color(0xFFE5B069),
@@ -228,7 +233,7 @@ class FinanceScreen extends StatelessWidget {
             label,
             style: GoogleFonts.dmSans(
               color: Colors.white,
-              fontSize: 13.sp,
+              fontSize: 16.sp,
             ),
           ),
         ],
@@ -331,7 +336,7 @@ class FinanceScreen extends StatelessWidget {
       child: Row(
         children: [
           CircleAvatar(
-            radius: 20.r,
+            radius: 26.r,
             backgroundImage: NetworkImage(tx.avatarUrl),
           ),
           SizedBox(width: 12.w),
@@ -344,7 +349,7 @@ class FinanceScreen extends StatelessWidget {
                   style: GoogleFonts.dmSans(
                     color: Colors.white,
                     fontSize: 14.sp,
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
                 SizedBox(height: 2.h),
@@ -352,7 +357,7 @@ class FinanceScreen extends StatelessWidget {
                   tx.date,
                   style: GoogleFonts.dmSans(
                     color: Color(0xFF8C8D94),
-                    fontSize: 14.sp,
+                    fontSize: 12.sp,
                     fontWeight: FontWeight.w400
                   ),
                 ),
@@ -363,8 +368,8 @@ class FinanceScreen extends StatelessWidget {
             tx.amount,
             style: GoogleFonts.dmSans(
               color: const Color(0xFF22C55E),
-              fontSize: 16.sp,
-              fontWeight: FontWeight.w600,
+              fontSize: 14.sp,
+              fontWeight: FontWeight.w500,
             ),
           ),
         ],
@@ -377,8 +382,8 @@ class FinanceScreen extends StatelessWidget {
       title,
       style: GoogleFonts.dmSans(
         color: Colors.white,
-        fontSize: 15.sp,
-        fontWeight: FontWeight.bold,
+        fontSize: 16.sp,
+        fontWeight: FontWeight.w600,
       ),
     );
   }
