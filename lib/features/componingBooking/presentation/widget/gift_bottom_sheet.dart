@@ -131,16 +131,18 @@ class GiftsBottomSheet extends StatelessWidget {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
+                          Image.asset(
                             item.icon,
-                            style: TextStyle(fontSize: 34.sp),
+                            height: 45.h,
+                            width: 45.w,
+                            fit: BoxFit.contain,
                           ),
                           SizedBox(height: 8.h),
                           Text(
                             item.name,
                             style: GoogleFonts.dmSans(
                               color: Colors.white,
-                              fontSize: 13.sp,
+                              fontSize: 16.sp,
                               fontWeight: FontWeight.w500,
                             ),
                           ),
@@ -154,7 +156,7 @@ class GiftsBottomSheet extends StatelessWidget {
                                 '${item.price}',
                                 style: GoogleFonts.dmSans(
                                   color: const Color(0xFF8C9BAE),
-                                  fontSize: 11.sp,
+                                  fontSize: 12.sp,
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),

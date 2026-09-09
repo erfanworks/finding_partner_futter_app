@@ -1,3 +1,4 @@
+import 'package:amychebbi/core/constants/app_images.dart';
 import 'package:get/get.dart';
 
 class GiftItemModel {
@@ -25,7 +26,7 @@ class GiftsController extends GetxController {
       id: '$index',
       name: 'Rose',
       price: 1800,
-      icon: '🌹',
+      icon: AppImages.roseImg,
     ),
   );
 
