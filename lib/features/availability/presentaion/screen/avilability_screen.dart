@@ -22,8 +22,8 @@ class AvailabilityScreen extends StatelessWidget {
           'Availability',
           style: GoogleFonts.dmSans(
             color: Colors.white,
-            fontSize: 20.sp,
-            fontWeight: FontWeight.bold,
+            fontSize: 24.sp,
+            fontWeight: FontWeight.w700,
           ),
         ),
         centerTitle: true,
@@ -91,7 +91,7 @@ class AvailabilityScreen extends StatelessWidget {
                 ElevatedButton(
                   onPressed: controller.saveChanges,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFFE5B069),
+                    backgroundColor: const Color(0xFFEDC286),
                     minimumSize: Size(double.infinity, 52.h),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(26.r),

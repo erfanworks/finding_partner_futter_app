@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -73,7 +74,11 @@ class SavedFeedScreen extends StatelessWidget {
                         ),
                       ),
                       SizedBox(width: 6.w),
-                      Icon(Icons.hexagon, color: const Color(0xFFE5B069), size: 16.r),
+                      Image.asset(
+                        'assets/images/star_compenion_img.png',
+                        width: 16.r,
+                        height: 16.r,
+                      ),
                       SizedBox(width: 8.w),
                       Container(
                         padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 3.h),
@@ -167,7 +172,11 @@ class SavedFeedScreen extends StatelessWidget {
           children: [
             Row(
               children: [
-                Icon(Icons.chat_bubble_outline_rounded, color: Colors.white, size: 20.r),
+                SvgPicture.asset(
+                  'assets/icons/messege_icon.svg',
+                  width: 20.r,
+                  height: 20.r,
+                ),
                 SizedBox(width: 6.w),
                 Text(
                   '${feed.commentCount}',
