@@ -246,7 +246,7 @@ class CategorySearchScreen extends GetView<CategorySearchController> {
                               '${profile.seirusPoints} Seirus',
                               style: GoogleFonts.dmSans(
                                 color: const Color(0xFF8A95A5),
-                                fontSize: 10.sp,
+                                fontSize: 12.sp,
                               ),
                             ),
                           ],
@@ -270,8 +270,8 @@ class CategorySearchScreen extends GetView<CategorySearchController> {
                         'Send Message',
                         style: GoogleFonts.dmSans(
                           color: const Color(0xFF1A120B),
-                          fontSize: 11.sp,
-                          fontWeight: FontWeight.w700,
+                          fontSize: 12.sp,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
                     ),
