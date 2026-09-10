@@ -211,6 +211,7 @@ class HomeScreen extends StatelessWidget {
               style: GoogleFonts.dmSans(
                 color: Color(0xFFB2B2B7),
                 fontSize: 14.sp,
+                fontWeight: FontWeight.w700
               ),
             ),
           ],
@@ -232,25 +233,32 @@ class HomeScreen extends StatelessWidget {
           borderRadius: BorderRadius.circular(30.r),
           border: Border.all(color: const Color(0xFFB78134), width: 4.w),
         ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SvgPicture.asset(
-              AppImages.leaderboardIcon,
-              colorFilter: const ColorFilter.mode(Color(0xFFEDC286), BlendMode.srcIn),
-              height: 24.sp,
-              width: 24.sp,
-            ),
-            SizedBox(width: 8.w),
-            Text(
-              "Leaderboard",
-              style: GoogleFonts.dmSans(
-                color: const Color(0xFFEDC286),
-                fontWeight: FontWeight.bold,
-                fontSize: 16.sp,
+        child: ShaderMask(
+          shaderCallback: (bounds) => const LinearGradient(
+            colors: [Color(0xFFDFA452), Color(0xFFCC7F13)],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ).createShader(bounds),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SvgPicture.asset(
+                AppImages.leaderboardIconHome,
+                colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+                height: 24.sp,
+                width: 24.sp,
               ),
-            ),
-          ],
+              SizedBox(width: 8.w),
+              Text(
+                "Leaderboard",
+                style: GoogleFonts.dmSans(
+                  color: Colors.white,
+                  fontWeight: FontWeight.w700,
+                  fontSize: 16.sp,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -998,10 +1006,11 @@ class HomeScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(16.r),
                       border: Border.all(color: Colors.white10),
                     ),
-                    child: Icon(
-                      Icons.favorite_border,
-                      color: Colors.white,
-                      size: 20.sp,
+                    child: SvgPicture.asset(
+                      AppImages.favouriteIcon,
+                      colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+                      height: 20.sp,
+                      width: 20.sp,
                     ),
                   ),
                 ],
