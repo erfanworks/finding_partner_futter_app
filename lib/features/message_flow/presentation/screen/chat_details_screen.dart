@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:get/get_state_manager/src/simple/get_state.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../../../core/constants/app_images.dart';
 import '../controller/chat_screen_controller.dart';
 
 
@@ -61,12 +63,22 @@ class ChatDetailsScreen extends StatelessWidget {
         actions: [
           Container(
             margin: EdgeInsets.only(right: 8.w),
-            decoration: const BoxDecoration(
-              color: Color(0xFF151F30),
-              shape: BoxShape.circle,
+            height: 38.r,
+            width: 38.r,
+            decoration: BoxDecoration(
+                color: const Color(0xFF151F30),
+                shape: BoxShape.circle,
+                border: Border.all(color: Colors.white.withAlpha(40))
             ),
             child: IconButton(
-              icon: const Icon(Icons.call_outlined, color: Colors.white, size: 20),
+              padding: EdgeInsets.zero,
+              constraints: const BoxConstraints(),
+              icon: SvgPicture.asset(
+                AppImages.callIcon,
+                colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+                height: 18.r,
+                width: 18.r,
+              ),
               onPressed: () {},
             ),
           ),

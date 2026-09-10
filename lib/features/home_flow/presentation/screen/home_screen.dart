@@ -261,8 +261,8 @@ class HomeScreen extends StatelessWidget {
       title,
       style: GoogleFonts.dmSans(
         color: Colors.white,
-        fontSize: 16.sp,
-        fontWeight: FontWeight.bold,
+        fontSize: 20.sp,
+        fontWeight: FontWeight.w600,
       ),
     );
   }
@@ -342,7 +342,7 @@ class HomeScreen extends StatelessWidget {
                 "alexander, 21",
                 style: GoogleFonts.dmSans(
                   color: Color(0xFF645138),
-                  fontSize: 16.sp,
+                  fontSize: 12.sp,
                   fontWeight: FontWeight.w500,
                 ),
               ),
@@ -350,8 +350,8 @@ class HomeScreen extends StatelessWidget {
                 "Total paid",
                 style: GoogleFonts.dmSans(
                   color: Color(0xFF645138),
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.w600,
+                  fontSize: 12.sp,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
             ],
@@ -391,8 +391,8 @@ class HomeScreen extends StatelessWidget {
                   "Hourly rate",
                   style: GoogleFonts.dmSans(
                     color: Color(0xFF645138),
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.w400,
+                    fontSize: 12.sp,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
               ),
@@ -409,7 +409,7 @@ class HomeScreen extends StatelessWidget {
                     "45.0 Seirus",
                     style: GoogleFonts.dmSans(
                       color: const Color(0xFF383945),
-                      fontSize: 16.sp,
+                      fontSize: 14.sp,
                       fontWeight: FontWeight.w700,
                     ),
                   ),
@@ -435,7 +435,7 @@ class HomeScreen extends StatelessWidget {
                     style: GoogleFonts.dmSans(
                       color: Color(0xFFFFFFFF),
                       fontSize: 12.sp,
-                      fontWeight: FontWeight.w700,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                   Text(
@@ -449,7 +449,12 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
               const Spacer(),
-              Icon(Icons.timer_sharp, color: Colors.white38, size: 50.sp),
+              Image.asset(
+                AppImages.timeImg,
+                height: 70.sp,
+                width: 60.sp,
+                color: Colors.white38,
+              ),
             ],
           ),
         ],

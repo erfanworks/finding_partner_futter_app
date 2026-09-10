@@ -56,7 +56,7 @@ class NotificationScreen extends StatelessWidget {
         color: const Color(0xFF131B2B),
         borderRadius: BorderRadius.circular(16.r),
         border: Border.all(
-          color: Colors.white.withValues(alpha: 0.05),
+          color: Colors.white.withValues(alpha: 0.10),
         ),
       ),
       child: Row(
@@ -102,7 +102,7 @@ class NotificationScreen extends StatelessWidget {
                       item.title,
                       style: GoogleFonts.dmSans(
                         color: Colors.white,
-                        fontSize: 15.sp,
+                        fontSize: 16.sp,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
