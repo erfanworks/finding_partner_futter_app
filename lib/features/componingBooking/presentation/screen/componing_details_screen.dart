@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../../../core/constants/app_images.dart';
 import '../controller/componing_details_controller.dart';
 import '../widget/hexagonBadge_widget.dart';
 
@@ -170,9 +171,9 @@ class CompanionDetailsScreen extends StatelessWidget {
               ),
               Row(
                 children: [
-                  _buildCircleIconButton(Icons.favorite_border),
+                  _buildCircleIconButton(AppImages.favouriteIcon),
                   SizedBox(width: 10.w),
-                  _buildCircleIconButton(Icons.group_outlined),
+                  _buildCircleIconButton(AppImages.friendsIcon),
                 ],
               ),
             ],
@@ -182,7 +183,7 @@ class CompanionDetailsScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildCircleIconButton(IconData icon) {
+  Widget _buildCircleIconButton(String iconPath) {
     return Container(
       padding: EdgeInsets.all(8.r),
       decoration: BoxDecoration(
@@ -190,7 +191,12 @@ class CompanionDetailsScreen extends StatelessWidget {
         shape: BoxShape.circle,
         border: Border.all(color: Colors.white)
       ),
-      child: Icon(icon, color: Colors.white, size: 18.sp),
+      child: SvgPicture.asset(
+        iconPath,
+        colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+        height: 18.sp,
+        width: 18.sp,
+      ),
     );
   }
 
