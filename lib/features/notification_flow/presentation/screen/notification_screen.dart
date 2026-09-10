@@ -54,7 +54,7 @@ class NotificationScreen extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
       decoration: BoxDecoration(
         color: const Color(0xFF131B2B),
-        borderRadius: BorderRadius.circular(24.r),
+        borderRadius: BorderRadius.circular(16.r),
         border: Border.all(
           color: Colors.white.withValues(alpha: 0.05),
         ),
@@ -67,7 +67,9 @@ class NotificationScreen extends StatelessWidget {
             width: 44.r,
             height: 44.r,
             decoration: BoxDecoration(
-              shape: BoxShape.circle,
+              // shape: BoxShape.circle,
+              borderRadius: BorderRadius.circular(16.r),
+              color: Color(0xFFEDC286).withAlpha(40),
               border: Border.all(
                 color: const Color(0xFFE5B069),
                 width: 1.2,
