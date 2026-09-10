@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../controller/notification_controller.dart';
@@ -24,8 +25,8 @@ class NotificationScreen extends StatelessWidget {
           'Notifications',
           style: GoogleFonts.dmSans(
             color: Colors.white,
-            fontSize: 20.sp,
-            fontWeight: FontWeight.bold,
+            fontSize: 24.sp,
+            fontWeight: FontWeight.w700,
           ),
         ),
         centerTitle: true,
@@ -72,10 +73,16 @@ class NotificationScreen extends StatelessWidget {
                 width: 1.2,
               ),
             ),
-            child: Icon(
-              item.icon,
-              color: const Color(0xFFE5B069),
-              size: 20.r,
+            child: Center(
+              child: SvgPicture.asset(
+                item.iconPath,
+                colorFilter: const ColorFilter.mode(
+                  Color(0xFFE5B069),
+                  BlendMode.srcIn,
+                ),
+                height: 20.r,
+                width: 20.r,
+              ),
             ),
           ),
           SizedBox(width: 14.w),
